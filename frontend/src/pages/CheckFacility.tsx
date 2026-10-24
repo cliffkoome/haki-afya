@@ -8,6 +8,7 @@ import { StepHeader } from '../components/StepHeader'
 import type { StringKey } from '../i18n/en'
 import { useI18n } from '../i18n/I18nProvider'
 import { latestVisit, type Visit } from '../lib/visits'
+import { facilityName } from '../lib/format'
 import { useBillCheck } from '../state/BillCheck'
 
 const LEVELS = [2, 3, 4, 5, 6] as const
@@ -104,7 +105,7 @@ export function CheckFacility() {
       {visit && (
         <div className="rise mb-6 rounded-2xl border-2 border-brand bg-brand-soft p-4">
           <p className="flex flex-wrap items-center gap-2 text-lg font-semibold">
-            {t('facility.recent', { name: visit.facility_name })}
+            {t('facility.recent', { name: facilityName(visit.facility_name) })}
             {visit.is_demo && <DemoPill />}
           </p>
           <button
@@ -149,7 +150,7 @@ export function CheckFacility() {
                   className="pressable flex min-h-14 w-full items-center justify-between gap-3 rounded-xl border-2 border-line bg-surface px-4 py-3 text-left hover:border-brand"
                 >
                   <span>
-                    <span className="block font-semibold">{f.name}</span>
+                    <span className="block font-semibold">{facilityName(f.name)}</span>
                     <span className="block text-sm text-muted">{t('common.level', { n: f.level })}</span>
                   </span>
                   {f.is_demo && <DemoPill />}

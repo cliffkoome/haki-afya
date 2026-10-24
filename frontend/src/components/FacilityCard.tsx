@@ -1,6 +1,7 @@
 import type { Facility } from '../api/types'
 import { useI18n } from '../i18n/I18nProvider'
 import { CoverageBadge } from './CoverageBadge'
+import { facilityName } from '../lib/format'
 import { DemoPill } from './DemoPill'
 
 /** Full card for Find results. Emergency uses its own minimal row. */
@@ -11,7 +12,7 @@ export function FacilityCard({ facility, onGo }: { facility: Facility; onGo: (f:
     <article className="flex flex-col gap-3 rounded-2xl border-2 border-line bg-surface p-4">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h3 className="text-lg leading-snug font-bold">{facility.name}</h3>
+          <h3 className="text-lg leading-snug font-bold">{facilityName(facility.name)}</h3>
           <p className="text-sm text-muted">
             {t('common.level', { n: facility.level })} · {t('results.km', { n: facility.distance_km.toFixed(1) })}
           </p>

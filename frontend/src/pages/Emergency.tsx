@@ -4,6 +4,7 @@ import type { Facility } from '../api/types'
 import { AreaPicker } from '../components/AreaPicker'
 import { useI18n } from '../i18n/I18nProvider'
 import { useUserLocation } from '../lib/location'
+import { facilityName } from '../lib/format'
 import { directionsUrl } from '../lib/maps'
 
 const NUMBERS = ['999', '112']
@@ -56,7 +57,7 @@ export function Emergency() {
             {facilities.slice(0, 5).map((f) => (
               <li key={f.id} className="flex items-center justify-between gap-3 py-3">
                 <span>
-                  <span className="block font-semibold">{f.name}</span>
+                  <span className="block font-semibold">{facilityName(f.name)}</span>
                   <span className="text-sm text-muted">{t('results.km', { n: f.distance_km.toFixed(1) })}</span>
                 </span>
                 <a

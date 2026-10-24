@@ -5,7 +5,7 @@ import { CopyShareButtons } from '../components/CopyShareButtons'
 import { DemoPill } from '../components/DemoPill'
 import { FLAG_ORDER, FlagCard } from '../components/FlagCard'
 import { useI18n } from '../i18n/I18nProvider'
-import { kes } from '../lib/format'
+import { facilityName, kes } from '../lib/format'
 import { useCountUp } from '../lib/useCountUp'
 import { useBillCheck } from '../state/BillCheck'
 
@@ -56,7 +56,7 @@ export function CheckResult() {
       )}
 
       <p className="flex flex-wrap items-center gap-2 text-muted">
-        {facility && <span className="font-semibold text-ink">{facility.name}</span>}
+        {facility && <span className="font-semibold text-ink">{facilityName(facility.name)}</span>}
         <span>
           {facility && '· '}
           {t('common.level', { n: facility?.level ?? state.level ?? '?' })}

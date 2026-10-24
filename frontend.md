@@ -8,13 +8,14 @@
 
 ## Current status
 
-_Updated 2026-10-24 ~17:20 EAT._
+_Updated 2026-10-24 16:35 EAT._
 
-- **Done (against the mock API, checked headless at 390px in EN and SW):** app shell, Home, the full Bill Check flow (`/check` → `/check/questions` → `/check/photo` → `/check/result`, incl. retake and error states), Find (`/find`, `/emergency`, `/find/results` with list, Leaflet map, area-picker fallback, Go here → Visit + Maps), the Report prompt bottom sheet on Home, and `/about`.
+- **Done (against the mock API, checked headless at 390px in EN and SW):** app shell, Home, the full Bill Check flow (`/check` → `/check/questions` → `/check/photo` → `/check/result`, incl. retake and error states), Find (`/find`, `/emergency`, `/find/results` with list, Leaflet map, area-picker fallback, Go here → Visit + Maps), the Report prompt bottom sheet on Home, `/about`, and the PWA manifest + icons (`frontend/public/`).
 - **Testing tips:** open any page with `?mock=retake` (dev only, `src/lib/devMock.ts`) to force the retake response for the session. Wizard state lives in `src/state/BillCheck.tsx` (memory only; a reload sends you back to `/check`). A Visit saved by "Go here" pre-fills `/check`. Open any page with `?backdate=1` (dev only) to make saved Visits 3 h old, so the Report prompt shows on Home.
 - **Blocked on data (non-devs):** `data/areas.json` is `[]`, so the area picker shows "not available yet". The frontend expects `[{"name": "Kilimani", "lat": -1.29, "lng": 36.78}, ...]`. `data/emergency_keywords.json` is empty, so the frontend's layer-1 keyword check (`src/lib/emergency.ts`, bundled at build) matches nothing yet; the backend classify still decides.
 - **Backend:** every endpoint is still a mock. No frontend change should be needed when real ones land, unless the contract changes.
-- **Next:** PWA manifest + icons (12), then polish and the testing checklist.
+- **Next:** switch to real endpoints as the backend lands them, polish the result screen, then the testing checklist (real Android phone on the deployed URL, "Add to Home screen").
+- **Backend issue raised (16:35):** `spa()` in `backend/app/main.py` serves `FRONTEND_DIST / path` without checking it stays inside `dist/`, so `/..%2f..%2fREADME.md` returns repo files (and on Render `/proc/self/environ` would leak API keys). Fix: resolve the path and require `is_relative_to(FRONTEND_DIST)`.
 - **Still open:** real-phone check on the deployed HTTPS URL (camera, location, Copy/Share, dialler).
 
 ## Status
@@ -33,7 +34,7 @@ _Updated 2026-10-24 ~17:20 EAT._
 | 9 | Report prompt (Visit follow-up) | modal on `/` | P2 | 🟨 code done, real-phone check pending |
 | 10 | About, privacy and disclaimer | `/about` | P2 | 🟨 code done, real-phone check pending |
 | 11 | Not found | `*` | P2 | 🟨 code done, real-phone check pending |
-| 12 | PWA manifest + icons | n/a | P2 | ⬜ |
+| 12 | PWA manifest + icons | n/a | P2 | 🟨 code done, "Add to Home screen" check pending |
 | 13 | Google rating badge | inside 8 | P3 (drop at 6:00 PM if not working) | 🟨 code done, real-phone check pending |
 
 Status key: ⬜ not started · 🟨 in progress · ✅ done (works on a real phone against the API)
@@ -244,7 +245,7 @@ Useful for judges and trust:
 
 ## 12. PWA manifest + icons (P2)
 
-- [ ] `manifest.webmanifest` (name, short_name "Haki Afya", theme colour, `display: standalone`), 192/512 icons
+- [x] `manifest.webmanifest` (name, short_name "Haki Afya", theme colour, `display: standalone`), 192/512 icons
 - [ ] Test "Add to Home screen" on Android Chrome
 
 ## 13. Google rating badge (P3)

@@ -73,6 +73,7 @@ export const sw: Record<StringKey, string> = {
   'result.inQuestion': '{amount} kati ya bili yako ya {total} kina maswali',
   'result.fair': 'Inaonekana sawa',
   'result.unclearTitle': 'Mistari mingine inahitaji swali',
+  'result.unclearBodyMany': 'Hakuna kilicho juu ya bei ya SHA, lakini mistari {n} haikulingana na sheria yoyote ya SHA. Uliza dawati ni ya nini.',
   'result.unclearBody': 'Hakuna kilicho juu ya bei ya SHA, lakini mstari {n} haukulingana na sheria yoyote ya SHA. Uliza dawati ni wa nini.',
   'result.fairBody': 'Hatukupata chochote kwenye bili hii ambacho SHA ingepaswa kulipia.',
   'result.flagsTitle': 'Tulichopata',

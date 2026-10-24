@@ -196,7 +196,7 @@ function UnclearHeadline({ count }: { count: number }) {
   return (
     <div className="rise mt-3" style={at(1)}>
       <p className="display text-[3rem] leading-[1.02]">{t('result.unclearTitle')}</p>
-      <p className="mt-3 text-[1.125rem] leading-relaxed text-ink-soft">{t('result.unclearBody', { n: count })}</p>
+      <p className="mt-3 text-[1.125rem] leading-relaxed text-ink-soft">{t(count === 1 ? 'result.unclearBody' : 'result.unclearBodyMany', { n: count })}</p>
     </div>
   )
 }

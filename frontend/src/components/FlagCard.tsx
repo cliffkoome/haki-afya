@@ -30,8 +30,12 @@ export function FlagCard({ flag, item }: { flag: Flag; item: LineItem | undefine
           {(flag.tariff_kes != null || (item && item.quantity > 1)) && (
             <p className="money mt-0.5 text-[0.8125rem] text-muted">
               {item && item.quantity > 1 && <span className="whitespace-nowrap">{`${item.quantity} × ${kes(item.unit_price_kes)}`}</span>}
-              {item && item.quantity > 1 && flag.tariff_kes != null && ' · '}
-              {flag.tariff_kes != null && <span className="whitespace-nowrap">{`${t('result.tariff')} ${kes(flag.tariff_kes)}`}</span>}
+              {flag.tariff_kes != null && (
+                <span className="whitespace-nowrap">
+                  {item && item.quantity > 1 && ' · '}
+                  {`${t('result.tariff')} ${kes(flag.tariff_kes)}`}
+                </span>
+              )}
             </p>
           )}
         </div>

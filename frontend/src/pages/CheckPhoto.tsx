@@ -14,7 +14,8 @@ import { markFacilityAnswered } from '../lib/visits'
 import { useBillCheck } from '../state/BillCheck'
 
 const ANALYSING: StringKey[] = ['photo.analysing1', 'photo.analysing2', 'photo.analysing3']
-const ROTATE_MS = 3500
+// Gemma 4 26B answers in ~8 s per call: step the checklist at that pace.
+const ROTATE_MS = 2800
 
 type Phase =
   | { name: 'empty' }

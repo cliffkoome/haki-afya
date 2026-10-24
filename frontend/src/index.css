@@ -82,3 +82,26 @@
     }
   }
 }
+
+/* Bottom sheet (Modal): slides up on open. */
+.sheet[open] {
+  transition: transform 300ms var(--ease-drawer), opacity 200ms ease;
+  @starting-style {
+    transform: translateY(100%);
+  }
+}
+.sheet[open]::backdrop {
+  transition: opacity 300ms ease;
+  @starting-style {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sheet[open] {
+    transition: opacity 150ms ease;
+    @starting-style {
+      transform: none;
+      opacity: 0;
+    }
+  }
+}

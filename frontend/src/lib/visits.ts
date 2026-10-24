@@ -32,3 +32,23 @@ export function latestVisit(): Visit | null {
   if (!visit) return null
   return Date.now() - Date.parse(visit.created_at) < RECENT_MS ? visit : null
 }
+
+/** Oldest unanswered Visit that is at least 2 hours old: time to ask about it. */
+export function dueVisit(now = Date.now()): Visit | null {
+  const due = getVisits().filter((v) => !v.answered && now - Date.parse(v.created_at) >= REPORT_PROMPT_DELAY_MS)
+  return due.at(-1) ?? null
+}
+
+/** Never ask about this Visit again. */
+export function markAnswered(visit: Visit): void {
+  writeJSON(
+    KEYS.visits,
+    getVisits().map((v) => (v.created_at === visit.created_at && v.facility_id === visit.facility_id ? { ...v, answered: true } : v)),
+  )
+}
+
+/** Dev only: make every Visit look 3 hours old so the Report prompt shows. */
+export function backdateVisits(): void {
+  const past = new Date(Date.now() - REPORT_PROMPT_DELAY_MS - 60 * 60 * 1000).toISOString()
+  writeJSON(KEYS.visits, getVisits().map((v) => ({ ...v, created_at: past })))
+}

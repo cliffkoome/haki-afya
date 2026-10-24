@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { api } from '../api/client'
 import type { FacilitySearchResult } from '../api/types'
 import { DemoPill } from '../components/DemoPill'
@@ -7,7 +7,7 @@ import { ErrorState } from '../components/ErrorState'
 import { StepHeader } from '../components/StepHeader'
 import type { StringKey } from '../i18n/en'
 import { useI18n } from '../i18n/I18nProvider'
-import { latestVisit } from '../lib/visits'
+import { latestVisit, type Visit } from '../lib/visits'
 import { useBillCheck } from '../state/BillCheck'
 
 const LEVELS = [2, 3, 4, 5, 6] as const
@@ -24,7 +24,9 @@ export function CheckFacility() {
   const { t } = useI18n()
   const navigate = useNavigate()
   const { update } = useBillCheck()
-  const [visit] = useState(latestVisit)
+  // "Check my bill" from the Report prompt passes its Visit; otherwise offer the latest one.
+  const passed = (useLocation().state as { visit?: Visit } | null)?.visit
+  const [visit] = useState(() => passed ?? latestVisit())
   const [notListed, setNotListed] = useState(false)
   const [query, setQuery] = useState('')
   const [search, setSearch] = useState<Search>({ status: 'idle' })

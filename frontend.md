@@ -8,13 +8,13 @@
 
 ## Current status
 
-_Updated 2026-10-24 ~17:00 EAT._
+_Updated 2026-10-24 ~17:20 EAT._
 
-- **Done (against the mock API, checked headless at 390px in EN and SW):** app shell, Home, the full Bill Check flow (`/check` → `/check/questions` → `/check/photo` → `/check/result`, incl. retake and error states), and Find (`/find`, `/emergency`, `/find/results` with list, Leaflet map, area-picker fallback, Go here → Visit + Maps).
-- **Testing tips:** open any page with `?mock=retake` (dev only, `src/lib/devMock.ts`) to force the retake response for the session. Wizard state lives in `src/state/BillCheck.tsx` (memory only; a reload sends you back to `/check`). A Visit saved by "Go here" pre-fills `/check`.
+- **Done (against the mock API, checked headless at 390px in EN and SW):** app shell, Home, the full Bill Check flow (`/check` → `/check/questions` → `/check/photo` → `/check/result`, incl. retake and error states), Find (`/find`, `/emergency`, `/find/results` with list, Leaflet map, area-picker fallback, Go here → Visit + Maps), the Report prompt bottom sheet on Home, and `/about`.
+- **Testing tips:** open any page with `?mock=retake` (dev only, `src/lib/devMock.ts`) to force the retake response for the session. Wizard state lives in `src/state/BillCheck.tsx` (memory only; a reload sends you back to `/check`). A Visit saved by "Go here" pre-fills `/check`. Open any page with `?backdate=1` (dev only) to make saved Visits 3 h old, so the Report prompt shows on Home.
 - **Blocked on data (non-devs):** `data/areas.json` is `[]`, so the area picker shows "not available yet". The frontend expects `[{"name": "Kilimani", "lat": -1.29, "lng": 36.78}, ...]`. `data/emergency_keywords.json` is empty, so the frontend's layer-1 keyword check (`src/lib/emergency.ts`, bundled at build) matches nothing yet; the backend classify still decides.
 - **Backend:** every endpoint is still a mock. No frontend change should be needed when real ones land, unless the contract changes.
-- **Next:** Report prompt (page 9) + About (page 10), then PWA manifest (12).
+- **Next:** PWA manifest + icons (12), then polish and the testing checklist.
 - **Still open:** real-phone check on the deployed HTTPS URL (camera, location, Copy/Share, dialler).
 
 ## Status
@@ -30,8 +30,8 @@ _Updated 2026-10-24 ~17:00 EAT._
 | 6 | Find: Care Need | `/find` | P1 | 🟨 code done, real-phone check pending |
 | 7 | Emergency | `/emergency` | P1 | 🟨 code done, real-phone check pending |
 | 8 | Find: results (list + map) | `/find/results` | P1 | 🟨 code done, real-phone check pending |
-| 9 | Report prompt (Visit follow-up) | modal on `/` | P2 | ⬜ |
-| 10 | About, privacy and disclaimer | `/about` | P2 | ⬜ |
+| 9 | Report prompt (Visit follow-up) | modal on `/` | P2 | 🟨 code done, real-phone check pending |
+| 10 | About, privacy and disclaimer | `/about` | P2 | 🟨 code done, real-phone check pending |
 | 11 | Not found | `*` | P2 | 🟨 code done, real-phone check pending |
 | 12 | PWA manifest + icons | n/a | P2 | ⬜ |
 | 13 | Google rating badge | inside 8 | P3 (drop at 6:00 PM if not working) | 🟨 code done, real-phone check pending |
@@ -86,7 +86,7 @@ Home ─┬─ "Check a bill" ─► /check ─► /check/questions ─► /chec
 - [x] Big primary button: **Check a bill** → `/check`
 - [x] Big secondary button: **Find care** → `/find`
 - [x] One-line pitch: *"See what SHA should cover, before you pay."*
-- [ ] If a Visit is due (≥ 2 h old, unanswered): open the **Report prompt** (page 9), built with page 9
+- [x] If a Visit is due (≥ 2 h old, unanswered): open the **Report prompt** (page 9)
 - [x] Small link: "How it works" → `/about`
 
 **Done when:** both buttons work and the page fits one phone screen without scrolling.
@@ -213,13 +213,13 @@ One question per screen section, big one-tap answers:
 
 Modal shown on Home when a Visit is ≥ 2 h old and unanswered.
 
-- [ ] *"Did you pay anything for maternity at Mama Lucy Kibaki Hospital?"*
-- [ ] **No** → `POST /api/reports` `{paid: false}` → thank-you
-- [ ] **Yes** → amount input (KES, numbers only) → `POST /api/reports` `{paid: true, amount_kes}` → thank-you
-- [ ] **Check my bill** → `/check` with the facility pre-filled
-- [ ] **Skip** → mark the Visit answered, never ask again
-- [ ] `429 rate_limited` → *"You already reported this recently. Thank you!"* (mark answered)
-- [ ] Thank-you: *"Thanks. This helps the next patient."*
+- [x] *"Did you pay anything for maternity at Mama Lucy Kibaki Hospital?"*
+- [x] **No** → `POST /api/reports` `{paid: false}` → thank-you
+- [x] **Yes** → amount input (KES, numbers only) → `POST /api/reports` `{paid: true, amount_kes}` → thank-you
+- [x] **Check my bill** → `/check` with the facility pre-filled
+- [x] **Skip** → mark the Visit answered, never ask again
+- [x] `429 rate_limited` → *"You already reported this recently. Thank you!"* (mark answered)
+- [x] Thank-you: *"Thanks. This helps the next patient."*
 
 **Done when:** every answer marks the Visit answered and the prompt never shows twice for it. For testing, add a dev-only way to backdate a Visit.
 
@@ -229,12 +229,12 @@ Modal shown on Home when a Visit is ≥ 2 h old and unanswered.
 
 Useful for judges and trust:
 
-- [ ] What Haki Afya does (3 lines)
-- [ ] **Privacy:** *"We never store your bill photo. We keep only anonymous results: facility, type of care, amount, date."* No accounts.
-- [ ] **How Bill Check works:** Gemma 4 reads the bill → SHA rules checked by code → you decide
-- [ ] **Not legal or medical advice.** Tariffs come from published SHA sources and may change; confirm with SHA
-- [ ] **Open source:** GitHub link, MIT license, open SHA tariff dataset
-- [ ] **Demo data** explanation: fictional facilities, used only for demonstration
+- [x] What Haki Afya does (3 lines)
+- [x] **Privacy:** *"We never store your bill photo. We keep only anonymous results: facility, type of care, amount, date."* No accounts.
+- [x] **How Bill Check works:** Gemma 4 reads the bill → SHA rules checked by code → you decide
+- [x] **Not legal or medical advice.** Tariffs come from published SHA sources and may change; confirm with SHA
+- [x] **Open source:** GitHub link, MIT license, open SHA tariff dataset
+- [x] **Demo data** explanation: fictional facilities, used only for demonstration
 
 ---
 

@@ -4,10 +4,14 @@ import { BrowserRouter } from 'react-router'
 import { App } from './App'
 import { I18nProvider } from './i18n/I18nProvider'
 import { getDeviceId } from './lib/device'
+import { backdateRequested } from './lib/devMock'
+import { backdateVisits } from './lib/visits'
 import './index.css'
 
 // Create the anonymous device ID on first load.
 getDeviceId()
+// Dev only: ?backdate=1 makes saved Visits due, to test the Report prompt.
+if (backdateRequested) backdateVisits()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

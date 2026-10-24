@@ -10,7 +10,7 @@
 
 | # | Page / piece | Route | Priority | Status |
 |---|---|---|---|---|
-| 0 | Project setup + app shell | all | P0 | ⬜ |
+| 0 | Project setup + app shell | all | P0 | 🟨 code done, real-phone check pending |
 | 1 | Home | `/` | P0 | ⬜ |
 | 2 | Bill Check: choose facility | `/check` | P0 | ⬜ |
 | 3 | Bill Check: two questions | `/check/questions` | P0 | ⬜ |
@@ -21,7 +21,7 @@
 | 8 | Find: results (list + map) | `/find/results` | P1 | ⬜ |
 | 9 | Report prompt (Visit follow-up) | modal on `/` | P2 | ⬜ |
 | 10 | About, privacy and disclaimer | `/about` | P2 | ⬜ |
-| 11 | Not found | `*` | P2 | ⬜ |
+| 11 | Not found | `*` | P2 | 🟨 code done, real-phone check pending |
 | 12 | PWA manifest + icons | n/a | P2 | ⬜ |
 | 13 | Google rating badge | inside 8 | P3 (drop at 6:00 PM if not working) | ⬜ |
 
@@ -50,17 +50,19 @@ Home ─┬─ "Check a bill" ─► /check ─► /check/questions ─► /chec
 
 ## 0. Project setup + app shell (P0)
 
-- [ ] `npm create vite@latest frontend -- --template react-ts`, add Tailwind, React Router, Leaflet (`react-leaflet`)
-- [ ] Vite dev proxy: `/api` → `http://localhost:8000` (production is the same origin, so no CORS)
-- [ ] `src/api/client.ts`: typed functions for every endpoint in document.md section 9, with types copied from the contract
-- [ ] `src/i18n/`: `en.ts` and `sw.ts` string tables plus a `t(key)` hook. **Every user-facing string goes through `t()`.**
-- [ ] `src/lib/storage.ts`: `localStorage` helpers wrapped in try/catch (see "Local state")
-- [ ] **App shell** (every page):
-  - [ ] Header: "Haki Afya" logo/name (links to `/`), **EN | SW** toggle (remembered)
-  - [ ] Footer: *"Not legal or medical advice."* + link to `/about`
-  - [ ] Host for the Report prompt modal
-- [ ] Mobile-first layout: max width ~480px centred on desktop, 16px side padding, tap targets ≥ 48px, high contrast (readable in sunlight)
-- [ ] Generate `device_id` (UUID) on first load
+- [x] `npm create vite@latest frontend -- --template react-ts`, add Tailwind, React Router, Leaflet (`react-leaflet`)
+- [x] Vite dev proxy: `/api` → `http://localhost:8000` (production is the same origin, so no CORS)
+- [x] `src/api/client.ts`: typed functions for every endpoint in document.md section 9, with types copied from the contract
+- [x] `src/i18n/`: `en.ts` and `sw.ts` string tables plus a `t(key)` hook. **Every user-facing string goes through `t()`.**
+- [x] `src/lib/storage.ts`: `localStorage` helpers wrapped in try/catch (see "Local state")
+- [x] **App shell** (every page):
+  - [x] Header: "Haki Afya" logo/name (links to `/`), **EN | SW** toggle (remembered)
+  - [x] Footer: *"Not legal or medical advice."* + link to `/about`
+  - [x] Host for the Report prompt modal
+- [x] Mobile-first layout: max width ~480px centred on desktop, 16px side padding, tap targets ≥ 48px, high contrast (readable in sunlight)
+- [x] Generate `device_id` (UUID) on first load
+
+**Notes:** all routes resolve (unbuilt pages show a placeholder); the dev-only dot in the footer turns green when `/api/health` answers; design tokens and easing curves live in `src/index.css` (`.pressable` gives every button the 0.97 press).
 
 **Done when:** the shell renders on a phone, the language toggle switches every string, and `GET /api/health` succeeds through the client.
 
@@ -227,7 +229,7 @@ Useful for judges and trust:
 
 ## 11. Not found `*` (P2)
 
-- [ ] Friendly message + **Home** button
+- [x] Friendly message + **Home** button
 
 ## 12. PWA manifest + icons (P2)
 

@@ -1,8 +1,10 @@
 """Gemma 4 through the Gemini API (document.md section 7, "Gemma usage").
 
 Gemma reads and writes; it never decides a Flag. Every call asks for JSON
-only, is validated with Pydantic, retried once on invalid JSON, and times out
-after 20 s. Callers handle GemmaError by failing gracefully.
+only, is validated with Pydantic, retried once on invalid JSON or a 5xx from
+the API, and times out after 20 s. Thinking is set to minimal: these are
+short, well-specified tasks, and default thinking made calls take 20-55 s.
+Callers handle GemmaError by failing gracefully.
 """
 
 import asyncio
@@ -13,14 +15,14 @@ import re
 from pathlib import Path
 
 from google import genai
-from google.genai import types
+from google.genai import errors, types
 from pydantic import BaseModel, ValidationError
 
 from app.models import ExtractedBill, Lang, ServiceCategory
 
 log = logging.getLogger(__name__)
 
-MODEL = "gemma-4-31b-it"
+MODEL = os.environ.get("GEMMA_MODEL", "gemma-4-31b-it")
 TIMEOUT_S = 20
 PROMPTS_DIR = Path(__file__).resolve().parents[1] / "prompts"
 LANGUAGE_NAME = {"en": "English", "sw": "Swahili"}
@@ -59,20 +61,25 @@ def _json_text(text: str) -> str:
 
 async def _generate_json[T: BaseModel](contents: list, schema: type[T]) -> T:
     client = _get_client()
-    config = types.GenerateContentConfig(temperature=0)
+    config = types.GenerateContentConfig(
+        temperature=0, thinking_config=types.ThinkingConfig(thinking_level="MINIMAL"),
+    )
     for attempt in (1, 2):
         try:
             response = await asyncio.wait_for(
                 client.aio.models.generate_content(model=MODEL, contents=contents, config=config),
                 timeout=TIMEOUT_S,
             )
-        except Exception as e:  # timeout, network, quota: no time for a second try
+        except errors.ServerError as e:  # 5xx from the API is usually transient
+            log.warning("Gemma server error (attempt %d): %s", attempt, e)
+            continue
+        except Exception as e:  # timeout, network, quota, bad request: no time for a second try
             raise GemmaError(f"Gemma call failed: {e!r}") from e
         try:
             return schema.model_validate_json(_json_text(response.text or ""))
         except ValidationError as e:
             log.warning("Gemma returned invalid JSON (attempt %d): %s", attempt, e)
-    raise GemmaError("Gemma returned invalid JSON twice")
+    raise GemmaError("Gemma failed twice (server error or invalid JSON)")
 
 
 class CareNeedResult(BaseModel):

@@ -6,6 +6,7 @@ Hackathon build (ends 9:00 PM EAT today). Two devs, each running Claude Code: on
 - `document.md`: the full brief. Sections 5 (hard rules) and 9 (API contract) are binding.
 - `frontend.md`: page-by-page frontend plan and tracker. When working on `frontend/`, follow it and tick off items in the same commit.
 - `GLOSSARY.md`: use these exact terms in code, UI text and commit messages (e.g. `CoverageReport`, `ServiceCategory`, `Flag`, never "review", "symptom", "alert").
+- Frontend: `INTEGRATION.md` has the TypeScript types, the call order for each journey, and what the frontend must do itself.
 
 ## Rules
 - **The API contract in `document.md` section 9 is the boundary between backend and frontend.** Don't change a request or response shape without updating that section first and saying so to the user.

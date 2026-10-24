@@ -85,6 +85,8 @@ export const en = {
   'result.complaintHide': 'Hide',
   'result.contacts': 'Contact SHA',
   'result.saved': 'Your check was saved anonymously and helps the next patient.',
+  'result.registerTitle': 'Register with SHA',
+  'result.registerBody': "Without SHA registration, only emergency care in the first 24 hours is covered. Register so SHA can cover your care next time. SHA's official website explains how.",
   'result.another': 'Check another bill',
   'result.missing': 'No bill check yet.',
 

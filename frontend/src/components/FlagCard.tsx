@@ -23,7 +23,7 @@ export function FlagCard({ flag, item }: { flag: Flag; item: LineItem | undefine
         {t(`flag.${flag.flag}`)}
       </p>
       <div className="mt-2 flex items-baseline justify-between gap-3">
-        <h3 className="text-lg font-semibold">{item?.description ?? '—'}</h3>
+        <h3 className="min-w-0 text-lg font-semibold [overflow-wrap:anywhere]">{item?.description ?? '—'}</h3>
         <span className="shrink-0 text-lg font-bold tabular-nums">{kes(flag.charged_kes)}</span>
       </div>
       {flag.tariff_kes != null && (

@@ -8,6 +8,9 @@ import { useI18n } from '../i18n/I18nProvider'
 import { kes } from '../lib/format'
 import { useBillCheck } from '../state/BillCheck'
 
+// SHA's official site (document.md sources). Registration steps live there, not here.
+const SHA_URL = 'https://sha.go.ke'
+
 export function CheckResult() {
   const { t } = useI18n()
   const navigate = useNavigate()
@@ -63,7 +66,10 @@ export function CheckResult() {
 
       <p className="flex flex-wrap items-center gap-2 text-muted">
         {facility && <span className="font-semibold text-ink">{facility.name}</span>}
-        <span>· {t('common.level', { n: facility?.level ?? state.level ?? '?' })}</span>
+        <span>
+          {facility && '· '}
+          {t('common.level', { n: facility?.level ?? state.level ?? '?' })}
+        </span>
         {isDemo && <DemoPill />}
       </p>
 
@@ -125,6 +131,20 @@ export function CheckResult() {
               </li>
             ))}
           </ul>
+        </Card>
+      )}
+
+      {state.registered === false && (
+        <Card title={t('result.registerTitle')}>
+          <p className="leading-relaxed">{t('result.registerBody')}</p>
+          <a
+            href={SHA_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-3 inline-block font-semibold text-brand-strong underline underline-offset-2"
+          >
+            sha.go.ke ↗
+          </a>
         </Card>
       )}
 

@@ -87,6 +87,8 @@ export const sw: Record<StringKey, string> = {
   'result.complaintHide': 'Ficha',
   'result.contacts': 'Wasiliana na SHA',
   'result.saved': 'Ukaguzi wako umehifadhiwa bila jina na unamsaidia mgonjwa anayefuata.',
+  'result.registerTitle': 'Jisajili na SHA',
+  'result.registerBody': 'Bila usajili wa SHA, ni huduma ya dharura ya saa 24 za kwanza pekee inayolipiwa. Jisajili ili SHA ilipie huduma yako wakati ujao. Tovuti rasmi ya SHA inaeleza jinsi ya kujisajili.',
   'result.another': 'Kagua bili nyingine',
   'result.missing': 'Bado hakuna ukaguzi wa bili.',
 

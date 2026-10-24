@@ -8,12 +8,13 @@
 
 ## Current status
 
-_Updated 2026-10-24 16:35 EAT._
+_Updated 2026-10-24 16:45 EAT._
 
 - **Done (against the mock API, checked headless at 390px in EN and SW):** app shell, Home, the full Bill Check flow (`/check` → `/check/questions` → `/check/photo` → `/check/result`, incl. retake and error states), Find (`/find`, `/emergency`, `/find/results` with list, Leaflet map, area-picker fallback, Go here → Visit + Maps), the Report prompt bottom sheet on Home, `/about`, and the PWA manifest + icons (`frontend/public/`).
 - **Testing tips:** open any page with `?mock=retake` (dev only, `src/lib/devMock.ts`) to force the retake response for the session. Wizard state lives in `src/state/BillCheck.tsx` (memory only; a reload sends you back to `/check`). A Visit saved by "Go here" pre-fills `/check`. Open any page with `?backdate=1` (dev only) to make saved Visits 3 h old, so the Report prompt shows on Home.
 - **Blocked on data (non-devs):** `data/areas.json` is `[]`, so the area picker shows "not available yet". The frontend expects `[{"name": "Kilimani", "lat": -1.29, "lng": 36.78}, ...]`. `data/emergency_keywords.json` is empty, so the frontend's layer-1 keyword check (`src/lib/emergency.ts`, bundled at build) matches nothing yet; the backend classify still decides.
 - **Backend:** every endpoint is still a mock. No frontend change should be needed when real ones land, unless the contract changes.
+- **Edge cases checked (16:45):** "Looks fair" result, not-listed facility (no name), unregistered Patient (shows a Register with SHA card linking sha.go.ke), long unbroken item names, 7-digit amounts, SHA contacts. No horizontal overflow at 360px.
 - **Next:** switch to real endpoints as the backend lands them, polish the result screen, then the testing checklist (real Android phone on the deployed URL, "Add to Home screen").
 - **Backend issue raised (16:35):** `spa()` in `backend/app/main.py` serves `FRONTEND_DIST / path` without checking it stays inside `dist/`, so `/..%2f..%2fREADME.md` returns repo files (and on Render `/proc/self/environ` would leak API keys). Fix: resolve the path and require `is_relative_to(FRONTEND_DIST)`.
 - **Still open:** real-phone check on the deployed HTTPS URL (camera, location, Copy/Share, dialler).

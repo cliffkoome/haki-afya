@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from 'react'
+import { useRef, useState, type CSSProperties } from 'react'
 import { useNavigate } from 'react-router'
 import { api } from '../api/client'
 import { SERVICE_CATEGORIES, type ServiceCategory } from '../api/types'
@@ -15,8 +15,11 @@ export function Find() {
   const [text, setText] = useState('')
   const [busy, setBusy] = useState(false)
   const [chooseType, setChooseType] = useState(false)
+  const pending = useRef<AbortController | null>(null)
 
   function go(category: ServiceCategory) {
+    // A chip tap skips the classify wait (INTEGRATION.md 5.1).
+    pending.current?.abort()
     navigate(category === 'emergency' ? '/emergency' : `/find/results?service=${category}`)
   }
 
@@ -29,14 +32,17 @@ export function Find() {
 
     setBusy(true)
     setChooseType(false)
+    const controller = new AbortController()
+    pending.current = controller
     try {
-      const res = await api.classifyCareNeed(care, lang)
+      const res = await api.classifyCareNeed(care, lang, controller.signal)
+      if (controller.signal.aborted) return
       if (res.is_emergency) return navigate('/emergency')
       if (res.matched_by === 'fallback' || !res.service_category) return setChooseType(true)
       go(res.service_category)
     } catch {
-      // Classification failed: let the user pick the Service Category.
-      setChooseType(true)
+      // Classification failed or timed out: let the user pick the Service Category.
+      if (!controller.signal.aborted) setChooseType(true)
     } finally {
       setBusy(false)
     }

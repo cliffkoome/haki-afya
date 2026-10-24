@@ -23,12 +23,15 @@ export class ApiError extends Error {
 }
 
 const DEFAULT_TIMEOUT_MS = 15_000
-// Bill Check runs two Gemma calls; give it room on slow networks.
-const BILL_CHECK_TIMEOUT_MS = 60_000
+// Bill Check runs one or two Gemma calls: 15-60 s, ~80 s worst case (INTEGRATION.md).
+const BILL_CHECK_TIMEOUT_MS = 90_000
+// Classify calls Gemma unless a keyword matches: 5-20 s.
+const CLASSIFY_TIMEOUT_MS = 25_000
 
-async function request<T>(path: string, init: RequestInit = {}, timeoutMs = DEFAULT_TIMEOUT_MS): Promise<T> {
+async function request<T>(path: string, init: RequestInit = {}, timeoutMs = DEFAULT_TIMEOUT_MS, cancel?: AbortSignal): Promise<T> {
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), timeoutMs)
+  cancel?.addEventListener('abort', () => controller.abort())
   let res: Response
   try {
     res = await fetch(path, { ...init, signal: controller.signal })
@@ -58,8 +61,13 @@ function jsonPost<T>(path: string, data: unknown): Promise<T> {
 export const api = {
   health: () => request<{ ok: boolean }>('/api/health'),
 
-  classifyCareNeed: (text: string, lang: Lang) =>
-    jsonPost<ClassifyResponse>('/api/care-need/classify', { text, lang }),
+  classifyCareNeed: (text: string, lang: Lang, cancel?: AbortSignal) =>
+    request<ClassifyResponse>(
+      '/api/care-need/classify',
+      { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text, lang }) },
+      CLASSIFY_TIMEOUT_MS,
+      cancel,
+    ),
 
   facilities: (params: { service_category: ServiceCategory; lat: number; lng: number; lang: Lang }) => {
     const qs = new URLSearchParams({

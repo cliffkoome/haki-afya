@@ -10,6 +10,7 @@ import { useI18n } from '../i18n/I18nProvider'
 import { getDeviceId } from '../lib/device'
 import { billCheckMock } from '../lib/devMock'
 import { downscaleImage } from '../lib/image'
+import { markFacilityAnswered } from '../lib/visits'
 import { useBillCheck } from '../state/BillCheck'
 
 const ANALYSING: StringKey[] = ['photo.analysing1', 'photo.analysing2', 'photo.analysing3']
@@ -73,23 +74,26 @@ export function CheckPhoto() {
         { mock: billCheckMock },
       )
       if (res.status === 'retake') {
-        setPhoto(null)
+        // model_error is Gemma failing, not the photo: keep it so "Try again" needs no retake.
+        if (res.reason !== 'model_error') setPhoto(null)
         setPhase({ name: 'retake', message: res.message })
         return
       }
       setPhoto(null)
+      if (res.verified_report_saved && res.facility?.id) markFacilityAnswered(res.facility.id)
       update({ result: res })
       navigate('/check/result')
     } catch (err) {
-      // Timeout gets our own words; too_large / invalid_request carry a useful server message.
+      // Server messages are developer English: map the code to our own EN/SW words.
+      const code = err instanceof ApiError ? err.code : ''
       const message =
-        err instanceof ApiError
-          ? err.code === 'timeout'
-            ? t('photo.timeout')
-            : err.code === 'too_large' || err.code === 'invalid_request'
-              ? err.message
+        code === 'timeout'
+          ? t('photo.timeout')
+          : code === 'too_large'
+            ? t('error.tooLarge')
+            : code === 'invalid_request'
+              ? t('error.invalid')
               : undefined
-          : undefined
       setPhase({ name: 'error', message })
     }
   }
@@ -135,7 +139,7 @@ export function CheckPhoto() {
             {photo ? (
               <>
                 <BigButton onClick={submit}>
-                  {phase.name === 'error' ? t('error.retry') : t('photo.use')}
+                  {phase.name === 'error' || phase.name === 'retake' ? t('photo.tryAgain') : t('photo.use')}
                   <Icon name="arrowRight" size={18} />
                 </BigButton>
                 <BigButton variant="secondary" onClick={openCamera}>

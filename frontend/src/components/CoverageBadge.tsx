@@ -2,7 +2,7 @@ import type { CoverageCounts } from '../api/types'
 import { useI18n } from '../i18n/I18nProvider'
 
 /** Coverage Report counts: patterns only, neutral colours, Verified and Unverified kept apart. */
-export function CoverageBadge({ coverage }: { coverage: CoverageCounts }) {
+export function CoverageBadge({ coverage, category }: { coverage: CoverageCounts; category: string }) {
   const { t } = useI18n()
   const paid = coverage.verified_paid + coverage.unverified_paid
   const free = coverage.verified_free + coverage.unverified_free
@@ -21,8 +21,8 @@ export function CoverageBadge({ coverage }: { coverage: CoverageCounts }) {
             <span className="h-full bg-ink/35" style={{ width: `${(paid / total) * 100}%` }} />
           </div>
           <ul className="flex flex-col gap-0.5 text-ink-soft">
-            {free > 0 && <li>{t('results.free', { verified: coverage.verified_free, unverified: coverage.unverified_free })}</li>}
-            {paid > 0 && <li>{t('results.paid', { verified: coverage.verified_paid, unverified: coverage.unverified_paid })}</li>}
+            {free > 0 && <li>{t('results.free', { verified: coverage.verified_free, unverified: coverage.unverified_free, category })}</li>}
+            {paid > 0 && <li>{t('results.paid', { verified: coverage.verified_paid, unverified: coverage.unverified_paid, category })}</li>}
           </ul>
         </>
       )}

@@ -52,3 +52,8 @@ export function backdateVisits(): void {
   const past = new Date(Date.now() - REPORT_PROMPT_DELAY_MS - 60 * 60 * 1000).toISOString()
   writeJSON(KEYS.visits, getVisits().map((v) => ({ ...v, created_at: past })))
 }
+
+/** A Verified Report from Bill Check replaces the follow-up for that facility (INTEGRATION.md 5.3.7). */
+export function markFacilityAnswered(facilityId: string): void {
+  writeJSON(KEYS.visits, getVisits().map((v) => (v.facility_id === facilityId ? { ...v, answered: true } : v)))
+}

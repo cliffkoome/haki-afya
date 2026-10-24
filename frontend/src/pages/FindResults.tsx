@@ -48,6 +48,8 @@ export function FindResults() {
   }
 
   const facilities = load.status === 'done' ? load.facilities : []
+  // "for maternity" mid-sentence in the Coverage wording.
+  const categoryLabel = t(`service.${service}`).replace(/^./, (c) => c.toLowerCase())
   const selected = facilities.find((f) => f.id === selectedId)
 
   return (
@@ -102,9 +104,15 @@ export function FindResults() {
       {coords && load.status === 'done' && facilities.length === 0 && (
         <div className="flex flex-col items-start gap-3 py-6">
           <p className="text-[1.0625rem] leading-relaxed text-ink-soft">{t('results.empty')}</p>
-          <Link to="/find" className="font-medium underline decoration-line-strong underline-offset-4">
-            {t('results.emptyBack')}
-          </Link>
+          <div className="flex flex-wrap gap-2">
+            <button type="button" onClick={location.changeArea} className="btn btn-primary rounded-full">
+              <Icon name="pin" size={18} />
+              {t('results.otherArea')}
+            </button>
+            <Link to="/find" className="btn btn-secondary rounded-full">
+              {t('results.emptyBack')}
+            </Link>
+          </div>
         </div>
       )}
 
@@ -112,7 +120,7 @@ export function FindResults() {
         <div>
           {facilities.map((f, i) => (
             <div key={f.id} className="rise border-b border-line last:border-b-0" style={{ '--i': Math.min(i, 8) } as React.CSSProperties}>
-              <FacilityCard facility={f} onGo={goHere} />
+              <FacilityCard facility={f} category={categoryLabel} onGo={goHere} />
             </div>
           ))}
         </div>
@@ -125,7 +133,7 @@ export function FindResults() {
           </Suspense>
           {selected && (
             <div key={selected.id} className="rise">
-              <FacilityCard facility={selected} onGo={goHere} />
+              <FacilityCard facility={selected} category={categoryLabel} onGo={goHere} />
             </div>
           )}
         </div>

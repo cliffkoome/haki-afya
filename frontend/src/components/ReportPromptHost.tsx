@@ -38,7 +38,7 @@ function ReportPrompt({ visit, onDone }: { visit: Visit; onDone: () => void }) {
         facility_id: visit.facility_id,
         service_category: visit.service_category,
         paid,
-        ...(paid ? { amount_kes: Number(amount) } : {}),
+        ...(paid && amount !== '' ? { amount_kes: Number(amount) } : {}),
         device_id: getDeviceId(),
       })
       answered()
@@ -47,7 +47,12 @@ function ReportPrompt({ visit, onDone }: { visit: Visit; onDone: () => void }) {
       if (err instanceof ApiError && err.code === 'rate_limited') {
         answered()
         setStep('already')
+      } else if (err instanceof ApiError && err.code === 'not_found') {
+        // The facility left SHA's list: close quietly, never ask again.
+        answered()
+        onDone()
       } else {
+        // Network error: keep the Visit unanswered so it is asked again next time.
         setStep('error')
       }
     }
@@ -64,7 +69,8 @@ function ReportPrompt({ visit, onDone }: { visit: Visit; onDone: () => void }) {
     navigate('/check', { state: { visit } })
   }
 
-  const amountValid = /^\d+$/.test(amount) && Number(amount) > 0
+  // Optional, whole shillings, 0 or more (INTEGRATION.md 5.4).
+  const amountValid = amount === '' || /^\d+$/.test(amount)
   const finished = step === 'thanks' || step === 'already'
 
   return (

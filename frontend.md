@@ -8,13 +8,14 @@
 
 ## Current status
 
-_Updated 2026-10-24 ~16:45 EAT._
+_Updated 2026-10-24 ~17:00 EAT._
 
-- **Done (against the mock API, checked headless at 390px in EN and SW):** app shell, Home, and the full Bill Check flow (`/check` → `/check/questions` → `/check/photo` → `/check/result`), including retake and error states.
-- **Testing tips:** open any page with `?mock=retake` (dev only, `src/lib/devMock.ts`) to force the retake response for the session. Wizard state lives in `src/state/BillCheck.tsx` (memory only; a reload sends you back to `/check`).
-- **Not yet wired to real backend:** every endpoint is still a mock on the backend side. When the teammate lands real `/api/facilities/search` and `/api/bill-check`, nothing should need to change in the frontend unless the contract changes.
-- **Next:** Find (`/find`, `/emergency`, `/find/results`, P1), then Report prompt + About (P2).
-- **Still open for P0:** real-phone check on the deployed HTTPS URL (camera, Copy/Share).
+- **Done (against the mock API, checked headless at 390px in EN and SW):** app shell, Home, the full Bill Check flow (`/check` → `/check/questions` → `/check/photo` → `/check/result`, incl. retake and error states), and Find (`/find`, `/emergency`, `/find/results` with list, Leaflet map, area-picker fallback, Go here → Visit + Maps).
+- **Testing tips:** open any page with `?mock=retake` (dev only, `src/lib/devMock.ts`) to force the retake response for the session. Wizard state lives in `src/state/BillCheck.tsx` (memory only; a reload sends you back to `/check`). A Visit saved by "Go here" pre-fills `/check`.
+- **Blocked on data (non-devs):** `data/areas.json` is `[]`, so the area picker shows "not available yet". The frontend expects `[{"name": "Kilimani", "lat": -1.29, "lng": 36.78}, ...]`. `data/emergency_keywords.json` is empty, so the frontend's layer-1 keyword check (`src/lib/emergency.ts`, bundled at build) matches nothing yet; the backend classify still decides.
+- **Backend:** every endpoint is still a mock. No frontend change should be needed when real ones land, unless the contract changes.
+- **Next:** Report prompt (page 9) + About (page 10), then PWA manifest (12).
+- **Still open:** real-phone check on the deployed HTTPS URL (camera, location, Copy/Share, dialler).
 
 ## Status
 
@@ -26,14 +27,14 @@ _Updated 2026-10-24 ~16:45 EAT._
 | 3 | Bill Check: two questions | `/check/questions` | P0 | 🟨 code done, real-phone check pending |
 | 4 | Bill Check: photo + analysing | `/check/photo` | P0 | 🟨 code done, real-phone check pending |
 | 5 | Bill Check: result | `/check/result` | P0 | 🟨 code done, real-phone check pending |
-| 6 | Find: Care Need | `/find` | P1 | ⬜ |
-| 7 | Emergency | `/emergency` | P1 | ⬜ |
-| 8 | Find: results (list + map) | `/find/results` | P1 | ⬜ |
+| 6 | Find: Care Need | `/find` | P1 | 🟨 code done, real-phone check pending |
+| 7 | Emergency | `/emergency` | P1 | 🟨 code done, real-phone check pending |
+| 8 | Find: results (list + map) | `/find/results` | P1 | 🟨 code done, real-phone check pending |
 | 9 | Report prompt (Visit follow-up) | modal on `/` | P2 | ⬜ |
 | 10 | About, privacy and disclaimer | `/about` | P2 | ⬜ |
 | 11 | Not found | `*` | P2 | 🟨 code done, real-phone check pending |
 | 12 | PWA manifest + icons | n/a | P2 | ⬜ |
-| 13 | Google rating badge | inside 8 | P3 (drop at 6:00 PM if not working) | ⬜ |
+| 13 | Google rating badge | inside 8 | P3 (drop at 6:00 PM if not working) | 🟨 code done, real-phone check pending |
 
 Status key: ⬜ not started · 🟨 in progress · ✅ done (works on a real phone against the API)
 
@@ -161,14 +162,14 @@ One question per screen section, big one-tap answers:
 
 ## 6. Find: Care Need `/find` (P1)
 
-- [ ] Text box: *"What care do you need?"* (placeholder example in the current language)
-- [ ] 8 Service Category chips, so the user can skip typing: Maternity, Dialysis, Imaging (X-ray/CT/MRI), Eye care, General outpatient, Surgery, Cancer care, Emergency
-- [ ] Submit text → `POST /api/care-need/classify`
-  - [ ] `is_emergency: true` → `/emergency`
-  - [ ] `matched_by: "fallback"` → *"Please choose the type of care"* + highlight the chips
-  - [ ] otherwise → `/find/results?service=<category>`
-- [ ] Tapping a chip goes straight to results (Emergency chip → `/emergency`)
-- [ ] Note under the box: *"We don't diagnose. We help you find where your care is covered."*
+- [x] Text box: *"What care do you need?"* (placeholder example in the current language)
+- [x] 8 Service Category chips, so the user can skip typing: Maternity, Dialysis, Imaging (X-ray/CT/MRI), Eye care, General outpatient, Surgery, Cancer care, Emergency
+- [x] Submit text → `POST /api/care-need/classify`
+  - [x] `is_emergency: true` → `/emergency`
+  - [x] `matched_by: "fallback"` → *"Please choose the type of care"* + highlight the chips
+  - [x] otherwise → `/find/results?service=<category>`
+- [x] Tapping a chip goes straight to results (Emergency chip → `/emergency`)
+- [x] Note under the box: *"We don't diagnose. We help you find where your care is covered."*
 
 **Done when:** text and chips both reach results, and an emergency phrase reaches `/emergency`.
 
@@ -178,11 +179,11 @@ One question per screen section, big one-tap answers:
 
 **Nothing else on this page.** Red, calm, fast.
 
-- [ ] Headline: *"Go to the nearest emergency unit now."*
-- [ ] *"SHA's Emergency fund covers the first 24 hours of emergency care for every Kenyan, registered or not."*
-- [ ] Nearest facilities offering `emergency` (`GET /api/facilities?service_category=emergency`), each with **Directions** and the distance
-- [ ] **Call 999 / 112** buttons (`tel:` links)
-- [ ] No ratings, no reports, no extra text
+- [x] Headline: *"Go to the nearest emergency unit now."*
+- [x] *"SHA's Emergency fund covers the first 24 hours of emergency care for every Kenyan, registered or not."*
+- [x] Nearest facilities offering `emergency` (`GET /api/facilities?service_category=emergency`), each with **Directions** and the distance
+- [x] **Call 999 / 112** buttons (`tel:` links)
+- [x] No ratings, no reports, no extra text
 
 **Done when:** it loads in under 2 s on mock data and the call buttons open the dialler.
 
@@ -190,18 +191,18 @@ One question per screen section, big one-tap answers:
 
 ## 8. Find: results `/find/results?service=` (P1)
 
-- [ ] **Location:** ask with `navigator.geolocation`. If denied or unavailable → **Area picker** (Nairobi areas from `data/areas.json`, via an endpoint or bundled at build time). Never send or store coordinates beyond the request.
-- [ ] `GET /api/facilities?service_category=&lat=&lng=&lang=`
-- [ ] Header: *"Maternity near you"* + **List | Map** toggle
-- [ ] **Facility card:**
-  - [ ] name, "Level N", distance
-  - [ ] **Demo data** pill if `is_demo`
-  - [ ] `benefit_summary` (what SHA covers here for this service)
-  - [ ] **Coverage Report badge** (last 90 days): *"4 verified · 2 unverified reports of paying"* and *"1 verified · 3 unverified reports of paying nothing"*. Patterns only, neutral colours, no accusations
-  - [ ] Google rating `★ 4.1 (212)` + "Google" attribution, only if `google` is not null
-  - [ ] **Go here** → saves a **Visit** (`facility_id`, `service_category`, `created_at`) then opens `https://www.google.com/maps/dir/?api=1&destination=<lat>,<lng>`
-- [ ] **Map view:** Leaflet + OSM tiles, a pin per facility, tap a pin to show its card
-- [ ] Empty state: *"No listed facilities offer this within 15 km."* + link back
+- [x] **Location:** ask with `navigator.geolocation`. If denied or unavailable → **Area picker** (Nairobi areas from `data/areas.json`, via an endpoint or bundled at build time). Never send or store coordinates beyond the request.
+- [x] `GET /api/facilities?service_category=&lat=&lng=&lang=`
+- [x] Header: *"Maternity near you"* + **List | Map** toggle
+- [x] **Facility card:**
+  - [x] name, "Level N", distance
+  - [x] **Demo data** pill if `is_demo`
+  - [x] `benefit_summary` (what SHA covers here for this service)
+  - [x] **Coverage Report badge** (last 90 days): *"4 verified · 2 unverified reports of paying"* and *"1 verified · 3 unverified reports of paying nothing"*. Patterns only, neutral colours, no accusations
+  - [x] Google rating `★ 4.1 (212)` + "Google" attribution, only if `google` is not null
+  - [x] **Go here** → saves a **Visit** (`facility_id`, `service_category`, `created_at`) then opens `https://www.google.com/maps/dir/?api=1&destination=<lat>,<lng>`
+- [x] **Map view:** Leaflet + OSM tiles, a pin per facility, tap a pin to show its card
+- [x] Empty state: *"No listed facilities offer this within 15 km."* + link back
 
 **States:** locating · location denied → area picker · loading · empty · error
 **Done when:** results show sorted by distance on a phone, and **Go here** saves a Visit and opens Maps.
@@ -248,7 +249,7 @@ Useful for judges and trust:
 
 ## 13. Google rating badge (P3)
 
-- [ ] Render only when `google` is non-null in `/api/facilities`, with "Google" attribution. **Drop it at 6:00 PM if the backend isn't returning it.**
+- [x] Render only when `google` is non-null in `/api/facilities`, with "Google" attribution. **Drop it at 6:00 PM if the backend isn't returning it.**
 
 ---
 

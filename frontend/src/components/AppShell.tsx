@@ -20,7 +20,7 @@ export function AppShell() {
       </header>
 
       {/* key re-runs the enter transition on every navigation */}
-      <main key={pathname} className="page-enter flex-1 px-4 py-5">
+      <main key={pathname} className="page-enter flex flex-1 flex-col px-4 py-5">
         <Outlet />
       </main>
 

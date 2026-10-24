@@ -5,6 +5,7 @@ import { SERVICE_CATEGORIES, type Facility, type ServiceCategory } from '../api/
 import { AreaPicker } from '../components/AreaPicker'
 import { ErrorState } from '../components/ErrorState'
 import { FacilityCard } from '../components/FacilityCard'
+import { Icon } from '../components/Icon'
 import { useI18n } from '../i18n/I18nProvider'
 import { useUserLocation } from '../lib/location'
 import { directionsUrl } from '../lib/maps'
@@ -47,26 +48,34 @@ export function FindResults() {
   }
 
   const facilities = load.status === 'done' ? load.facilities : []
+  // "for maternity" mid-sentence in the Coverage wording.
+  const categoryLabel = t(`service.${service}`).replace(/^./, (c) => c.toLowerCase())
   const selected = facilities.find((f) => f.id === selectedId)
 
   return (
-    <section className="flex flex-col gap-4">
-      <div className="flex items-center justify-between gap-3">
-        <h1 className="text-2xl leading-tight font-bold">{t('results.title', { service: t(`service.${service}`) })}</h1>
+    <section className="flex flex-col">
+      <div className="mb-2 flex items-end justify-between gap-3">
+        <h1 className="display text-[2.375rem]">{t('results.title', { service: t(`service.${service}`) })}</h1>
         {coords && load.status === 'done' && facilities.length > 0 && (
-          <div role="radiogroup" className="flex shrink-0 rounded-full bg-brand-soft p-1">
+          <div role="radiogroup" className="relative mb-1 grid shrink-0 grid-cols-2 rounded-full border border-line-strong bg-surface p-0.5">
+            <span
+              aria-hidden
+              className="absolute inset-y-0.5 left-0.5 w-[calc(50%-0.125rem)] rounded-full bg-ink transition-transform duration-200 ease-[var(--ease-out)] motion-reduce:transition-none"
+              style={{ transform: `translateX(${view === 'map' ? 100 : 0}%)` }}
+            />
             {(['list', 'map'] as const).map((v) => (
               <button
                 key={v}
                 type="button"
                 role="radio"
                 aria-checked={view === v}
+                aria-label={t(v === 'list' ? 'results.list' : 'results.map')}
                 onClick={() => setView(v)}
-                className={`pressable min-h-10 rounded-full px-3 text-sm font-semibold ${
-                  view === v ? 'bg-brand text-white shadow-sm' : 'text-brand-strong'
+                className={`pressable relative grid size-9 place-items-center rounded-full transition-colors duration-200 ${
+                  view === v ? 'text-white' : 'text-muted'
                 }`}
               >
-                {t(v === 'list' ? 'results.list' : 'results.map')}
+                <Icon name={v} size={17} />
               </button>
             ))}
           </div>
@@ -74,49 +83,60 @@ export function FindResults() {
       </div>
 
       {coords?.area && (
-        <p className="-mt-2 text-muted">
-          {t('location.near', { area: coords.area })} ·{' '}
-          <button type="button" onClick={location.changeArea} className="font-medium text-brand-strong underline underline-offset-2">
+        <p className="mb-2 flex items-center gap-1.5 text-[0.875rem] text-muted">
+          <Icon name="pin" size={15} />
+          {t('location.near', { area: coords.area })} ·
+          <button type="button" onClick={location.changeArea} className="font-medium text-ink underline decoration-line-strong underline-offset-4">
             {t('location.change')}
           </button>
         </p>
       )}
 
-      {location.state.status === 'locating' && <p className="py-6 text-center text-muted">{t('location.locating')}</p>}
-      {location.state.status === 'denied' && <AreaPicker onPick={location.chooseArea} onRetry={location.request} />}
+      {location.state.status === 'locating' && <p className="py-8 text-muted">{t('location.locating')}</p>}
+      {location.state.status === 'denied' && (
+        <div className="mt-4">
+          <AreaPicker onPick={location.chooseArea} onRetry={location.request} />
+        </div>
+      )}
 
-      {coords && load.status === 'loading' && <p className="py-6 text-center text-muted">{t('results.loading')}</p>}
+      {coords && load.status === 'loading' && <p className="py-8 text-muted">{t('results.loading')}</p>}
       {coords && load.status === 'error' && <ErrorState onRetry={() => setAttempt((n) => n + 1)} />}
       {coords && load.status === 'done' && facilities.length === 0 && (
-        <div className="flex flex-col items-start gap-3 py-4">
-          <p className="text-lg">{t('results.empty')}</p>
-          <Link to="/find" className="font-semibold text-brand-strong underline underline-offset-2">
-            {t('results.emptyBack')}
-          </Link>
+        <div className="flex flex-col items-start gap-3 py-6">
+          <p className="text-[1.0625rem] leading-relaxed text-ink-soft">{t('results.empty')}</p>
+          <div className="flex flex-wrap gap-2">
+            <button type="button" onClick={location.changeArea} className="btn btn-primary rounded-full">
+              <Icon name="pin" size={18} />
+              {t('results.otherArea')}
+            </button>
+            <Link to="/find" className="btn btn-secondary rounded-full">
+              {t('results.emptyBack')}
+            </Link>
+          </div>
         </div>
       )}
 
       {coords && facilities.length > 0 && view === 'list' && (
-        <div className="flex flex-col gap-3">
+        <div>
           {facilities.map((f, i) => (
-            <div key={f.id} className="rise" style={{ '--i': i } as React.CSSProperties}>
-              <FacilityCard facility={f} onGo={goHere} />
+            <div key={f.id} className="rise border-b border-line last:border-b-0" style={{ '--i': Math.min(i, 8) } as React.CSSProperties}>
+              <FacilityCard facility={f} category={categoryLabel} onGo={goHere} />
             </div>
           ))}
         </div>
       )}
 
       {coords && facilities.length > 0 && view === 'map' && (
-        <>
-          <Suspense fallback={<div className="h-[55dvh] animate-pulse rounded-2xl bg-line" />}>
+        <div className="mt-2">
+          <Suspense fallback={<div className="h-[55dvh] animate-pulse rounded-2xl bg-paper" />}>
             <FacilityMap facilities={facilities} center={coords} selectedId={selectedId} onSelect={setSelectedId} />
           </Suspense>
           {selected && (
             <div key={selected.id} className="rise">
-              <FacilityCard facility={selected} onGo={goHere} />
+              <FacilityCard facility={selected} category={categoryLabel} onGo={goHere} />
             </div>
           )}
-        </>
+        </div>
       )}
     </section>
   )

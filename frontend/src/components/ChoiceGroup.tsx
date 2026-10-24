@@ -12,12 +12,28 @@ interface Props<T> {
   onChange: (value: T) => void
 }
 
-/** One-tap segmented answers for a single question. */
+/** One-tap segmented answer. The ink thumb slides between options once one is chosen. */
 export function ChoiceGroup<T extends string | boolean>({ label, options, value, onChange }: Props<T>) {
+  const index = options.findIndex((o) => o.value === value)
+
   return (
     <fieldset>
-      <legend className="mb-3 text-lg font-semibold">{label}</legend>
-      <div role="radiogroup" className="grid gap-2" style={{ gridTemplateColumns: `repeat(${options.length}, minmax(0, 1fr))` }}>
+      <legend className="mb-3 text-[1.0625rem] leading-snug font-medium">{label}</legend>
+      <div
+        role="radiogroup"
+        className="relative grid rounded-xl border border-line-strong bg-surface p-1"
+        style={{ gridTemplateColumns: `repeat(${options.length}, minmax(0, 1fr))` }}
+      >
+        <span
+          aria-hidden
+          className={`absolute inset-y-1 left-1 rounded-lg bg-ink transition-[transform,opacity] duration-200 ease-[var(--ease-out)] motion-reduce:transition-opacity ${
+            index < 0 ? 'opacity-0' : 'opacity-100'
+          }`}
+          style={{
+            width: `calc((100% - 0.5rem) / ${options.length})`,
+            transform: `translateX(${Math.max(0, index) * 100}%)`,
+          }}
+        />
         {options.map((option) => {
           const active = option.value === value
           return (
@@ -30,8 +46,8 @@ export function ChoiceGroup<T extends string | boolean>({ label, options, value,
                 if (!active) tick()
                 onChange(option.value)
               }}
-              className={`pressable min-h-14 rounded-xl border-2 px-2 text-base font-semibold transition-colors duration-200 ${
-                active ? 'pop border-brand bg-brand text-white shadow-md shadow-brand/20' : 'border-line bg-surface text-ink hover:border-brand'
+              className={`pressable relative min-h-12 rounded-lg px-2 text-[0.9375rem] font-medium transition-colors duration-200 ${
+                active ? 'text-white' : 'text-ink'
               }`}
             >
               {option.label}

@@ -3,10 +3,9 @@ import { Link } from 'react-router'
 
 type Variant = 'primary' | 'secondary'
 
-const BASE = 'pressable flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl px-5 text-lg font-semibold disabled:opacity-50'
 const VARIANTS: Record<Variant, string> = {
-  primary: 'bg-brand text-white shadow-sm hover:bg-brand-strong',
-  secondary: 'border-2 border-brand bg-surface text-brand-strong hover:bg-brand-soft',
+  primary: 'btn btn-primary w-full',
+  secondary: 'btn btn-secondary w-full',
 }
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,10 +13,10 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
 }
 
-/** Full-width action, at least 56px tall (frontend.md shared components). */
+/** Full-width action (frontend.md shared components). Ink for the main action. */
 export function BigButton({ variant = 'primary', className = '', children, ...rest }: Props) {
   return (
-    <button type="button" className={`${BASE} ${VARIANTS[variant]} ${className}`} {...rest}>
+    <button type="button" className={`${VARIANTS[variant]} ${className}`} {...rest}>
       {children}
     </button>
   )
@@ -25,7 +24,7 @@ export function BigButton({ variant = 'primary', className = '', children, ...re
 
 export function BigLink({ to, variant = 'primary', children }: { to: string; variant?: Variant; children: ReactNode }) {
   return (
-    <Link to={to} className={`${BASE} ${VARIANTS[variant]}`}>
+    <Link to={to} className={VARIANTS[variant]}>
       {children}
     </Link>
   )

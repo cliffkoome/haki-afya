@@ -2,6 +2,7 @@ import { Navigate, useNavigate } from 'react-router'
 import type { Referral } from '../api/types'
 import { BigButton } from '../components/BigButton'
 import { ChoiceGroup } from '../components/ChoiceGroup'
+import { Icon } from '../components/Icon'
 import { StepHeader } from '../components/StepHeader'
 import { useI18n } from '../i18n/I18nProvider'
 import { useBillCheck } from '../state/BillCheck'
@@ -15,10 +16,10 @@ export function CheckQuestions() {
   if (state.level == null) return <Navigate to="/check" replace />
 
   return (
-    <section>
+    <section className="flex flex-1 flex-col">
       <StepHeader step={2} title="page.check.questions" />
 
-      <div className="flex flex-col gap-7">
+      <div className="flex flex-col gap-8">
         <div>
           <ChoiceGroup
             label={t('questions.registered')}
@@ -30,7 +31,8 @@ export function CheckQuestions() {
             ]}
           />
           {state.registered === false && (
-            <p className="mt-3 rounded-xl bg-flag-above-soft p-3 text-sm leading-relaxed text-ink">
+            <p className="rise mt-3 flex items-start gap-2.5 text-[0.9375rem] leading-relaxed text-ink-soft">
+              <Icon name="info" size={18} className="mt-0.5 text-flag-above" />
               {t('questions.unregistered')}
             </p>
           )}
@@ -46,12 +48,12 @@ export function CheckQuestions() {
             { value: 'neither', label: t('questions.neither') },
           ]}
         />
+      </div>
 
-        <BigButton
-          disabled={state.registered == null || state.referral == null}
-          onClick={() => navigate('/check/photo')}
-        >
+      <div className="mt-auto pt-10">
+        <BigButton disabled={state.registered == null || state.referral == null} onClick={() => navigate('/check/photo')}>
           {t('common.next')}
+          <Icon name="arrowRight" size={18} />
         </BigButton>
       </div>
     </section>

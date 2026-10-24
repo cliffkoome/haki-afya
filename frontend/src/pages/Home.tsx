@@ -1,61 +1,53 @@
+import type { CSSProperties } from 'react'
 import { Link } from 'react-router'
+import { Icon } from '../components/Icon'
+import type { StringKey } from '../i18n/en'
 import { useI18n } from '../i18n/I18nProvider'
+
+const STEPS: StringKey[] = ['about.how1', 'about.how2', 'about.how3']
+const at = (i: number) => ({ '--i': i }) as CSSProperties
 
 export function Home() {
   const { t } = useI18n()
 
   return (
-    <section className="flex flex-col gap-6 pt-4">
-      <h1 className="rise text-[2rem] leading-[1.1] font-bold text-balance">{t('app.tagline')}</h1>
+    <section className="flex flex-1 flex-col pt-6">
+      <h1 className="rise display text-[2.875rem]" style={at(0)}>
+        {t('home.title')} <em className="text-brand">{t('home.titleEm')}</em>
+      </h1>
+      <p className="rise mt-4 max-w-[34ch] text-[1.0625rem] leading-relaxed text-ink-soft" style={at(1)}>
+        {t('home.lede')}
+      </p>
 
-      <div className="flex flex-col gap-3">
-        <HomeAction i={1} to="/check" title={t('home.check')} hint={t('home.checkHint')} primary icon={<BillIcon />} />
-        <HomeAction i={2} to="/find" title={t('home.find')} hint={t('home.findHint')} icon={<PinIcon />} />
+      <div className="rise mt-8 flex flex-col gap-3" style={at(2)}>
+        <Link to="/check" className="btn btn-primary w-full justify-between rounded-2xl py-4 pr-4 pl-5 text-[1.125rem]">
+          <span className="flex items-center gap-3">
+            <Icon name="camera" size={22} />
+            {t('home.check')}
+          </span>
+          <Icon name="arrowRight" size={20} className="text-white/60" />
+        </Link>
+
+        <Link to="/find" className="row-hover pressable flex min-h-14 items-center justify-between gap-3 rounded-2xl border border-line-strong bg-surface px-5 py-4">
+          <span className="flex items-center gap-3 font-medium">
+            <Icon name="pin" size={22} className="text-brand" />
+            {t('home.findRow')}
+          </span>
+          <Icon name="arrowRight" size={20} className="row-arrow text-muted" />
+        </Link>
       </div>
 
-      <Link to="/about" style={{ '--i': 3 } as React.CSSProperties} className="rise self-start font-medium text-brand-strong underline underline-offset-2">
-        {t('home.how')}
-      </Link>
+      <div className="rise mt-12" style={at(3)}>
+        <h2 className="label mb-1">{t('home.howTitle')}</h2>
+        <ol>
+          {STEPS.map((key, i) => (
+            <li key={key} className="flex gap-4 border-b border-line py-3.5 last:border-b-0">
+              <span className="money pt-0.5 text-[0.8125rem] text-muted">0{i + 1}</span>
+              <span className="leading-snug text-ink-soft">{t(key)}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
     </section>
-  )
-}
-
-function HomeAction(props: { i: number; to: string; title: string; hint: string; primary?: boolean; icon: React.ReactNode }) {
-  const tone = props.primary
-    ? 'bg-brand text-white shadow-md hover:bg-brand-strong'
-    : 'border-2 border-brand bg-surface text-ink hover:bg-brand-soft'
-  return (
-    <Link
-      to={props.to}
-      style={{ '--i': props.i } as React.CSSProperties}
-      className={`rise pressable group flex min-h-24 items-center gap-4 rounded-2xl px-5 py-4 ${tone}`}
-    >
-      <span className={`grid size-12 shrink-0 place-items-center rounded-xl ${props.primary ? 'bg-white/15' : 'bg-brand-soft text-brand-strong'}`}>
-        {props.icon}
-      </span>
-      <span className="flex flex-col">
-        <span className="text-xl font-bold">{props.title}</span>
-        <span className={props.primary ? 'text-white/85' : 'text-muted'}>{props.hint}</span>
-      </span>
-      <span aria-hidden className="ml-auto text-2xl transition-transform duration-300 ease-[var(--ease-out)] group-hover:translate-x-1 group-active:translate-x-1">→</span>
-    </Link>
-  )
-}
-
-function BillIcon() {
-  return (
-    <svg aria-hidden width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 2h12v20l-3-2-3 2-3-2-3 2z" />
-      <path d="M9 7h6M9 11h6M9 15h3" />
-    </svg>
-  )
-}
-
-function PinIcon() {
-  return (
-    <svg aria-hidden width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" />
-      <circle cx="12" cy="10" r="2.5" />
-    </svg>
   )
 }

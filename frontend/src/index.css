@@ -1,33 +1,40 @@
 @import "tailwindcss";
 
 /*
- * Design tokens. Light only: the app is used at a billing desk, often in
- * bright light, so contrast beats theming.
+ * Design tokens. Paper, ink and one green. Light only: the app is used at a
+ * billing desk, often in bright light, so contrast beats theming.
+ * Type: Instrument Serif for headlines and big numbers, Geist for UI,
+ * Geist Mono for money (the result reads like an annotated receipt).
  */
 @theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-  --color-canvas: #f6f7f4;
+  --color-canvas: #fafaf7;
+  --color-paper: #f3f3ee;
   --color-surface: #ffffff;
-  --color-line: #e3e7e1;
-  --color-ink: #0f1a14;
-  --color-muted: #55645b;
+  --color-line: #e7e7e1;
+  --color-line-strong: #d3d4cc;
+  --color-ink: #0e1210;
+  --color-ink-soft: #2a2f2c;
+  --color-muted: #676d69;
 
   --color-brand: #0b6e4f;
   --color-brand-strong: #08573e;
-  --color-brand-soft: #e6f2ec;
+  --color-brand-soft: #e7f1ec;
 
   /* Flags (GLOSSARY.md): Should Be Free, Above Tariff, Payable, Unclear */
-  --color-flag-free: #c62828;
-  --color-flag-free-soft: #fdecea;
-  --color-flag-above: #a35f00;
-  --color-flag-above-soft: #fff3df;
-  --color-flag-payable: #2e7d32;
-  --color-flag-payable-soft: #e8f5e9;
-  --color-flag-unclear: #5f6368;
-  --color-flag-unclear-soft: #f1f3f4;
+  --color-flag-free: #b42318;
+  --color-flag-free-soft: #fdf0ee;
+  --color-flag-above: #a15c07;
+  --color-flag-above-soft: #fdf5e8;
+  --color-flag-payable: #0b6e4f;
+  --color-flag-payable-soft: #e7f1ec;
+  --color-flag-unclear: #676d69;
+  --color-flag-unclear-soft: #f1f1ed;
 
-  --color-emergency: #b71c1c;
+  --color-emergency: #a8150f;
 
   /* Strong custom curves: built-in CSS easings are too weak */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -44,34 +51,211 @@
   body {
     @apply bg-canvas text-ink font-sans antialiased;
     min-height: 100dvh;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  /* Size-specific tracking: display type tightens as it grows. */
+  h1,
+  h2 {
+    text-wrap: balance;
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-brand);
-    outline-offset: 2px;
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--color-brand-soft);
+    color: var(--color-ink);
   }
 }
 
 @layer components {
-  /* Every pressable element confirms the press. */
+  /* Display headline: serif, tight leading, slight negative tracking. */
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+  }
+
+  /* Money and counts: tabular figures so columns line up like a receipt. */
+  .money {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  /* Native search clear button is blue and off-brand; the field clears with the keyboard. */
+  input[type="search"]::-webkit-search-cancel-button {
+    appearance: none;
+  }
+
+  /* Small label above a block. Sentence case, not shouty caps. */
+  .label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-muted);
+  }
+
+  /* Every pressable element confirms the press, instantly. */
   .pressable {
-    transition: transform 160ms var(--ease-out), background-color 160ms ease, box-shadow 160ms ease;
+    transition:
+      transform 160ms var(--ease-out),
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      box-shadow 160ms ease;
   }
   .pressable:active:not(:disabled) {
     transform: scale(0.97);
+    transition-duration: 90ms;
   }
 
-  /* Page content enters softly; no movement when reduced motion is on. */
+  /* Primary action: ink, not paint. Green is kept for meaning. */
+  .btn {
+    @apply inline-flex min-h-13 items-center justify-center gap-2 rounded-xl px-5 text-[1.0625rem] font-medium disabled:opacity-40;
+    transition:
+      transform 160ms var(--ease-out),
+      background-color 160ms ease,
+      border-color 160ms ease;
+  }
+  .btn:active:not(:disabled) {
+    transform: scale(0.97);
+    transition-duration: 90ms;
+  }
+  .btn-primary {
+    @apply bg-ink text-white;
+  }
+  .btn-secondary {
+    @apply border border-line-strong bg-surface text-ink;
+  }
+
+  .field {
+    @apply min-h-13 w-full rounded-xl border border-line-strong bg-surface px-4 text-[1.0625rem] text-ink outline-none placeholder:text-muted/70;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+  }
+  .field:focus {
+    border-color: var(--color-ink);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-ink) 8%, transparent);
+  }
+
+  /* Page content enters softly. */
   .page-enter {
-    transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+    transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
     @starting-style {
       opacity: 0;
       transform: translateY(6px);
     }
   }
+
+  /* Short stagger for groups (30-60ms apart). Never blocks interaction. */
+  .rise {
+    animation: rise 300ms var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 45ms);
+  }
+
+  /* Translucent material for the sticky header: content scrolls underneath. */
+  .material {
+    background: color-mix(in srgb, var(--color-canvas) 78%, transparent);
+    backdrop-filter: blur(16px) saturate(170%);
+    -webkit-backdrop-filter: blur(16px) saturate(170%);
+  }
+
+  /* Receipt divider. */
+  .dashed {
+    border-top: 1px dashed var(--color-line-strong);
+  }
+
+  /* Scanning line over the bill photo while Gemma reads it (state indication). */
+  .scan {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 2px;
+    background: var(--color-brand);
+    box-shadow: 0 0 24px 6px color-mix(in srgb, var(--color-brand) 45%, transparent);
+    animation: scan 1.6s var(--ease-in-out) infinite alternate;
+  }
+
+  /* Bar that grows from the left on arrival. */
+  .grow-x {
+    transform-origin: left;
+    transition: transform 700ms var(--ease-out) 120ms;
+    @starting-style {
+      transform: scaleX(0);
+    }
+  }
+
+  /* Viewfinder corners around the photo area. */
+  .viewfinder {
+    --c: var(--color-ink);
+    background:
+      linear-gradient(var(--c), var(--c)) top left / 22px 2px,
+      linear-gradient(var(--c), var(--c)) top left / 2px 22px,
+      linear-gradient(var(--c), var(--c)) top right / 22px 2px,
+      linear-gradient(var(--c), var(--c)) top right / 2px 22px,
+      linear-gradient(var(--c), var(--c)) bottom left / 22px 2px,
+      linear-gradient(var(--c), var(--c)) bottom left / 2px 22px,
+      linear-gradient(var(--c), var(--c)) bottom right / 22px 2px,
+      linear-gradient(var(--c), var(--c)) bottom right / 2px 22px;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Hover only where hover exists: touch would trigger it on tap. */
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover:not(:disabled) {
+    background: var(--color-ink-soft);
+  }
+  .btn-secondary:hover:not(:disabled),
+  .row-hover:hover {
+    border-color: var(--color-ink);
+  }
+  .row-hover:hover .row-arrow {
+    transform: translateX(3px);
+  }
+}
+.row-arrow {
+  transition: transform 200ms var(--ease-out);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(var(--scan-distance, 320px));
+  }
+}
+
+/* Bottom sheet (Modal): slides up on open; the scrim follows the drag. */
+.sheet[open] {
+  transition: transform 300ms var(--ease-drawer);
+  @starting-style {
+    transform: translateY(100%);
+  }
+}
+.sheet::backdrop {
+  background: color-mix(in srgb, var(--color-ink) 38%, transparent);
+  opacity: calc(1 - var(--drag-progress, 0));
+}
+.sheet[open]::backdrop {
+  transition: opacity 300ms ease;
+  @starting-style {
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Gentler, non-vestibular equivalents: fades, no movement. */
   .pressable:active:not(:disabled) {
     transform: none;
   }
@@ -81,124 +265,22 @@
       transform: none;
     }
   }
-}
-
-/* Bottom sheet (Modal): slides up on open. */
-.sheet[open] {
-  transition: transform 300ms var(--ease-drawer), opacity 200ms ease;
-  @starting-style {
-    transform: translateY(100%);
+  .rise {
+    animation: fade 180ms ease both;
   }
-}
-.sheet[open]::backdrop {
-  transition: opacity 300ms ease;
-  @starting-style {
-    opacity: 0;
+  .scan {
+    animation: none;
+    top: 50%;
   }
-}
-@media (prefers-reduced-motion: reduce) {
+  .grow-x {
+    transition: none;
+  }
   .sheet[open] {
     transition: opacity 150ms ease;
     @starting-style {
       transform: none;
       opacity: 0;
     }
-  }
-}
-
-/* ---------- Motion system (apple-design: respond instantly, no overshoot unless a gesture carried momentum) ---------- */
-
-@layer base {
-  /* Size-specific tracking: large text tightens as it grows. */
-  h1 {
-    letter-spacing: -0.02em;
-  }
-  h2 {
-    letter-spacing: -0.01em;
-  }
-}
-
-@layer components {
-  /* Press feedback lands on pointer-down, fast. Release eases back more slowly. */
-  .pressable:active:not(:disabled) {
-    transition-duration: 90ms;
-  }
-
-  /* Staggered entrance for lists of cards. Set --i on each child. */
-  .rise {
-    animation: rise 420ms var(--ease-out) both;
-    animation-delay: calc(var(--i, 0) * 55ms);
-  }
-
-  /* Translucent material for floating chrome: content scrolls underneath. */
-  .material {
-    background: color-mix(in srgb, var(--color-canvas) 72%, transparent);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-  }
-
-  /* Scanning line over the bill photo while Gemma reads it. */
-  .scan {
-    position: absolute;
-    inset-inline: 0;
-    height: 28%;
-    top: 0;
-    background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--color-brand) 35%, transparent) 85%, var(--color-brand));
-    border-bottom: 2px solid var(--color-brand);
-    animation: scan 1.8s var(--ease-in-out) infinite alternate;
-  }
-
-  /* Bar that grows from the left on mount (result banner, step progress). */
-  .grow-x {
-    transform-origin: left;
-    transition: transform 900ms var(--ease-out) 150ms;
-    @starting-style {
-      transform: scaleX(0);
-    }
-  }
-
-  /* A soft "settled" pop for the selected choice. */
-  .pop {
-    animation: pop 260ms var(--ease-out);
-  }
-}
-
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.985);
-  }
-}
-
-@keyframes scan {
-  from {
-    transform: translateY(-30%);
-  }
-  to {
-    transform: translateY(290%);
-  }
-}
-
-@keyframes pop {
-  from {
-    transform: scale(0.94);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  /* Gentler, non-vestibular equivalents: cross-fades, no movement. */
-  .rise {
-    animation: fade 200ms ease both;
-  }
-  .scan {
-    animation: none;
-    opacity: 0.4;
-  }
-  .grow-x {
-    transition: none;
-  }
-  .pop {
-    animation: none;
   }
 }
 
@@ -214,9 +296,4 @@
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
-}
-
-/* The scrim lightens as the sheet is dragged down (set by Modal's drag). */
-.sheet::backdrop {
-  opacity: calc(1 - var(--drag-progress, 0));
 }

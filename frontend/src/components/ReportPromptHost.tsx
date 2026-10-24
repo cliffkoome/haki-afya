@@ -3,9 +3,11 @@ import { useLocation, useNavigate } from 'react-router'
 import { api, ApiError } from '../api/client'
 import { useI18n } from '../i18n/I18nProvider'
 import { getDeviceId } from '../lib/device'
+import { facilityName } from '../lib/format'
 import { dueVisit, markAnswered, type Visit } from '../lib/visits'
 import { BigButton } from './BigButton'
-import { facilityName } from '../lib/format'
+import { ErrorState } from './ErrorState'
+import { Icon } from './Icon'
 import { Modal } from './Modal'
 
 type Step = 'ask' | 'amount' | 'sending' | 'thanks' | 'already' | 'error'
@@ -36,7 +38,7 @@ function ReportPrompt({ visit, onDone }: { visit: Visit; onDone: () => void }) {
         facility_id: visit.facility_id,
         service_category: visit.service_category,
         paid,
-        ...(paid ? { amount_kes: Number(amount) } : {}),
+        ...(paid && amount !== '' ? { amount_kes: Number(amount) } : {}),
         device_id: getDeviceId(),
       })
       answered()
@@ -45,7 +47,12 @@ function ReportPrompt({ visit, onDone }: { visit: Visit; onDone: () => void }) {
       if (err instanceof ApiError && err.code === 'rate_limited') {
         answered()
         setStep('already')
+      } else if (err instanceof ApiError && err.code === 'not_found') {
+        // The facility left SHA's list: close quietly, never ask again.
+        answered()
+        onDone()
       } else {
+        // Network error: keep the Visit unanswered so it is asked again next time.
         setStep('error')
       }
     }
@@ -62,22 +69,25 @@ function ReportPrompt({ visit, onDone }: { visit: Visit; onDone: () => void }) {
     navigate('/check', { state: { visit } })
   }
 
-  const amountValid = /^\d+$/.test(amount) && Number(amount) > 0
+  // Optional, whole shillings, 0 or more (INTEGRATION.md 5.4).
+  const amountValid = amount === '' || /^\d+$/.test(amount)
   const finished = step === 'thanks' || step === 'already'
 
   return (
     <Modal open onClose={finished ? onDone : skip} labelledBy="report-title">
       {finished ? (
-        <div className="flex flex-col items-center gap-4 py-4 text-center">
-          <span aria-hidden className="text-5xl">💚</span>
-          <h2 id="report-title" className="text-xl font-bold">
+        <div className="flex flex-col items-start gap-5 py-2">
+          <span className="grid size-11 place-items-center rounded-full bg-brand-soft text-brand">
+            <Icon name="check" size={22} />
+          </span>
+          <h2 id="report-title" className="display text-[2rem]">
             {t(step === 'thanks' ? 'report.thanks' : 'report.already')}
           </h2>
           <BigButton onClick={onDone}>{t('report.close')}</BigButton>
         </div>
       ) : (
-        <div className="flex flex-col gap-4">
-          <h2 id="report-title" className="text-xl leading-snug font-bold">
+        <div className="flex flex-col gap-5">
+          <h2 id="report-title" className="display text-[1.875rem]">
             {t('report.question', { service: lowerFirst(t(`service.${visit.service_category}`)), facility: facilityName(visit.facility_name) })}
           </h2>
 
@@ -100,42 +110,40 @@ function ReportPrompt({ visit, onDone }: { visit: Visit; onDone: () => void }) {
                 if (amountValid) send(true)
               }}
             >
-              <label htmlFor="report-amount" className="font-semibold">
+              <label htmlFor="report-amount" className="label">
                 {t('report.amountLabel')}
               </label>
-              <input
-                id="report-amount"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                autoFocus
-                value={amount}
-                onChange={(e) => setAmount(e.target.value.replace(/\D/g, ''))}
-                className="min-h-14 w-full rounded-xl border-2 border-line bg-surface px-4 text-xl tabular-nums outline-none focus:border-brand"
-              />
+              <div className="relative">
+                <span className="money pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-muted">KES</span>
+                <input
+                  id="report-amount"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  autoFocus
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value.replace(/\D/g, ''))}
+                  className="field money pl-14 text-[1.25rem]"
+                />
+              </div>
               <BigButton type="submit" disabled={!amountValid || step === 'sending'}>
                 {t('report.submit')}
               </BigButton>
             </form>
           )}
 
-          {step === 'error' && (
-            <p role="alert" className="rounded-xl bg-flag-free-soft p-3 font-medium text-flag-free">
-              {t('error.generic')}
-            </p>
-          )}
-          {step === 'error' && !amount && (
-            <BigButton variant="secondary" onClick={() => send(false)}>
-              {t('error.retry')}
-            </BigButton>
-          )}
+          {step === 'error' && <ErrorState onRetry={amount ? undefined : () => send(false)} />}
 
-          <p className="text-sm text-muted">🔒 {t('report.anonymous')}</p>
+          <p className="flex items-center gap-2 text-[0.8125rem] text-muted">
+            <Icon name="lock" size={15} />
+            {t('report.anonymous')}
+          </p>
 
-          <div className="flex items-center justify-between gap-3 border-t border-line pt-3">
-            <button type="button" onClick={checkBill} className="pressable min-h-11 font-semibold text-brand-strong underline underline-offset-2">
+          <div className="dashed flex items-center justify-between gap-3 pt-3">
+            <button type="button" onClick={checkBill} className="pressable inline-flex min-h-11 items-center gap-1.5 font-medium">
+              <Icon name="receipt" size={18} />
               {t('report.checkBill')}
             </button>
-            <button type="button" onClick={skip} className="pressable min-h-11 px-2 font-medium text-muted">
+            <button type="button" onClick={skip} className="pressable min-h-11 px-2 text-muted">
               {t('report.skip')}
             </button>
           </div>

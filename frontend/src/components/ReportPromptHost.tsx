@@ -5,6 +5,7 @@ import { useI18n } from '../i18n/I18nProvider'
 import { getDeviceId } from '../lib/device'
 import { dueVisit, markAnswered, type Visit } from '../lib/visits'
 import { BigButton } from './BigButton'
+import { facilityName } from '../lib/format'
 import { Modal } from './Modal'
 
 type Step = 'ask' | 'amount' | 'sending' | 'thanks' | 'already' | 'error'
@@ -77,7 +78,7 @@ function ReportPrompt({ visit, onDone }: { visit: Visit; onDone: () => void }) {
       ) : (
         <div className="flex flex-col gap-4">
           <h2 id="report-title" className="text-xl leading-snug font-bold">
-            {t('report.question', { service: lowerFirst(t(`service.${visit.service_category}`)), facility: visit.facility_name })}
+            {t('report.question', { service: lowerFirst(t(`service.${visit.service_category}`)), facility: facilityName(visit.facility_name) })}
           </h2>
 
           {step === 'ask' && (

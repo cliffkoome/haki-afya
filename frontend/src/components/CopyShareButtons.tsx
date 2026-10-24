@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useI18n } from '../i18n/I18nProvider'
+import { tick } from '../lib/haptics'
 
 /** Copy, plus Share when the Web Share API exists (falls back to Copy only). */
 export function CopyShareButtons({ text, title, share = false }: { text: string; title?: string; share?: boolean }) {
@@ -21,6 +22,7 @@ export function CopyShareButtons({ text, title, share = false }: { text: string;
       document.execCommand('copy')
       area.remove()
     }
+    tick()
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -36,8 +38,10 @@ export function CopyShareButtons({ text, title, share = false }: { text: string;
   const button = 'pressable min-h-11 flex-1 rounded-lg px-4 font-semibold'
   return (
     <div className="flex gap-2">
-      <button type="button" onClick={copy} aria-live="polite" className={`${button} bg-brand text-white`}>
-        {copied ? `✓ ${t('common.copied')}` : t('common.copy')}
+      <button type="button" onClick={copy} aria-live="polite" className={`${button} text-white transition-colors duration-300 ${copied ? 'bg-brand-strong' : 'bg-brand'}`}>
+        <span key={String(copied)} className={copied ? 'pop inline-block' : 'inline-block'}>
+          {copied ? `✓ ${t('common.copied')}` : t('common.copy')}
+        </span>
       </button>
       {canShare && (
         <button type="button" onClick={doShare} className={`${button} border-2 border-brand text-brand-strong`}>

@@ -11,7 +11,7 @@ export function AppShell() {
 
   return (
     <div className="mx-auto flex min-h-dvh w-full max-w-[480px] flex-col">
-      <header className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-line bg-canvas/95 px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-3 backdrop-blur">
+      <header className="sticky top-0 z-10 flex items-center justify-between gap-3 material border-b border-line/70 px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-3">
         <Link to="/" className="pressable flex min-h-10 items-center gap-2 rounded-lg text-lg font-bold text-brand-strong">
           <Logo />
           {t('app.name')}

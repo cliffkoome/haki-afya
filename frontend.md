@@ -8,16 +8,15 @@
 
 ## Current status
 
-_Updated 2026-10-24 16:45 EAT._
+_Updated 2026-10-24 16:48 EAT._
 
-- **Done (against the mock API, checked headless at 390px in EN and SW):** app shell, Home, the full Bill Check flow (`/check` → `/check/questions` → `/check/photo` → `/check/result`, incl. retake and error states), Find (`/find`, `/emergency`, `/find/results` with list, Leaflet map, area-picker fallback, Go here → Visit + Maps), the Report prompt bottom sheet on Home, `/about`, and the PWA manifest + icons (`frontend/public/`).
-- **Testing tips:** open any page with `?mock=retake` (`src/lib/devMock.ts`, works in production builds too, for the demo) to force the retake response for the session. Wizard state lives in `src/state/BillCheck.tsx` (memory only; a reload sends you back to `/check`). A Visit saved by "Go here" pre-fills `/check`. Open any page with `?backdate=1` (production too) to make saved Visits 3 h old, so the Report prompt shows on Home.
-- **Blocked on data (non-devs):** `data/areas.json` is `[]`, so the area picker shows "not available yet". The frontend expects `[{"name": "Kilimani", "lat": -1.29, "lng": 36.78}, ...]`. `data/emergency_keywords.json` is empty, so the frontend's layer-1 keyword check (`src/lib/emergency.ts`, bundled at build) matches nothing yet; the backend classify still decides.
-- **Backend:** every endpoint is still a mock. No frontend change should be needed when real ones land, unless the contract changes.
-- **Edge cases checked (16:45):** "Looks fair" result, not-listed facility (no name), unregistered Patient (shows a Register with SHA card linking sha.go.ke), long unbroken item names, 7-digit amounts, SHA contacts. No horizontal overflow at 360px.
-- **Next:** switch to real endpoints as the backend lands them, polish the result screen, then the testing checklist (real Android phone on the deployed URL, "Add to Home screen").
-- **Backend issue raised (16:35):** `spa()` in `backend/app/main.py` serves `FRONTEND_DIST / path` without checking it stays inside `dist/`, so `/..%2f..%2fREADME.md` returns repo files (and on Render `/proc/self/environ` would leak API keys). Fix: resolve the path and require `is_relative_to(FRONTEND_DIST)`.
-- **Still open:** real-phone check on the deployed HTTPS URL (camera, location, Copy/Share, dialler).
+- **All P0–P2 pages built** and tested headless against the **real backend** (`e22ce6d`): facility search (SHA's 762 Nairobi facilities, ALL CAPS names title-cased via `facilityName()`), Find results, area picker (21 areas from `data/areas.json`, bundled), Report prompt, About, PWA manifest.
+- **Motion pass (apple-design):** drag-to-dismiss Report sheet (momentum projection, rubber-band, interruptible), result count-up + growing bar, scan line while analysing, sliding language pill, staggered card entrances, haptic ticks. Reduced-motion/transparency fallbacks in `index.css`.
+- **Demo flags (work in production too):** `?mock=ok` / `?mock=retake` force the Bill Check example (needed when no `GEMINI_API_KEY`), `?backdate=1` makes saved Visits due for the Report prompt.
+- **Without a Gemini key** (local laptop): Bill Check returns `retake/model_error`, classify returns `fallback` (frontend shows the chips). Both handled.
+- **Open, backend:** `spa()` in `backend/app/main.py` still serves any path (`/..%2f..%2fREADME.md` works) — on Render `/proc/self/environ` would leak API keys. Fix: resolve and require `is_relative_to(FRONTEND_DIST)`.
+- **Open, data:** `emergency_keywords.json` empty; facilities need `lat/lng/service_categories` to appear in Find (only Demo Facilities show now).
+- **Next:** real-phone check on the deployed HTTPS URL; Swahili review of `sw.ts`; MLH submission by 8:00 PM.
 
 ## Status
 

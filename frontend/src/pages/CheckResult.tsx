@@ -5,7 +5,8 @@ import { CopyShareButtons } from '../components/CopyShareButtons'
 import { DemoPill } from '../components/DemoPill'
 import { FLAG_ORDER, FlagCard } from '../components/FlagCard'
 import { useI18n } from '../i18n/I18nProvider'
-import { kes } from '../lib/format'
+import { facilityName, kes } from '../lib/format'
+import { useCountUp } from '../lib/useCountUp'
 import { useBillCheck } from '../state/BillCheck'
 
 // SHA's official site (document.md sources). Registration steps live there, not here.
@@ -46,26 +47,16 @@ export function CheckResult() {
       <h1 className="sr-only">{t('page.check.result')}</h1>
 
       {fair ? (
-        <div className="rounded-2xl bg-flag-payable p-5 text-white shadow-md">
-          <p className="text-3xl font-bold">✓ {t('result.fair')}</p>
+        <div className="rise rounded-2xl bg-flag-payable p-5 text-white shadow-lg shadow-flag-payable/25">
+          <p className="pop text-3xl font-bold">✓ {t('result.fair')}</p>
           <p className="mt-2 text-white/90">{t('result.fairBody')}</p>
         </div>
       ) : (
-        <div className="rounded-2xl bg-flag-free p-5 text-white shadow-md">
-          <p className="text-2xl leading-snug font-bold text-balance">
-            {t('result.inQuestion', { amount: kes(summary.amount_in_question_kes), total: kes(summary.balance_kes) })}
-          </p>
-          <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-white/25" aria-hidden>
-            <div
-              className="h-full rounded-full bg-white"
-              style={{ width: `${Math.min(100, (summary.amount_in_question_kes / Math.max(1, summary.balance_kes)) * 100)}%` }}
-            />
-          </div>
-        </div>
+        <InQuestionBanner amount={summary.amount_in_question_kes} total={summary.balance_kes} />
       )}
 
       <p className="flex flex-wrap items-center gap-2 text-muted">
-        {facility && <span className="font-semibold text-ink">{facility.name}</span>}
+        {facility && <span className="font-semibold text-ink">{facilityName(facility.name)}</span>}
         <span>
           {facility && '· '}
           {t('common.level', { n: facility?.level ?? state.level ?? '?' })}
@@ -85,8 +76,10 @@ export function CheckResult() {
       {flags.length > 0 && (
         <div className="flex flex-col gap-3">
           <h2 className="text-lg font-bold">{t('result.flagsTitle')}</h2>
-          {flags.map((flag) => (
-            <FlagCard key={flag.line_item_index} flag={flag} item={result.bill.line_items[flag.line_item_index]} />
+          {flags.map((flag, i) => (
+            <div key={flag.line_item_index} className="rise" style={{ '--i': i + 2 } as React.CSSProperties}>
+              <FlagCard flag={flag} item={result.bill.line_items[flag.line_item_index]} />
+            </div>
           ))}
         </div>
       )}
@@ -164,9 +157,27 @@ export function CheckResult() {
   )
 }
 
+/** The demo moment: the amount counts up and the share of the bill fills in. */
+function InQuestionBanner({ amount, total }: { amount: number; total: number }) {
+  const { t } = useI18n()
+  const shown = useCountUp(amount)
+  const share = Math.min(1, amount / Math.max(1, total))
+
+  return (
+    <div className="rise relative overflow-hidden rounded-2xl bg-flag-free p-5 text-white shadow-lg shadow-flag-free/25">
+      <p className="text-2xl leading-snug font-bold text-balance tabular-nums" aria-live="polite">
+        {t('result.inQuestion', { amount: kes(shown), total: kes(total) })}
+      </p>
+      <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-white/25" aria-hidden>
+        <div className="grow-x h-full rounded-full bg-white" style={{ width: `${share * 100}%` }} />
+      </div>
+    </div>
+  )
+}
+
 function Card({ title, accent, children }: { title: string; accent?: boolean; children: React.ReactNode }) {
   return (
-    <div className={`rounded-2xl border-2 bg-surface p-4 ${accent ? 'border-brand' : 'border-line'}`}>
+    <div className={`rise rounded-2xl border-2 bg-surface p-4 ${accent ? 'border-brand shadow-lg shadow-brand/10' : 'border-line'}`} style={{ '--i': accent ? 1 : 3 } as React.CSSProperties}>
       <h2 className="mb-3 text-sm font-bold tracking-wide text-brand-strong uppercase">{title}</h2>
       {children}
     </div>

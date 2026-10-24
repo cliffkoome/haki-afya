@@ -8,9 +8,11 @@
 
 ## Current status
 
-_Updated 2026-10-24 16:48 EAT._
+_Updated 2026-10-24 17:02 EAT._
 
 - **All P0–P2 pages built** and tested headless against the **real backend** (`e22ce6d`): facility search (SHA's 762 Nairobi facilities, ALL CAPS names title-cased via `facilityName()`), Find results, area picker (21 areas from `data/areas.json`, bundled), Report prompt, About, PWA manifest.
+- **Redesign (emil-design-eng, after review that the UI looked generic):** paper/ink/one green. Instrument Serif for headlines and the big result figure, Geist for UI with tabular figures for money; ink primary buttons, hairlines instead of boxed cards, no emoji (`components/Icon.tsx`). Result page is an annotated receipt (Line by line, dashed dividers, Balance). Tokens and `.btn`, `.field`, `.display`, `.money`, `.label` live in `index.css`.
+- **Contract wiring after backend `e22ce6d`:** nullable `facility.id/name`, `desk_script`, `complaint_draft`; search shows `sub_county` and "On SHA list"; empty search shows the exact contract wording with the list's checked date; area picker reads `/api/areas` (bundled `areas.json` as fallback); `too_large` / `invalid_request` show the server message.
 - **Motion pass (apple-design):** drag-to-dismiss Report sheet (momentum projection, rubber-band, interruptible), result count-up + growing bar, scan line while analysing, sliding language pill, staggered card entrances, haptic ticks. Reduced-motion/transparency fallbacks in `index.css`.
 - **Demo flags (work in production too):** `?mock=ok` / `?mock=retake` force the Bill Check example (needed when no `GEMINI_API_KEY`), `?backdate=1` makes saved Visits due for the Report prompt.
 - **Without a Gemini key** (local laptop): Bill Check returns `retake/model_error`, classify returns `fallback` (frontend shows the chips). Both handled.

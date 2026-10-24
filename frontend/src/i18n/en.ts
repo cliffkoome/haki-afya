@@ -160,6 +160,21 @@ export const en = {
   'about.openBody': 'The code and the SHA tariff dataset are open under the MIT license.',
   'about.github': 'View on GitHub',
 
+  'home.title': 'See what SHA should cover,',
+  'home.titleEm': 'before you pay.',
+  'home.lede': 'Photograph a hospital bill. We check every line against published SHA rates and give you the words to use at the billing desk.',
+  'home.findRow': 'Find care SHA covers near you',
+  'home.howTitle': 'How it works',
+  'facility.contracted': 'On SHA list',
+  'facility.notOnList': "We couldn't find this name on SHA's list of contracted facilities in Nairobi (checked {date}). Try the full name, or ask the facility or SHA before you go.",
+  'photo.tip1': 'Lay the bill flat',
+  'photo.tip2': 'Use good light',
+  'photo.tip3': 'Keep the whole bill in view',
+  'result.ofBill': 'of your {total} bill is in question',
+  'result.lines': 'Line by line',
+  'result.balance': 'Balance',
+  'result.facilityNotListed': 'Facility not listed',
+
   'error.generic': 'Something went wrong. Try again.',
   'error.retry': 'Try again',
 

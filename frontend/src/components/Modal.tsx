@@ -31,10 +31,10 @@ export function Modal({ open, onClose, labelledBy, children }: { open: boolean; 
         e.preventDefault()
         onClose()
       }}
-      className="sheet mx-auto mt-auto mb-0 w-full max-w-[480px] touch-pan-x rounded-t-3xl bg-surface p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] text-ink shadow-2xl outline-none backdrop:bg-ink/40"
+      className="sheet mx-auto mt-auto mb-0 w-full max-w-[480px] touch-pan-x rounded-t-[1.75rem] bg-surface px-6 pt-3 pb-[max(1.5rem,env(safe-area-inset-bottom))] text-ink shadow-[0_-20px_60px_-20px_rgb(0_0_0/0.25)] outline-none"
     >
       <div aria-hidden className="-mt-2 flex cursor-grab justify-center pt-1 pb-4 active:cursor-grabbing">
-        <span className="h-1.5 w-10 rounded-full bg-line" />
+        <span className="h-1 w-9 rounded-full bg-line-strong" />
       </div>
       {children}
     </dialog>

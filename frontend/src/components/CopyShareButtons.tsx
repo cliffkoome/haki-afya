@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useI18n } from '../i18n/I18nProvider'
 import { tick } from '../lib/haptics'
+import { Icon } from './Icon'
 
 /** Copy, plus Share when the Web Share API exists (falls back to Copy only). */
-export function CopyShareButtons({ text, title, share = false }: { text: string; title?: string; share?: boolean }) {
+export function CopyShareButtons({ text, title, share = false, tone = 'light' }: { text: string; title?: string; share?: boolean; tone?: 'light' | 'dark' }) {
   const { t } = useI18n()
   const [copied, setCopied] = useState(false)
   const canShare = share && typeof navigator.share === 'function'
@@ -24,7 +25,7 @@ export function CopyShareButtons({ text, title, share = false }: { text: string;
     }
     tick()
     setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    setTimeout(() => setCopied(false), 1800)
   }
 
   async function doShare() {
@@ -35,16 +36,21 @@ export function CopyShareButtons({ text, title, share = false }: { text: string;
     }
   }
 
-  const button = 'pressable min-h-11 flex-1 rounded-lg px-4 font-semibold'
+  const base = 'pressable inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-[0.9375rem] font-medium'
+  const copyTone = tone === 'dark' ? 'bg-white text-ink' : 'bg-ink text-white'
+  const shareTone = tone === 'dark' ? 'border border-white/30 text-white' : 'border border-line-strong text-ink'
   return (
-    <div className="flex gap-2">
-      <button type="button" onClick={copy} aria-live="polite" className={`${button} text-white transition-colors duration-300 ${copied ? 'bg-brand-strong' : 'bg-brand'}`}>
-        <span key={String(copied)} className={copied ? 'pop inline-block' : 'inline-block'}>
-          {copied ? `✓ ${t('common.copied')}` : t('common.copy')}
+    <div className="flex flex-wrap gap-2">
+      <button type="button" onClick={copy} aria-live="polite" className={`${base} ${copyTone}`}>
+        {/* Icon and label cross-fade with a touch of blur so the swap reads as one change. */}
+        <span key={String(copied)} className="inline-flex items-center gap-2 [animation:fade_200ms_ease]">
+          <Icon name={copied ? 'check' : 'copy'} size={17} />
+          {copied ? t('common.copied') : t('common.copy')}
         </span>
       </button>
       {canShare && (
-        <button type="button" onClick={doShare} className={`${button} border-2 border-brand text-brand-strong`}>
+        <button type="button" onClick={doShare} className={`${base} ${shareTone}`}>
+          <Icon name="share" size={17} />
           {t('common.share')}
         </button>
       )}

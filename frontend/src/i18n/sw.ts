@@ -162,6 +162,21 @@ export const sw: Record<StringKey, string> = {
   'about.openBody': 'Msimbo na data ya bei za SHA viko wazi chini ya leseni ya MIT.',
   'about.github': 'Tazama kwenye GitHub',
 
+  'home.title': 'Jua SHA inapaswa kulipia nini,',
+  'home.titleEm': 'kabla hujalipa.',
+  'home.lede': 'Piga picha ya bili ya hospitali. Tunakagua kila mstari dhidi ya bei za SHA zilizochapishwa na kukupa maneno ya kutumia kwenye dawati la malipo.',
+  'home.findRow': 'Tafuta huduma ambayo SHA inalipia karibu nawe',
+  'home.howTitle': 'Jinsi inavyofanya kazi',
+  'facility.contracted': 'Kwenye orodha ya SHA',
+  'facility.notOnList': 'Hatukupata jina hili kwenye orodha ya SHA ya vituo vilivyo na mkataba Nairobi (iliangaliwa {date}). Jaribu jina kamili, au uliza kituo au SHA kabla ya kwenda.',
+  'photo.tip1': 'Weka bili sawasawa',
+  'photo.tip2': 'Tumia mwanga mzuri',
+  'photo.tip3': 'Bili yote ionekane',
+  'result.ofBill': 'kati ya bili yako ya {total} kina maswali',
+  'result.lines': 'Mstari kwa mstari',
+  'result.balance': 'Salio',
+  'result.facilityNotListed': 'Kituo hakijaorodheshwa',
+
   'error.generic': 'Kuna tatizo. Jaribu tena.',
   'error.retry': 'Jaribu tena',
 

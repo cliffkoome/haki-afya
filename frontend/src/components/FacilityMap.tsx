@@ -29,9 +29,9 @@ export default function FacilityMap({ facilities, center, selectedId, onSelect }
           <CircleMarker
             key={f.id}
             center={[f.lat, f.lng]}
-            radius={selected ? 14 : 10}
+            radius={selected ? 13 : 9}
             eventHandlers={{ click: () => onSelect(f.id) }}
-            pathOptions={{ color: '#ffffff', weight: 3, fillColor: selected ? '#08573e' : '#0b6e4f', fillOpacity: 1 }}
+            pathOptions={{ color: '#ffffff', weight: 3, fillColor: selected ? '#0e1210' : '#0b6e4f', fillOpacity: 1 }}
           />
         )
       })}

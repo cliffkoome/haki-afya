@@ -1,4 +1,5 @@
 import type {
+  Area,
   BillCheckRequest,
   BillCheckResponse,
   ClassifyResponse,
@@ -69,6 +70,8 @@ export const api = {
     })
     return request<{ facilities: Facility[] }>(`/api/facilities?${qs}`)
   },
+
+  areas: () => request<{ areas: Area[] }>('/api/areas'),
 
   searchFacilities: (q: string) =>
     request<{ facilities: FacilitySearchResult[] }>(`/api/facilities/search?${new URLSearchParams({ q })}`),

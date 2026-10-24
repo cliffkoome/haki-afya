@@ -6,27 +6,25 @@ export function CoverageBadge({ coverage }: { coverage: CoverageCounts }) {
   const { t } = useI18n()
   const paid = coverage.verified_paid + coverage.unverified_paid
   const free = coverage.verified_free + coverage.unverified_free
+  const total = paid + free
 
   return (
-    <div className="rounded-xl bg-canvas p-3 text-sm">
-      <p className="mb-1.5 font-semibold text-muted">{t('results.reportsWindow', { n: coverage.window_days })}</p>
-      {paid + free === 0 ? (
+    <div className="text-[0.875rem]">
+      <p className="label mb-1.5">{t('results.reportsWindow', { n: coverage.window_days })}</p>
+      {total === 0 ? (
         <p className="text-muted">{t('results.noReports')}</p>
       ) : (
-        <ul className="flex flex-col gap-1">
-          {paid > 0 && (
-            <li className="flex gap-2">
-              <span aria-hidden className="mt-1.5 size-2 shrink-0 rounded-full bg-flag-unclear" />
-              {t('results.paid', { verified: coverage.verified_paid, unverified: coverage.unverified_paid })}
-            </li>
-          )}
-          {free > 0 && (
-            <li className="flex gap-2">
-              <span aria-hidden className="mt-1.5 size-2 shrink-0 rounded-full bg-brand" />
-              {t('results.free', { verified: coverage.verified_free, unverified: coverage.unverified_free })}
-            </li>
-          )}
-        </ul>
+        <>
+          {/* Share of reports at a glance: free in green, paid in neutral ink. */}
+          <div aria-hidden className="mb-2 flex h-1 overflow-hidden rounded-full bg-line">
+            <span className="grow-x h-full bg-brand" style={{ width: `${(free / total) * 100}%` }} />
+            <span className="h-full bg-ink/35" style={{ width: `${(paid / total) * 100}%` }} />
+          </div>
+          <ul className="flex flex-col gap-0.5 text-ink-soft">
+            {free > 0 && <li>{t('results.free', { verified: coverage.verified_free, unverified: coverage.unverified_free })}</li>}
+            {paid > 0 && <li>{t('results.paid', { verified: coverage.verified_paid, unverified: coverage.unverified_paid })}</li>}
+          </ul>
+        </>
       )}
     </div>
   )

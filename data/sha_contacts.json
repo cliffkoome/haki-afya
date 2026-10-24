@@ -1,1 +1,8 @@
-[]
+[
+  { "channel": "Complaints email", "value": "complaints@sha.go.ke", "source_url": "" },
+  { "channel": "Customer service email", "value": "customerservice@sha.go.ke", "source_url": "" },
+  { "channel": "Toll-free line", "value": "0800 720 601", "source_url": "" },
+  { "channel": "Call or SMS", "value": "147", "source_url": "" },
+  { "channel": "USSD", "value": "*147#", "source_url": "" },
+  { "channel": "Main lines", "value": "+254 20 2723246 / +254 20 2723245", "source_url": "" }
+]

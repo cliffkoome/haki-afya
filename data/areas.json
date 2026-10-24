@@ -1,1 +1,22 @@
-[]
+[
+  {"id": "buruburu", "name": "Buruburu", "lat": -1.2862, "lng": 36.8774, "source_url": "https://www.openstreetmap.org/node/10271071031"},
+  {"id": "donholm", "name": "Donholm", "lat": -1.2992, "lng": 36.8887, "source_url": "https://www.openstreetmap.org/node/482840488"},
+  {"id": "eastleigh", "name": "Eastleigh", "lat": -1.2743, "lng": 36.849, "source_url": "https://www.openstreetmap.org/node/1271148451"},
+  {"id": "embakasi", "name": "Embakasi", "lat": -1.3076, "lng": 36.9342, "source_url": "https://www.openstreetmap.org/relation/16248854"},
+  {"id": "githurai", "name": "Githurai", "lat": -1.2028, "lng": 36.9169, "source_url": "https://www.openstreetmap.org/way/677844262"},
+  {"id": "karen", "name": "Karen", "lat": -1.3284, "lng": 36.705, "source_url": "https://www.openstreetmap.org/node/30031183"},
+  {"id": "kasarani", "name": "Kasarani", "lat": -1.2204, "lng": 36.8927, "source_url": "https://www.openstreetmap.org/relation/18106766"},
+  {"id": "kawangware", "name": "Kawangware", "lat": -1.2785, "lng": 36.7516, "source_url": "https://www.openstreetmap.org/node/1744672553"},
+  {"id": "kayole", "name": "Kayole", "lat": -1.2667, "lng": 36.9194, "source_url": "https://www.openstreetmap.org/node/544377110"},
+  {"id": "kibera", "name": "Kibera", "lat": -1.3113, "lng": 36.789, "source_url": "https://www.openstreetmap.org/node/11007276790"},
+  {"id": "kileleshwa", "name": "Kileleshwa", "lat": -1.2767, "lng": 36.7879, "source_url": "https://www.openstreetmap.org/node/30405983"},
+  {"id": "kilimani", "name": "Kilimani", "lat": -1.296, "lng": 36.7818, "source_url": "https://www.openstreetmap.org/node/13566448227"},
+  {"id": "langata", "name": "Lang'ata", "lat": -1.3329, "lng": 36.7817, "source_url": "https://www.openstreetmap.org/node/6065491374"},
+  {"id": "nairobi_cbd", "name": "Nairobi CBD", "lat": -1.281, "lng": 36.8236, "source_url": "https://www.openstreetmap.org/relation/16376872"},
+  {"id": "parklands", "name": "Parklands", "lat": -1.2631, "lng": 36.8106, "source_url": "https://www.openstreetmap.org/node/30402770"},
+  {"id": "roysambu", "name": "Roysambu", "lat": -1.2188, "lng": 36.8867, "source_url": "https://www.openstreetmap.org/node/4194272131"},
+  {"id": "south_b", "name": "South B", "lat": -1.3142, "lng": 36.8377, "source_url": "https://www.openstreetmap.org/node/10271121690"},
+  {"id": "south_c", "name": "South C", "lat": -1.3188, "lng": 36.8278, "source_url": "https://www.openstreetmap.org/node/30031480"},
+  {"id": "umoja", "name": "Umoja", "lat": -1.2834, "lng": 36.8928, "source_url": "https://www.openstreetmap.org/node/11407583720"},
+  {"id": "westlands", "name": "Westlands", "lat": -1.2648, "lng": 36.8018, "source_url": "https://www.openstreetmap.org/node/30121815"}
+]

@@ -1,8 +1,8 @@
 """Example responses copied from document.md section 9.
 
-Every endpoint returns these until its real implementation lands, so the
-frontend can build against the contract from minute one. Keep them in sync
-with document.md: if the contract changes, change both.
+POST /api/bill-check?mock=ok|retake returns these without calling Gemma, so
+the frontend can test both result screens. Keep them in sync with
+document.md: if the contract changes, change both.
 """
 
 CARE_NEED_CLASSIFY = {

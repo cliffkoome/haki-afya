@@ -1,2 +1,783 @@
-id,name,level,lat,lng,service_categories,google_place_id,is_demo,source_url,checked_on
-d001,Demo Hospital Kilimani,4,-1.2900,36.7833,maternity;imaging;general_outpatient,,true,,2026-10-24
+id,name,level,lat,lng,service_categories,google_place_id,is_demo,source_url,checked_on,sha_registration_no,sha_level,type,sub_county
+d001,Demo Hospital Kilimani,4,-1.2900,36.7833,maternity;imaging;general_outpatient,,true,,2026-10-24,,,,
+d002,Demo Health Centre Kibera,3,-1.3125,36.7870,maternity;general_outpatient,,true,,2026-10-24,,,,
+d003,Demo Referral Hospital CBD,6,-1.2850,36.8200,maternity;dialysis;imaging;eye_care;general_outpatient;surgery;cancer_care;emergency,,true,,2026-10-24,,,,
+d004,Demo Eye Centre Westlands,4,-1.2660,36.8030,eye_care;general_outpatient,,true,,2026-10-24,,,,
+d005,Demo Maternity Home Eastleigh,3,-1.2750,36.8500,maternity;general_outpatient,,true,,2026-10-24,,,,
+d006,Demo County Hospital Kasarani,5,-1.2210,36.8940,maternity;dialysis;imaging;general_outpatient;surgery;emergency,,true,,2026-10-24,,,,
+d007,Demo Hospital Embakasi,4,-1.3080,36.9330,maternity;imaging;general_outpatient;surgery;emergency,,true,,2026-10-24,,,,
+d008,Demo Renal Centre South C,4,-1.3190,36.8290,dialysis,,true,,2026-10-24,,,,
+d009,Demo Hospital Karen,5,-1.3290,36.7060,maternity;imaging;eye_care;general_outpatient;surgery;emergency,,true,,2026-10-24,,,,
+d010,Demo Clinic Kayole,2,-1.2670,36.9200,general_outpatient,,true,,2026-10-24,,,,
+d011,Demo Cancer Centre Parklands,5,-1.2640,36.8110,cancer_care;imaging,,true,,2026-10-24,,,,
+d012,Demo Hospital Kawangware,4,-1.2790,36.7520,maternity;general_outpatient;surgery;emergency,,true,,2026-10-24,,,,
+d013,Demo Health Centre Lang'ata,3,-1.3340,36.7830,maternity;general_outpatient;eye_care,,true,,2026-10-24,,,,
+d014,Demo Hospital South B,4,-1.3150,36.8390,maternity;imaging;general_outpatient;surgery;emergency,,true,,2026-10-24,,,,
+d015,Demo Clinic Roysambu,2,-1.2180,36.8850,general_outpatient;eye_care,,true,,2026-10-24,,,,
+d016,Demo Health Centre Githurai,3,-1.2040,36.9150,maternity;general_outpatient,,true,,2026-10-24,,,,
+d017,Demo Hospital Donholm,4,-1.3000,36.8900,maternity;imaging;general_outpatient;emergency,,true,,2026-10-24,,,,
+d018,Demo Dialysis Centre Buruburu,4,-1.2870,36.8760,dialysis,,true,,2026-10-24,,,,
+d019,Demo Maternity Home Umoja,3,-1.2840,36.8940,maternity,,true,,2026-10-24,,,,
+d020,Demo Clinic Kileleshwa,3,-1.2770,36.7890,general_outpatient;imaging,,true,,2026-10-24,,,,
+sha-018806,3RD PARK HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018806,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Westlands
+sha-018475,AAR HOSPITAL LIMITED MUTHAIGA,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018475,Level 5,HOSPITAL LEVEL 5,Westlands
+sha-017698,ABILITY THERAPY PLACE CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017698,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kibra
+sha-021376,ABYAN HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021376,Level 4,HOSPITAL LEVEL 4,Starehe
+sha-coc-f-1469,ACACIA GROOVE HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1469,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kamukunji
+sha-017225,ACCESS AFYA KENYA LIMITED BABA DOGO CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017225,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Mathare
+sha-006850,ACCESS AFYA KIAMBIU,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006850,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-015404,ACCESS AFYA KWA REUBEN CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015404,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-002975,ACCESS AFYA LIMITED MUKURU,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002975,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-003880,ACCESS AFYA LTD SINAI,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003880,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Makadara
+sha-021573,ADNAN MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021573,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-019272,ADVANCED CARE DIAGNOSTIC AND RENAL DIALYSIS LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019272,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Dagoretti
+sha-020646,AFCRAD HOSPITAL LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020646,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-020525,AFRICARE LIMITED-UPPERHILL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020525,Level 3A,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-015146,AFRICRYSTALCARE MEDICAL CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015146,Level 3B,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-016299,AFRISMART GROUP OF HOSPITALS LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016299,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-020570,AFYA MILE DENTAL CLINIC LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020570,Level 2,DENTAL CLINIC,Starehe
+sha-006410,AFYA PRECISE MEDICAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006410,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-021050,AFYACARE HOSPITAL LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021050,Level 2,DISPENSARY,Embakasi
+sha-020619,AFYAHUB MEDICAL CENTER LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020619,Level 3A,BASIC HEALTH CENTRE,Dagoretti
+sha-020801,AGAPE LIFECARE CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020801,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-003389,AHF MATHARE CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003389,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-003671,AHF PARKLANDS CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003671,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Westlands
+sha-018900,AIMA HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018900,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-015673,AJ PLASTIC SURGERY LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015673,Level 4B,SINGLE SPECIALITY SURGERIES - ORTHOPEDIC/NEUROSURGERY,Kibra
+sha-016514,AL- MANAAR MEDICAL CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016514,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kamukunji
+sha-014346,AL-AMIN HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014346,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-020870,AL-BASRAH HOSPITAL LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020870,Level 4,HOSPITAL LEVEL 4,Mathare
+sha-023885,AL-KIFAH MEDICAL CENTRE LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023885,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-000840,ALIBRAR MEDICAL CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000840,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kamukunji
+sha-003145,ALIF MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003145,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-020750,ALJAC MEDICAL HOSPITAL LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020750,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-020824,ALLIANCE HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020824,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-002301,ALLIANCE MEDICAL CENTRE,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002301,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-018825,ALLSCOPE HEALTH CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018825,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-018883,ANISAA MEDICAL CARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018883,Level 3B,MATERNITY HOME,Kamukunji
+sha-017218,ANKA HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017218,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-019579,APPLEWOOD MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019579,Level 3B,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-gk-014273,APTC EMBAKASI HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014273,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-023923,ARCADE SPECIALTY AND SURGICAL CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023923,Level 3A,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-008089,ARROW DENTAL LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,008089,Level 2,DENTAL CLINIC,Starehe
+sha-023932,ARROW DENTAL LIMITED-CPA CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023932,Level 3B,GENERAL PRACTICE CLINIC,Mathare
+sha-020662,ASTER HEALTHCARE LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020662,Level 4B,SINGLE SPECIALITY SURGERIES - OBGYN SURGERIES,Westlands
+sha-020917,ASTER POINT HOSPITAL LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020917,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-004191,AVENUE HEALTHCARE GARDEN CITY CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004191,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-006330,AVENUE HEALTHCARE GREENSPAN MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006330,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-020544,AVENUE HEALTHCARE-BROADWALK MALL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020544,Level 3A,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-000564,AVENUE HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000564,Level 5,HOSPITAL LEVEL 5,Westlands
+sha-020261,AVOCENT HEALTHCARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020261,Level 3B,GENERAL PRACTICE CLINIC,Langata
+sha-gk-008902,BABADOGO HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008902,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-003742,BAHATI COMMUNITY HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003742,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-gk-008899,BAHATI HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008899,Level 4,HOSPITAL LEVEL 4,Makadara
+sha-gk-9151,BAHATI MDR DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-9151,Level 2,DISPENSARY,Makadara
+sha-003697,BALDO IPPOLITA CATHOLIC HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003697,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-002122,BARAKA HEALTH CENTRE MATHARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002122,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-018066,BARIKA MEDICAL CENTRE LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018066,Level 4,HOSPITAL LEVEL 4,Dagoretti
+sha-018959,BAUS OPTICAL CO.LTD-CHINA CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018959,Level 2,EYE CLINIC,Dagoretti
+sha-019458,BELARISU MEDICAL CENTRE,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019458,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Starehe
+sha-004364,BELEVIEW SOUTH HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004364,Level 4,HOSPITAL LEVEL 4,Langata
+sha-002860,BETTER LIVING HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002860,Level 3B,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-gk-008861,BIAFRA LIONS DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008861,Level 2,DISPENSARY,Kamukunji
+sha-000158,BIAFRA MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000158,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-020514,BIN-BARAKAT MEDICAL CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020514,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Starehe
+sha-016125,BIZET MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016125,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-017487,BLESSED MARIA HELENA DISPENSARY,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017487,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-004198,BLESSED MEDICARE CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004198,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-017923,BLESSED TO BLESS HEALTHCARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017923,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-011297,BLISS HEALTHCARE GITHURAI,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,011297,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-014333,BLISS HEALTHCARE LIMITED UMOJA 2,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014333,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-021411,BLISS HEALTHCARE LIMITED-LANGATA ROAD,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021411,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Langata
+sha-007229,BLISS HEALTHCARE LTD - WESTLANDS,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007229,Level 3B,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-003505,BLISS HEALTHCARE LTD EMBAKASI CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003505,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-015324,BLISS HEALTHCARE LTD MOI AVENUE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015324,Level 3B,GENERAL PRACTICE CLINIC,Starehe
+sha-003509,BLISS HEALTHCARE LTD PIPELINE CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003509,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-003510,BLISS HEALTHCARE LTD TELEPOSTA CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003510,Level 3A,COMPREHENSIVE HEALTH CENTRE,Makadara
+sha-017051,BLOOM DHAHABU LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017051,Level 4,HOSPITAL LEVEL 4,Dagoretti
+sha-007338,BLUE RIDGE MEDICAL LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007338,Level 3A,COMPREHENSIVE HEALTH CENTRE,Makadara
+sha-019521,BLUE WHALE MEDICAL LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019521,Level 4B,SPECIALIST EYE CLINIC (OPHTHALMIC),Westlands
+sha-002797,BODAKI MEDICARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002797,Level 3A,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-020385,BODYKRAFT HEALTHCARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020385,Level 3B,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-020769,BONE & JOINT SPECIALITY CENTER LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020769,Level 3B,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-coc-f-1676,BORU HACHE PHARMA AND CLINIC LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1676,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-003149,BRIDGING PCARE MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003149,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-000802,BRIGHTSIDE DRUG ABUSE REHABILITATION & TREATMENT CENTRE.,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000802,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Westlands
+sha-003105,BRISTOL PARK NURSING HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003105,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-004369,BRISTOL PARK NURSING HOME -UTAWALA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004369,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-014898,BROOKS OF CHERITH MEDICAL AND NUTRITION CENTRE LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014898,Level 4,HOSPITAL LEVEL 4,Kibra
+sha-007245,BROTHER ANDRE HOSPITAL LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007245,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-coc-f-790,BUILDERS HEALTH CARE SERVICES,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/790,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-016584,BURHAN NURSING HOME,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016584,Level 4,HOSPITAL LEVEL 4,Starehe
+sha-015035,BURUBURU DENTAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015035,Level 2,DENTAL CLINIC,Makadara
+sha-014894,BURUBURU SHALOM MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014894,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Makadara
+sha-001188,CANA FAMILY CLINIC AND RESOURCE CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001188,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Makadara
+sha-003940,CANCER CARE INTERNATIONAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003940,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-003089,CANCER CARE KENYA LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003089,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Westlands
+sha-017864,CANCER CARE KENYA LIMITED-UAP OLD MUTUAL TOWER,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017864,Level 4,HOSPITAL LEVEL 4,Kibra
+sha-021444,CARE HOSPITAL LIMITED-NASRA BRANCH,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021444,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-003862,CARE HOSPITAL LTD,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003862,Level 5,HOSPITAL LEVEL 5,Kamukunji
+sha-018669,CAREMARK HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018669,Level 3A,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-003157,CELESTIAL DENTAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003157,Level 2,DENTAL CLINIC,Kasarani
+sha-019267,CELESTIAL MEDICAL AND DIAGNOSTIC CENTRE LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019267,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-016161,CENTRES FOR COMMUNITY HEALTHCARE ACCESS,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016161,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-021465,CERBA LANCET KENYA LIMITED-UPPERHILL BRANCH,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021465,Level 3B,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-gk-009189,CHANDARIA HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-009189,Level 3A,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-021133,CHIEKO MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021133,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-019922,CHILD MENTAL HAVEN LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019922,Level 4B,MENTAL HEALTHCARE CENTRE/DSA REHABILITATION CENTRE,Kibra
+sha-000143,CHIROMO LANE MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000143,Level 3B,MENTAL HEALTHCARE CENTRE/DSA REHABILITATION CENTRE,Westlands
+sha-001155,CHIROMO LANE MEDICAL CENTRE ANNEX,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001155,Level 3B,MENTAL HEALTHCARE CENTRE/DSA REHABILITATION CENTRE,Dagoretti
+sha-017462,CHIROMO MENTAL HEALTH HOSPITAL -NAIROBI LIMITED,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017462,Level 5,HOSPITAL LEVEL 5,Dagoretti
+sha-016432,CHOKAA MEDICAL CENTRE LTD,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016432,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-004317,CHURCH ARMY MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004317,Level 3B,COMPREHENSIVE HEALTH CENTRE,Makadara
+sha-004070,CHURCH ROAD MEDICAL CENTER LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004070,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-005712,CITY EYE HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,005712,Level 4,HOSPITAL LEVEL 4,Dagoretti
+sha-014436,CITY HEALTH LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014436,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-001556,CITY POINT MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001556,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-021012,CITYSTAR HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021012,Level 3A,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-015826,CKS DIALYSIS CENTRE - BURUBURU,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015826,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Makadara
+sha-016121,CKS DIALYSIS CENTRE PANGANI,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016121,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Kamukunji
+sha-coc-f-1466,CLARA ROSA HOSPITAL UTAWALA LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1466,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-020558,CLEVERLAND COTTAGE HOSPITAL AND MATERNITY LTD,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020558,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-gk-008857,CO-OPERATIVE UNIVERSITY HEALTH UNIT,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008857,Level 3A,BASIC HEALTH CENTRE,Langata
+sha-021396,CODE CARE MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021396,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-002432,COMMUNAL ORIENTED SERVICES,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002432,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-015647,COMPREHENSIVE PINE MEDICAL CENTRE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015647,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-001705,COPTIC HEALTH CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001705,Level 2,DISPENSARY,Makadara
+sha-000575,COPTIC HOSPITAL - NGONG ROAD,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000575,Level 6A,NATIONAL REFERRAL AND TEACHING HOSPITALS OR SPECIALIZED HOSPITALS,Dagoretti
+sha-018868,CRESCENT COMMUNITY HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018868,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-014769,CRESTVIEW MOTHER AND CHILD WELLNESS CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014769,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-017028,DA VINCI MEDICAL GROUP LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017028,Level 4,HOSPITAL LEVEL 4,Starehe
+sha-gk-008937,DAGORETTI SUB-COUNTY HOSPITAL MUTUINI,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008937,Level 4,HOSPITAL LEVEL 4,Dagoretti
+sha-021058,DAMAL HEALTHCARE SOLUTIONS LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021058,Level 3B,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-gk-008853,DANDORA I HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008853,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-009182,DANDORA II HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,009182,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-005720,DAWASAFE MEDICAL CENTRE,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,005720,Level 4,HOSPITAL LEVEL 4,Starehe
+sha-024050,DAYANIILE HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,024050,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Starehe
+sha-gk-008988,DCI HEADQUARTERS STAFF CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008988,Level 2,DISPENSARY,Mathare
+sha-gk-000002,DEFENCE FORCES MEMORIAL HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-000002,Level 4,HOSPITAL LEVEL 4,Kibra
+sha-gk-022134,DEFENCE FORCES WELLNESS CENTRE,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-022134,Level 4,HOSPITAL LEVEL 4,Langata
+sha-018965,DELIVERANCE CHURCH KASARANI MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018965,Level 2,DISPENSARY,Kasarani
+sha-015316,DENSMILE DENTAL CLINIC ROYSAMBU,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015316,Level 2,DENTAL CLINIC,Kasarani
+sha-007162,DENTAL ACCESS NAIROBI CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007162,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-016163,DENTOPTIC MEDICARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016163,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-020377,DEXTA MEDICAL CENTRE LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020377,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-001574,DIVINE WORD PARISH HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001574,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-gk-008101,DOG UNIT DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008101,Level 2,DISPENSARY,Langata
+sha-015126,DR AGARWALS EYE HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015126,Level 4,HOSPITAL LEVEL 4,Dagoretti
+sha-024374,DR TOTOS SPECIALIST HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,024374,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kamukunji
+sha-022569,DR.KALEBI LABS (DKL) LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,022569,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Kibra
+sha-003448,DR.RASIK KANTARIA JALARAM MEDICAL SERVICES,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003448,Level 3B,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-003280,DRUGNET MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003280,Level 3B,GENERAL PRACTICE CLINIC,Kasarani
+sha-003646,DUBOIS MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003646,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-003728,EAGLE HEALTH AND CLINIC SERVICES,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003728,Level 4,HOSPITAL LEVEL 4,Westlands
+sha-016658,EAGLE HEALTH AND CLINIC SERVICES KIBERA BRANCH,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016658,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-015056,EAGLE HEALTH AND CLINIC SERVICES RIRUTA BRANCH,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015056,Level 3B,GENERAL PRACTICE CLINIC,Dagoretti
+sha-018843,EASTEND DOCTORS PLAZA MEDICAL CENTRE LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018843,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-001825,EASTERN DEANERY AIDS RELIEF PROGRAM - BABADOGO CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001825,Level 3B,COMPREHENSIVE HEALTH CENTRE,Mathare
+sha-001828,EASTERN DEANERY AIDS RELIEF PROGRAM - DONHOLM CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001828,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-001826,EASTERN DEANERY AIDS RELIEF PROGRAM - NJIRU CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001826,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-001831,EASTERN DEANERY AIDS RELIEF PROGRAM - RUAI CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001831,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-001829,EASTERN DEANERY AIDS RELIEF PROGRAM - SHAURI MOYO CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001829,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-001832,EASTERN DEANERY AIDS RELIEF PROGRAM - SOWETO CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001832,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-003412,EASTERN DEANERY AIDS RELIEF PROGRAM DANDORA COMPREHENSIVE HIV/AIDS CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003412,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-001827,EASTERN DEANERY AIDS RELIEF PROGRAM HURUMA CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001827,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-001701,EASTERN DEANERY AIDS RELIEF PROGRAM KARIOBANGI CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001701,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-001833,EASTERN DEANERY AIDS RELIEF PROGRAM MATHARE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001833,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Mathare
+sha-003961,EASTERN DEANERY AIDS RELIEF PROGRAMME KOMAROCK CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003961,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-gk-008875,EASTLEIGH HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008875,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kamukunji
+sha-019522,EASTMARK MEDICAL CENTRE LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019522,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-001327,EDELVALETRUST JAMAA HOME AND MISSION HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001327,Level 4,HOSPITAL LEVEL 4,Makadara
+sha-003181,EDNAH MEDICAL CENTRE,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003181,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-023372,ELEPHANT DENTAL LIMITED- KASARANI,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023372,Level 2,DENTAL CLINIC,Kasarani
+sha-gk-008897,EMBAKASI HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008897,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-coc-f-1627,EMBASSY NOVA CUREPOINT HOSPITAL LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1627,Level 3A,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-019789,EMMANUEL COMMUNITY HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019789,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Kasarani
+sha-023551,ENTIM SIDAI WELLNESS CENTER LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023551,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Langata
+sha-006368,EQUITY AFIA BURUBURU,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006368,Level 3A,COMPREHENSIVE HEALTH CENTRE,Makadara
+sha-019683,EQUITY AFIA DONHOLM,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019683,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-016654,EQUITY AFIA EASTLEIGH,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016654,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kamukunji
+sha-017172,EQUITY AFIA EMBAKASI,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017172,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-020401,EQUITY AFIA EMBAKASI VILLAGE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020401,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-017596,EQUITY AFIA IMARA DAIMA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017596,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-019924,EQUITY AFIA KARIOBANGI,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019924,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-007733,EQUITY AFIA KAYOLE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007733,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-006303,EQUITY AFIA LANGATA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006303,Level 3B,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-019204,EQUITY AFIA WESTLANDS,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019204,Level 3B,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-003466,EURAKA MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003466,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-023165,EXCEL WELLNESS CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023165,Level 3B,MENTAL HEALTHCARE CENTRE/DSA REHABILITATION CENTRE,Kasarani
+sha-006044,EXECUTIVE DENTAL CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006044,Level 3B,GENERAL PRACTICE CLINIC,Dagoretti
+sha-006794,EYE AND U OPTHALMIC LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006794,Level 4,HOSPITAL LEVEL 4,Westlands
+sha-022556,EYECENTA LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,022556,Level 3B,GENERAL PRACTICE CLINIC,Starehe
+sha-014928,FADHILI MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014928,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-coc-f-1622,FAHAD NURSING HOME LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1622,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-002999,FAIRVIEW MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002999,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-003495,FAIRVIEW MEDICAL CENTRE KAWAGWARE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003495,Level 2,DISPENSARY,Dagoretti
+sha-017928,FAITHPLUS MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017928,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-001839,FAMILY ACCESS MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001839,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-018491,FAMLIFE MEDICARE CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018491,Level 3A,BASIC HEALTH CENTRE,Makadara
+sha-017416,FIGO CARE PLUS (K) LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017416,Level 3A,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-016565,FIGO CARE PLUS (K) LIMITED UPPER HILL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016565,Level 3B,STAND-ALONE DIALYSIS CENTRE,Kibra
+sha-016202,FIRST SIGHT OPTICIANS LTD,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016202,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-014365,FLEX-DENT DENTAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014365,Level 2,DENTAL CLINIC,Kasarani
+sha-023880,FOKAS HOSPITAL MIHANGO LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023880,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-016285,FORTIS KIDNEY CENTER LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016285,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Kibra
+sha-002168,FREMO MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002168,Level 3B,MATERNITY HOME,Dagoretti
+sha-020034,FREMO MEDICAL CENTRE LTD-KABIRIA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020034,Level 3A,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-021450,FUTURE- MED SPECIALIST AND MATERNITY HOSPITAL LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021450,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-006153,GATEWAY COMMUNITY MEDICAL CENTER,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006153,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-gk-008297,GATINA DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008297,Level 2,DISPENSARY,Dagoretti
+sha-gk-009193,GATWEKERA B COMMUNITY DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-009193,Level 2,DISPENSARY,Kibra
+sha-001715,GERMAN MEDICAL CENTRE LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001715,Level 4,HOSPITAL LEVEL 4,Kibra
+sha-006903,GERTRUDES GARDEN CHILDREN'S HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006903,Level 5,HOSPITAL LEVEL 5,Westlands
+sha-001914,GERTRUDES GARDEN CHILDREN'S HOSPITAL KOMAROCK,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001914,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-002098,GERTRUDES GARDEN CHILDREN'S HOSPITAL PANGANI CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002098,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-gk-018584,GICHAGI DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018584,Level 2,DISPENSARY,Westlands
+sha-001729,GIOVANNA -E- SYLVIA MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001729,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Kasarani
+sha-gk-019496,GITHURAI 44 HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-019496,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-019010,GLENFIN DONHOLM HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019010,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-020859,GLOBCARE HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020859,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-021509,GLORY FRAMAC MEDICARE CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021509,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-003394,GOLAN MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003394,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Makadara
+sha-021393,GONE HEIGHTS MEDICAL CENTER,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021393,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-020231,GRANDLIVE MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020231,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-gk-18007,GREEN PARK DISPENSARY-RAILWAYS,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-18007,Level 2,DISPENSARY,Dagoretti
+sha-coc-f-1135,GREENWOOD MODERN MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1135,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-gk-014274,GSU EMBAKASI HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014274,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-gk-014261,GSU HEADQUARTERS HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014261,Level 3B,GENERAL PRACTICE CLINIC,Kasarani
+sha-gk-018833,GSU NAIROBI WEST DISPENSARY-KIBERA,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018833,Level 2,DISPENSARY,Kibra
+sha-000011,GURU NANAK RAMGARHIA HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000011,Level 4,HOSPITAL LEVEL 4,Starehe
+sha-021164,HABAN AFYA HEALTH SERVICES,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021164,Level 2,DISPENSARY,Kasarani
+sha-020906,HADEEQATUL SALEEM HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020906,Level 3A,BASIC HEALTH CENTRE,Starehe
+sha-017207,HALCYON HEALTHCARE LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017207,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Dagoretti
+sha-005405,HAVEN HEALTHCARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,005405,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-018859,HAVEN HEALTHCARE LIMITED-TASSIA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018859,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-005904,HAYAT HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,005904,Level 4,HOSPITAL LEVEL 4,Starehe
+sha-020523,HEALING TREE EYE & LASER HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020523,Level 4B,SPECIALIST EYE CLINIC (OPHTHALMIC),Dagoretti
+sha-015722,HEALTHEX AFRICA LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015722,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Westlands
+sha-016955,HEALTHGATE HOSPITAL LTD,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016955,Level 5,HOSPITAL LEVEL 5,Starehe
+sha-020529,HEALTHPOINT SPECIALIST CENTRE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020529,Level 3B,GENERAL PRACTICE CLINIC,Starehe
+sha-coc-f-1569,HEALTHREACH DIAGNOSTICS LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1569,Level 3A,COMPREHENSIVE HEALTH CENTRE,Mathare
+sha-coc-f-1511,HEGIC HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1511,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-gk-008856,HONO CRESENT DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008856,Level 2,DISPENSARY,Makadara
+sha-001805,HOPE MEDICAL CLINIC ROYSAMBU,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001805,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-016148,HOYMAS CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016148,Level 3B,GENERAL PRACTICE CLINIC,Starehe
+sha-021302,HUDALINE MEDICAL LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021302,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-021076,HUDUMA FAMILY ACCESS MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021076,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-020474,HURLINGHUM MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020474,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-003772,HURUMA HOSPITAL- MATHARE NORTH ANNEX,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003772,Level 4,HOSPITAL LEVEL 4,Mathare
+sha-gk-008913,HURUMA LIONS HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008913,Level 3B,COMPREHENSIVE HEALTH CENTRE,Mathare
+sha-000892,HURUMA MATERNITY & NURSING HOME,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000892,Level 4,HOSPITAL LEVEL 4,Starehe
+sha-013773,HURUMA NELLY MEDICARE CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,013773,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-004282,HUVANS MEDICAL CENTRE DONHOLM,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004282,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-000398,I.R. IRAN MEDICAL CLINIC NGARA,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000398,Level 2,DISPENSARY,Starehe
+sha-000080,I.R. IRAN MEDICAL CLINIC-NGONG ROAD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000080,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-016863,IMANI BRIDGEVALL HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016863,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-003037,INDEX MEDICAL SERVICES,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003037,Level 3B,GENERAL PRACTICE CLINIC,Kasarani
+sha-gk-018847,INNOCULATION CENTRE-CITY HALL,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018847,Level 2,DISPENSARY,Starehe
+sha-023872,INOVA HEALTHCARE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023872,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Njiru
+sha-021079,INTEGRATIVE & HOLISTIC MENTAL HOSPITAL LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021079,Level 3A,BASIC HEALTH CENTRE,Langata
+sha-024360,ISMIR AFYA GROUP LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,024360,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-004968,IVORY HEALTH SOLUTIONS LTD MAMA NGINA ST NAIROBI,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004968,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-020965,IVYCARE HOSPITAL LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020965,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-003049,JAHMII KIPAWA MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003049,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-020897,JAMESENE PARK MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020897,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-002233,JAMII MEDICAL CENTRE - EMBAKASI,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002233,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-014736,JAMII WELLNESS HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014736,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-014805,JANICE CHOLERTON MEDICAL & CANCER CENTRE,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014805,Level 4,HOSPITAL LEVEL 4,Langata
+sha-016133,JEMINDAS NURSING HOME LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016133,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Westlands
+sha-gk-008768,JERICHO HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008768,Level 3B,GENERAL PRACTICE CLINIC,Makadara
+sha-gk-014277,JERUSALEM DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014277,Level 2,DISPENSARY,Embakasi
+sha-015168,JESSE KAY CHILDRENS HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015168,Level 4,HOSPITAL LEVEL 4,Kasarani
+sha-coc-f-1337,JEYSTEL MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1337,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-gk-014271,JINAH DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014271,Level 2,DISPENSARY,Langata
+sha-014090,JIRANI CARE HOSPITAL LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014090,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-016032,JOLELIAN HEALTHCARE CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016032,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-016297,JOLISA MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016297,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-003173,JOSIAH COMMUNITY MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003173,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-004305,JOSMA HEALTH SERVICES LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004305,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Kasarani
+sha-023536,JSON SANCTUARY MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023536,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-003083,JUJA ROAD MATERNITY HOSPITAL LIMITED- PANGANI,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003083,Level 4B,SINGLE SPECIALITY SURGERIES - OBGYN SURGERIES,Starehe
+sha-015977,JUMUIA HOSPITAL HURUMA,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015977,Level 5,HOSPITAL LEVEL 5,Mathare
+sha-019485,JUNCTION FAMILY HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019485,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Kasarani
+sha-001209,K.P.A BELLEVUE ESTATE CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001209,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Langata
+sha-019470,KAAMIL PHARMACY AND MEDICAL CENTRE LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019470,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-gk-022557,KABIRIA BEYOND ZERO CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-022557,Level 2,DISPENSARY,Dagoretti
+sha-gk-011578,KAHAWA GARRISON HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-011578,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-gk-008921,KAHAWA WEST HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008921,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-002888,KALIMONI MISSION HOSPITAL-GITHURAI BRANCH,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002888,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-gk-008901,KALOLENI DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008901,Level 2,DISPENSARY,Makadara
+sha-003321,KAMAE CFW CLINIC KAHAWA WEST,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003321,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-gk-008904,KAMITI PRISON HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008904,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-017103,KAMLESH KAPADIA OPTICS LIMITED-NHIF BUILDING,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017103,Level 2,EYE CLINIC,Starehe
+sha-017100,KAMLESH KAPADIA OPTICS LIMITED-TUBMAN ROAD,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017100,Level 2,EYE CLINIC,Starehe
+sha-017108,KAMLESH KAPADIA OPTICS LIMITED-WESTLAND,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017108,Level 2,EYE CLINIC,Starehe
+sha-gk-8931,KANGEMI HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-8931,Level 3A,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-gk-008851,KARANJA ROAD BEYOND ZERO CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008851,Level 2,DISPENSARY,Kibra
+sha-gk-008108,KAREN HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008108,Level 3A,BASIC HEALTH CENTRE,Langata
+sha-gk-008766,KARIOBANGI HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008766,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-gk-008924,KARIOBANGI SOUTH DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008924,Level 2,DISPENSARY,Embakasi
+sha-gk-009175,KARIOKOR DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-009175,Level 2,DISPENSARY,Starehe
+sha-gk-008907,KARURA HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008907,Level 3B,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-gk-008927,KASARANI HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008927,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-000112,KASARANI MATERNITY & NURSING HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000112,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-gk-008933,KAYOLE 1 HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008933,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-001636,KAYOLE HOSPITAL LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001636,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-gk-008732,KAYOLE II SUB-COUNTY HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008732,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-coc-f-259,KAYOLE OUTPATIENT CLINICS,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/259,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-gk-018287,KAYOLE SOWETO DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018287,Level 2,DISPENSARY,Embakasi
+sha-002915,KENMAT SWOP CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002915,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Dagoretti
+sha-007165,KENYA AIRWAYS MEDICAL CENTRE - PRIDE CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007165,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-gk-021144,KENYA INSTITUTE OF SPECIAL EDUCATION DISPENSARY,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-021144,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-gk-011575,KENYATTA NATIONAL HOSPITAL,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-011575,Level 6A,NATIONAL REFERRAL AND TEACHING HOSPITALS OR SPECIALIZED HOSPITALS,Kibra
+sha-gk-024372,KENYATTA NATIONAL HOSPITAL PRIME CARE CENTRE,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-024372,Level 6B,SPECIALIZED HOSPITAL,Kibra
+sha-gk-016503,KENYATTA UNIVERSITY TEACHING REFERRAL AND RESEARCH HOSPITAL,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-016503,Level 6A,NATIONAL REFERRAL AND TEACHING HOSPITALS OR SPECIALIZED HOSPITALS,Kasarani
+sha-gk-018286,KIAMAIKO DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018286,Level 2,DISPENSARY,Mathare
+sha-020598,KIAN OPTICS AND EYE CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020598,Level 2,EYE CLINIC,Embakasi
+sha-gk-018708,KIANDA 42 HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018708,Level 4,HOSPITAL LEVEL 4,Kibra
+sha-gk-011382,KIBERA COMMUNITY HEALTH CENTRE-AMREF,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-011382,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-gk-008111,KIBERA DO HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008111,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-000381,KIBERA HUMAN DEVELOPMENT PROJECT MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000381,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kibra
+sha-gk-008115,KIBERA SOUTH HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008115,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-016392,KIDNEY AID DIALYSIS CENTER LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016392,Level 3B,STAND-ALONE DIALYSIS CENTRE,Dagoretti
+sha-004188,KINANI FAMILY DENTAL AND MEDICAL CARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004188,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-000197,KIVULI DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000197,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Dagoretti
+sha-004187,KOKI MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004187,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-000928,KOMAROCK MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000928,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-001912,KOMAROCK MODERN HEALTHCARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001912,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-006546,KOMAROCK MODERN HEALTHCARE UTAWALA,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006546,Level 5,HOSPITAL LEVEL 5,Embakasi
+sha-002210,KOR SWOP CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002210,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-gk-008926,KOROGOCHO HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008926,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-gk-014275,KWARE DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014275,Level 2,DISPENSARY,Embakasi
+sha-015646,LABIB HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015646,Level 5,HOSPITAL LEVEL 5,Kamukunji
+sha-003683,LADNAN HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003683,Level 5,HOSPITAL LEVEL 5,Starehe
+sha-gk-008109,LADY NORTHEY DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008109,Level 2,DISPENSARY,Dagoretti
+sha-gk-008720,LAGOS ROAD STAFF DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008720,Level 2,DISPENSARY,Starehe
+sha-018956,LAKE DENTAL CLINIC LLP,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018956,Level 2,DENTAL CLINIC,Westlands
+sha-001561,LANGATA HOSPITAL LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001561,Level 4,HOSPITAL LEVEL 4,Langata
+sha-020452,LANGATA HOSPITAL-LUNGA LUNGA OUTPATIENT CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020452,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Makadara
+sha-gk-008122,LANGATA WOMENS PRISON DISPENSARY,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008122,Level 3A,BASIC HEALTH CENTRE,Langata
+sha-006396,LAVICOL HEALTHCARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006396,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-gk-016784,LENANA SCHOOL MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-016784,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Dagoretti
+sha-017214,LESPOIR MEDICAL CENTER,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017214,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-001067,LIANAS MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001067,Level 3A,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-020017,LIANCIS MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020017,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Mathare
+sha-017671,LIBKEN MEDICAL CENTRE LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017671,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-014950,LIFEBRIDGE COTTAGE HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014950,Level 4B,MENTAL HEALTHCARE CENTRE/DSA REHABILITATION CENTRE,Kasarani
+sha-gk-014263,LINDI COMMUNITY DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014263,Level 2,DISPENSARY,Kibra
+sha-023173,LINK SPECIALIZED HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023173,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Westlands
+sha-001756,LIONS SIGHTFIRST EYES HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001756,Level 5,HOSPITAL LEVEL 5,Westlands
+sha-018872,LIZZY CLINICA HEALTHCARE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018872,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-020674,LLOYCARE MEDICAL SERVICES,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020674,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-gk-008876,LOCO DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008876,Level 2,DISPENSARY,Starehe
+sha-017458,LONDON MEDICAL & DIALYSIS CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017458,Level 3B,STAND-ALONE DIALYSIS CENTRE,Kibra
+sha-gk-008125,LOWER KABETE DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008125,Level 2,DISPENSARY,Westlands
+sha-018253,LUBRYL MEDICAL AND CONSULTANCY LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018253,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Mathare
+sha-gk-014280,LUNGA LUNGA HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014280,Level 3A,BASIC HEALTH CENTRE,Makadara
+sha-018862,LUTON MEDICAL HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018862,Level 4,HOSPITAL LEVEL 4,Kibra
+sha-004008,MACBEN MEDICAL CENTRE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004008,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-019402,MACCABEES HEALTHCARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019402,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-023547,MACMILLAN HOSPITAL LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023547,Level 3B,GENERAL PRACTICE CLINIC,Kasarani
+sha-018681,MADARAKA DENTAL CENTRE LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018681,Level 2,DENTAL CLINIC,Langata
+sha-002708,MADINA HOSPITAL LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002708,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-gk-017943,MAJI MAZURI CLAY CITY DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-017943,Level 2,DISPENSARY,Kasarani
+sha-gk-008871,MAKADARA HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008871,Level 4,HOSPITAL LEVEL 4,Makadara
+sha-000556,MAKADARA MERCY SISTERS DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000556,Level 2,DISPENSARY,Makadara
+sha-gk-021852,MAKINA COMMUNITY DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-021852,Level 2,DISPENSARY,Kibra
+sha-001558,MAKKAH HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001558,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-016627,MALEZI HEALTHCARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016627,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-021386,MALKIA WINGS MEDICAL HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021386,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-gk-011577,MAMA LUCY KIBAKI HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-011577,Level 5,HOSPITAL LEVEL 5,Embakasi
+sha-gk-021055,MAMA MARGARET UHURU HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-021055,Level 5,HOSPITAL LEVEL 5,Embakasi
+sha-018177,MANANA MEDICARE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018177,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-006264,MAO AWEYS INTERNATIONAL HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006264,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-000369,MARIA IMMACULATA HOSPITAL LAVINGTON,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000369,Level 4,HOSPITAL LEVEL 4,Dagoretti
+sha-000888,MARIA MATERNITY AND NURSING HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000888,Level 3B,MATERNITY HOME,Embakasi
+sha-006292,MARIAKANI NURSING AND REHABILITATION CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006292,Level 3A,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-000571,MARIE STOPES KENYA EASTLEIGH NURSING HOME,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000571,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-016220,MARINA HEALTHCARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016220,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-016921,MARINDI EYE CARE VISION CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016921,Level 2,EYE CLINIC,Kasarani
+sha-gk-009181,MARINGO DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-009181,Level 2,DISPENSARY,Makadara
+sha-001078,MARURA HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001078,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Mathare
+sha-gk-008920,MARURUI HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008920,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-006019,MARY IMMACULATE HEALTH CENTRE BAHATI,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006019,Level 3B,COMPREHENSIVE HEALTH CENTRE,Makadara
+sha-024101,MARZAK HEALTH CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,024101,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kamukunji
+sha-gk-008957,MATHARE NORTH HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008957,Level 4,HOSPITAL LEVEL 4,Mathare
+sha-gk-008745,MATHARE POLICE DEPOT DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008745,Level 2,DISPENSARY,Mathare
+sha-gk-011310,MATHARI NATIONAL TEACHING AND REFERRAL HOSPITAL,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-011310,Level 6B,SPECIALIZED HOSPITAL,Mathare
+sha-018336,MAXMED NURSING HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018336,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Dagoretti
+sha-gk-008120,MBAGATHI COUNTY REFERRAL HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008120,Level 5,HOSPITAL LEVEL 5,Kibra
+sha-gk-008935,MBOTELA DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008935,Level 2,DISPENSARY,Makadara
+sha-023979,MEDECODE HEALTHCARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023979,Level 3B,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-005618,MEDI-HUB HEALTHCARE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,005618,Level 3B,GENERAL PRACTICE CLINIC,Kibra
+sha-016035,MEDICA FAMILY HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016035,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Kamukunji
+sha-003174,MEDICAL LINK INTERGRATED HEALTH PROGRAM,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003174,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Makadara
+sha-006382,MEDICROSS LTD KAWANGWARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006382,Level 3A,BASIC HEALTH CENTRE,Dagoretti
+sha-006641,MEDIEARTH LIFECARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006641,Level 3B,GENERAL PRACTICE CLINIC,Westlands
+sha-005798,MEDIGOLD HEALTH SERVICES,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,005798,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-017145,MEDILAM HEALTHCARE CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017145,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-018592,MEDILIFE HOSPITAL LIMITED-CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018592,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Westlands
+sha-006403,MEDITEST DIAGNOSTIC SERVICES LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006403,Level 4,HOSPITAL LEVEL 4,Westlands
+sha-020576,MEDLYNKS BY CONNECT AFYA MEDICAL CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020576,Level 3A,BASIC HEALTH CENTRE,Kibra
+sha-017190,MEDPARK HEALTHCARE SERVICES,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017190,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Makadara
+sha-015863,MEDPEARL HEALTHCARE SERVICES LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015863,Level 3A,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-016458,MEDVERSE COMMUNITY HOSPITAL,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016458,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-018899,MEGALIFE HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018899,Level 4,HOSPITAL LEVEL 4,Kasarani
+sha-002799,MEKAM MEDICAL CENTER,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002799,Level 3A,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-000683,MELCHIZEDEK HOSPITAL LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000683,Level 4,HOSPITAL LEVEL 4,Dagoretti
+sha-017920,MENORAH HOSPITAL (K )LTD-WESTLANDS MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017920,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Westlands
+sha-001189,MERCY MISSION MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001189,Level 3B,MATERNITY HOME,Dagoretti
+sha-002198,MERIDIAN EQUATOR HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002198,Level 4,HOSPITAL LEVEL 4,Langata
+sha-018702,METICULOUS NURSING HOME LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018702,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Starehe
+sha-000341,METROPOLITAN HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000341,Level 5,HOSPITAL LEVEL 5,Makadara
+sha-007384,MICRAJ HEALTH CARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007384,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-000027,MIDHILL COTTAGE HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000027,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Dagoretti
+sha-gk-008880,MIHANGO COMMUNITY HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008880,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-003312,MIKULINZI NURSING HOME,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003312,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-002080,MILELE INTEGRATED MEDICAL SERVICES,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002080,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-014387,MILLENNIA HEALTHCARE LIMITED-GITHURAI,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014387,Level 3B,GENERAL PRACTICE CLINIC,Kasarani
+sha-016428,MILLENNIA HEALTHCARE LIMITED-UTAWALA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016428,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-010350,MILLENNIA HOLISTIC MEDHEAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,010350,Level 3B,GENERAL PRACTICE CLINIC,Mathare
+sha-004395,MIMOSA COTTAGE HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004395,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Kasarani
+sha-015008,MINARET HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015008,Level 3A,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-gk-014291,MINISTRY OF WORKS DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014291,Level 2,DISPENSARY,Starehe
+sha-021507,MIREMA CURAFA FRANCHISE CLINIC LTD,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021507,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-019170,MISHMIA DENTAL CLINIC LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019170,Level 2,DENTAL CLINIC,Starehe
+sha-013954,MISSION CARE NURSING HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,013954,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-002109,MISSION OF HOPE INTERNATIONAL,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002109,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-gk-014286,MJI WA HURUMA DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014286,Level 2,DISPENSARY,Westlands
+sha-000132,MKUNGA MATERNITY AND NURSING HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000132,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-000105,MMM MUKURU HEALTH CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000105,Level 2,DISPENSARY,Embakasi
+sha-016291,MOI AVENUE OUPATIENT CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016291,Level 3A,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-000247,MOTHER AND CHILD HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000247,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-001998,MOTHER IPPOLITA CATHOLIC DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001998,Level 2,DISPENSARY,Embakasi
+sha-gk-008912,MOWLEM DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008912,Level 2,DISPENSARY,Embakasi
+sha-000863,MP SHAH HOSPITAL,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000863,Level 6B,SPECIALIZED HOSPITAL,Westlands
+sha-gk-024547,MUKURU HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-024547,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-gk-9360,MUKURU KWA NJENGA HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-9360,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-023503,MULTIMEDIA UNIVERSITY HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023503,Level 3B,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-001775,MUNDIKA MATERNITY AND NURSING HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001775,Level 3B,MATERNITY HOME,Mathare
+sha-001282,MUTEITHANIA NURSING AND MATERNITY HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001282,Level 3A,BASIC HEALTH CENTRE,Dagoretti
+sha-021324,MUTHAIGA SQUARE CLINIC LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021324,Level 3B,COMPREHENSIVE HEALTH CENTRE,Mathare
+sha-gk-9559,MUTHURWA DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-9559,Level 2,DISPENSARY,Starehe
+sha-001175,MWANGAZA ULIO NA TUMAINI CLINIC KOROGOCHO,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001175,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-003755,MWATATE COMMUNITY HEALTH CARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003755,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-002683,MWIKI CFW CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002683,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-gk-019031,MWIKI HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-019031,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-016831,MWIKI MODERN MATERNITY,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016831,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-020100,MYER KIDNEY & HEALTH SPECIALITIES HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020100,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Dagoretti
+sha-017902,NADHARI COMMUNITY CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017902,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-022572,NAIN RENAL AND SPECIALITY CENTER LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,022572,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Dagoretti
+sha-015810,NAIROBI ADVENTIST HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015810,Level 4,HOSPITAL LEVEL 4,Westlands
+sha-003513,NAIROBI EAST HOSPITAL LTD,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003513,Level 5,HOSPITAL LEVEL 5,Kamukunji
+sha-023788,NAIROBI HIFU MEDICAL SERVICE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023788,Level 3A,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-006152,NAIROBI KIDNEY CENTRE,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006152,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Dagoretti
+sha-002560,NAIROBI MENTAL HEALTH SERVICES,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002560,Level 4B,MENTAL HEALTHCARE CENTRE/DSA REHABILITATION CENTRE,Kibra
+sha-018805,NAIROBI OUTPATIENT GULF LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018805,Level 3A,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-024362,NAIROBI OUTPATIENT GULF LIMITED-ROASTERS,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,024362,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-001448,NAIROBI PLACE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001448,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Langata
+sha-014699,NAIROBI PLACE SPECIALISED MEDICAL CENTER LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014699,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Langata
+sha-016175,NAIROBI RADIOTHERAPY AND CANCER CENTRE - KINDARUMA,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016175,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Dagoretti
+sha-017449,NAIROBI RAKUSEI MENTAL HEALTH LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017449,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Langata
+sha-gk-9424,NAIROBI REMAND PRISON HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-9424,Level 3B,GENERAL PRACTICE CLINIC,Starehe
+sha-000516,NAIROBI WEST HOSPITAL,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000516,Level 6B,SPECIALIZED HOSPITAL,Langata
+sha-017115,NAIROBI WEST HOSPITAL-UTAWALA MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017115,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-gk-008121,NAIROBI WEST PRISON HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008121,Level 3A,BASIC HEALTH CENTRE,Langata
+sha-gk-024359,NATIONAL POLICE SERVICE REFERRAL HOSPITAL,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-024359,Level 6A,NATIONAL REFERRAL AND TEACHING HOSPITALS OR SPECIALIZED HOSPITALS,Kibra
+sha-gk-008112,NATIONAL SPINAL INJURY REFERRAL HOSPITAL,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008112,Level 6B,SPECIALIZED HOSPITAL,Dagoretti
+sha-003926,NELLY NURSING HOSPITAL AND MATERNITY,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003926,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Mathare
+sha-014334,NEPHRO MED LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014334,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Dagoretti
+sha-018867,NEWLIFE COTTAGE HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018867,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-002780,NEWLIGHT MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002780,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-023501,NEXICARE MEDICAL CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023501,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-020768,NG'ANDO RAPHA MEDICAL CENTRE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020768,Level 3B,GENERAL PRACTICE CLINIC,Dagoretti
+sha-gk-018736,NG'UNDU HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018736,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-gk-011566,NGAIRA RHODES DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-011566,Level 2,DISPENSARY,Starehe
+sha-coc-f-1340,NGANDO COMMUNITY MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1340,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Dagoretti
+sha-016348,NGARA COMPREHENSIVE HEALTH SERVICES LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016348,Level 4,HOSPITAL LEVEL 4,Starehe
+sha-gk-013222,NGARA HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-013222,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-gk-019066,NGARA MAT.CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-019066,Level 3B,MENTAL HEALTHCARE CENTRE/DSA REHABILITATION CENTRE,Starehe
+sha-003976,NGOMONGO COMMUNITY MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003976,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Mathare
+sha-gk-018734,NGOMONGO DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018734,Level 2,DISPENSARY,Kasarani
+sha-gk-008119,NGONG ROAD HEALTH CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008119,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kibra
+sha-001348,NGUMBA MEDICAL & LABORATORY SERVICES,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001348,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-014686,NILE NURSING HOME LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014686,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Dagoretti
+sha-002957,NIMOLI MEDICAL SEVICES LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002957,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-gk-018585,NJENGA HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018585,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-gk-008934,NJIRU HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008934,Level 4,HOSPITAL LEVEL 4,Kasarani
+sha-014764,NOOR EYECARE,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014764,Level 4B,SPECIALIST EYE CLINIC (OPHTHALMIC),Westlands
+sha-020763,NORTHLIGHT HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020763,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-000739,NYINA WA MUMBI HEALTH SERVICES,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000739,Level 2,DISPENSARY,Dagoretti
+sha-gk-008922,NYS HEALTH CENTRE RUARAKA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008922,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-019950,OAK SPRINGS HEALTH CARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019950,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-006101,OASIS DOCTORS PLAZA NAIROBI GREEN HOUSE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006101,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-016600,OASIS HEALTHCARE GROUP LIMITED-MAKADARA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016600,Level 3A,COMPREHENSIVE HEALTH CENTRE,Makadara
+sha-014611,OASIS MENTAL HEALTH LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014611,Level 4,HOSPITAL LEVEL 4,Westlands
+sha-gk-008923,OFAFA I DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008923,Level 2,DISPENSARY,Makadara
+sha-023963,OLAABANI FAMILY HOSPITAL LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023963,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-003197,OLIVELINK HEALTHCARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003197,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Makadara
+sha-016564,OPTEX OPTICIANS LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016564,Level 2,EYE CLINIC,Westlands
+sha-016916,OPTICA LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016916,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-021353,OUTERING HEALTH SERVICES,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021353,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-gk-008765,PANGANI DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008765,Level 2,DISPENSARY,Starehe
+sha-014844,PARK EYE CENTRE,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014844,Level 4,HOSPITAL LEVEL 4,Westlands
+sha-019293,PARK VILLE MEDICAL CENTER LLP,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019293,Level 3B,GENERAL PRACTICE CLINIC,Westlands
+sha-001853,PARKLANDS KIDNEY CENTRE LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001853,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Westlands
+sha-000343,PARKROAD NURSING HOME NGARA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000343,Level 3A,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-017402,PASCAL KIP HEALTH DIAGNOSTICS,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017402,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Mathare
+sha-001673,PATANISHO MATERNITY & NURSING HOME,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001673,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-002771,PCEA PIPELINE CARE CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002771,Level 2,DISPENSARY,Embakasi
+sha-015967,PEMASON MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015967,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-017020,PENDA MEDICAL CENTER KANGEMI,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017020,Level 3A,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-006311,PENDA MEDICAL CENTRE -EMBAKASI,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006311,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-007092,PENDA MEDICAL CENTRE KAHAWA WEST,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007092,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-018070,PENDA MEDICAL CENTRE KIMATHI STREET,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018070,Level 3A,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-017315,PENDA MEDICAL CENTRE LANGATA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017315,Level 3A,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-017194,PENDA MEDICAL CENTRE LUCKY SUMMER,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017194,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-017345,PENDA MEDICAL CENTRE MATHARE NORTH,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017345,Level 3A,COMPREHENSIVE HEALTH CENTRE,Mathare
+sha-015864,PENDA MEDICAL CENTRE PIPELINE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015864,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-017192,PENDA MEDICAL CENTRE SUNTON,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017192,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-016966,PENDA MEDICAL CENTRE TASSIA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016966,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-016970,PENDA MEDICAL CENTRE UMOJA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016970,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-017327,PENDA MEDICAL CENTRE UMOJA 1,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017327,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-014496,PENDA MEDICAL CENTRE ZIMMERMAN,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014496,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-017748,PENDA MEDICAL CENTRE-KASARANI,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017748,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-018408,PENDA MEDICAL CENTRE-KAWANGWARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018408,Level 3A,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-006956,PHADAM HOSPITAL COMPANY LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006956,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-015166,PHADAM HOSPITAL COMPANY LTD - NASRA,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015166,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-018470,PHDA-SWOP MAJENGO CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018470,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-001877,PIPELINE MATERNITY & NURSING HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001877,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-019438,PIPELINE MODERN HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019438,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-016248,PLATINUM SURGERY CENTRE LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016248,Level 4,HOSPITAL LEVEL 4,Dagoretti
+sha-019292,PLAY ZURI HEALTH LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019292,Level 3B,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-002100,PLAZA MEDICAL SERVICES,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002100,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-016183,POINTNC MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016183,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Westlands
+sha-018210,POPLAR HOSPITAL LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018210,Level 4,HOSPITAL LEVEL 4,Starehe
+sha-003005,PRECIOUS LIFE MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003005,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-003850,PRECISE DIAGNOSTIC IMAGING,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003850,Level 3A,STAND-ALONE RADIOLOGY CENTRE,Dagoretti
+sha-006319,PRECISE DIAGNOSTIC UPPERHILL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006319,Level 3A,STAND-ALONE RADIOLOGY CENTRE,Langata
+sha-007505,PRECISION COUNSELLING AND REHAB HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007505,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-017599,PREMIER FAMILY CLINICS,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017599,Level 3A,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-001449,PRIME HEALTH SERVICES - KAHAWA WEST,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001449,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-020916,PRIMECARE ENDOSCOPY AND SURGERY CENTER LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020916,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-020488,PRIMEWAYS MEDICAL CENTER LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020488,Level 3A,BASIC HEALTH CENTRE,Starehe
+sha-002535,PROACT SERVICES HEALTH CENTRE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002535,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-000974,PROVIDE INTERNATIONAL HEALTH CENTRE -KAYOLE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000974,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-003647,PROVIDE MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003647,Level 3A,BASIC HEALTH CENTRE,Mathare
+sha-015169,PRUDENT COTTAGE HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015169,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-gk-008900,PUMWANI MAJENGO HEALTH CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008900,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-gk-011576,PUMWANI MATERNITY AND REFERRAL HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-011576,Level 5,HOSPITAL LEVEL 5,Kamukunji
+sha-018779,QOMOLANGMA MEDICAL SERVICES LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018779,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-015434,QUALITY DIALYSIS KENYA LTD UPPERHILL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015434,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Dagoretti
+sha-016057,QUEENSPARK MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016057,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-021060,QUICKEASE MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021060,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-000949,RADIANT GROUP HOSPITAL LIMITED PANGANI,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000949,Level 5,HOSPITAL LEVEL 5,Starehe
+sha-015779,RADIANT GROUP OF HOSPITALS KASARANI SPORTSVIEW,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015779,Level 4,HOSPITAL LEVEL 4,Kasarani
+sha-005957,RADIANT GROUP OF HOSPITALS UMOJA,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,005957,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-gk-014268,RAILA COMMUNITY DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014268,Level 2,DISPENSARY,Langata
+sha-gk-008873,RAILWAYS TRAINING INSTITUTE DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008873,Level 2,DISPENSARY,Starehe
+sha-019806,RAMRAJ MEDICAL CENTRE LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019806,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Starehe
+sha-001255,RAPHA PARADISE HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001255,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-019409,RAYHAAN HEALTHCARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019409,Level 3A,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-023518,REALCARE HOSPITAL LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023518,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Dagoretti
+sha-023136,REALE HOSPITAL LIMITED-LANGATA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023136,Level 3A,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-017763,REALE HOSPITAL UTAWALA LIMITED,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017763,Level 5,HOSPITAL LEVEL 5,Embakasi
+sha-020686,RECAP MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020686,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Dagoretti
+sha-020783,REFINE PLASTIC AND AESTHETIC SURGERY CENTRE LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020783,Level 4B,SINGLE SPECIALITY SURGERIES - ORTHOPEDIC/NEUROSURGERY,Kibra
+sha-014909,REHNET MEDICAL CENTER,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014909,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-003632,REINHA ROSARY MISSION HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003632,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-016911,RELIANCE HOSPITAL LIMITED,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016911,Level 5,HOSPITAL LEVEL 5,Langata
+sha-18034,REMITEK MEDICAL CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,18034,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-004255,RESTORE HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004255,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Langata
+sha-gk-018582,REUBEN HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018582,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-017953,REVELATION MEDICAL SERVICES,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017953,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-002112,REVIVAL HOME BASED CARE CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002112,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-017366,RFH HEALTHCARE (KENYA) LIMITED JACARANDA MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017366,Level 3A,BASIC HEALTH CENTRE,Mathare
+sha-015534,RFH HEALTHCARE LTD-EMBAKASI MEDICAL CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015534,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-019353,RFH HEALTHCARE-KOMAROCK,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019353,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-016476,RFH SPECIALIST HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016476,Level 5,HOSPITAL LEVEL 5,Kasarani
+sha-014826,RFH-HEALTHCARE-IMAARA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014826,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-005922,RHEEMAH HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,005922,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-gk-011574,RHODES CHEST & TB DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-011574,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-gk-008725,RIRUTA HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008725,Level 3A,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-003179,RIVERSITE MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003179,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Westlands
+sha-016551,ROPAS MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016551,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-023507,ROYAL IMPERIAL HOSPITAL GROUP,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023507,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kamukunji
+sha-017165,ROYAL VICTORY HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017165,Level 4,HOSPITAL LEVEL 4,Kasarani
+sha-020528,ROYAL WEST MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020528,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-019992,ROYAL WESTPARK HEALTHCARE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019992,Level 3B,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-016283,ROYALERIDAH MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016283,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-004223,RUAI FAMILY HOSPITAL LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004223,Level 4,HOSPITAL LEVEL 4,Kasarani
+sha-gk-008733,RUAI HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008733,Level 3B,GENERAL PRACTICE CLINIC,Kasarani
+sha-gk-008929,RUARAKA DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008929,Level 2,DISPENSARY,Kasarani
+sha-002317,RUARAKA UHAI NEEMA HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002317,Level 4,HOSPITAL LEVEL 4,Kasarani
+sha-001590,RUBEN HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001590,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-015180,SAFIWAYS HEALTHCARE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015180,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-004437,SAIKA NURSING HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004437,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Kasarani
+sha-016542,SALEM MEDICAL CENTER,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016542,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-000671,SAMARITAN MEDICAL SERVICES,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000671,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-016471,SANTIAGO PERFECTO HEALTH CARE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016471,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Njiru
+sha-000172,SAOLA MATERNITY HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000172,Level 3A,BASIC HEALTH CENTRE,Langata
+sha-017054,SASA DOCTOR MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017054,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Westlands
+sha-002679,SCION HEALTHCARE- KWA NJENGA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002679,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-020627,SCION HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020627,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-014158,SCION MEDICAL CENTRE MWIKI LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014158,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Kasarani
+sha-024188,SERENOVA HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,024188,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Mathare
+sha-021163,SHAAB MEDICAL CLINIC LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021163,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-018777,SHABAHA CANCER CENTER,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018777,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Westlands
+sha-gk-008910,SHAURI MOYO DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008910,Level 2,DISPENSARY,Kamukunji
+sha-017417,SHEBA MEDICAL CENTRE LTD,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017417,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-005422,SHINING HOPE FOR COMMUNITIES MATHARE CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,005422,Level 3B,GENERAL PRACTICE CLINIC,Mathare
+sha-020277,SHOFCO CHANDARIA CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020277,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-020254,SHOFCO MAKINA CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020254,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-014721,SHREE SWAMINARAYAN HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014721,Level 4,HOSPITAL LEVEL 4,Langata
+sha-gk-008915,SILANGA DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008915,Level 2,DISPENSARY,Langata
+sha-015184,SILENT HILL HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015184,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-024370,SILVERWOOD MEDICAL CENTRE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,024370,Level 3B,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-015690,SILWAN FOUNTAIN TREATMENT & RECOVERY CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015690,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-gk-020335,SINAI OUTPATIENT REHABILITATION CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-020335,Level 3A,BASIC HEALTH CENTRE,Makadara
+sha-020690,SKYLARMAT MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020690,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-016597,SOLAYA MEDICAL CENTER LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016597,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Dagoretti
+sha-007374,SONAR IMAGING CENTRE NAIROBI,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007374,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Kibra
+sha-006933,SOUTH B DENTAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006933,Level 3B,GENERAL PRACTICE CLINIC,Starehe
+sha-gk-014288,SOUTH B HEALTH CENTRE-PLAINSVIEW,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014288,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-000115,SOUTH B HOSPITAL LTD,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000115,Level 5,HOSPITAL LEVEL 5,Starehe
+sha-005518,SOUTH C DIALYSIS CENTRE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,005518,Level 3B,STAND-ALONE DIALYSIS CENTRE,Langata
+sha-000136,SOWETO KAYOLE PRIMARY HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000136,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-gk-014266,SOWETO WEST COMMUNITY DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014266,Level 2,DISPENSARY,Kibra
+sha-007381,SPACE CARE HEALTH SERVICES,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007381,Level 2,DISPENSARY,Dagoretti
+sha-gk-008727,SPECIAL TREATMENT CENTRE (CASINO),2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008727,Level 2,DISPENSARY,Starehe
+sha-017876,SPECTOR MEDICAL CENTER,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017876,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-014760,SPINE AND SPECIALITY HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014760,Level 4B,SINGLE SPECIALITY SURGERIES - ORTHOPEDIC/NEUROSURGERY,Westlands
+sha-007262,ST CLARE MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007262,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-006952,ST FRANCIS CATHOLIC DISPENSARY KAWANGWARE GATINA,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006952,Level 2,DISPENSARY,Dagoretti
+sha-003132,ST. BRIDGET DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003132,Level 2,DISPENSARY,Starehe
+sha-001402,ST. FRANCIS COMMUNITY HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001402,Level 5,HOSPITAL LEVEL 5,Kasarani
+sha-002772,ST. JOSEPH HEALTH CENTRE NGANDO,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002772,Level 3B,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-000301,ST. JOSEPH MUKASA HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000301,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-000994,ST. JOSEPH THE WORKER DISPENSARY KANGEMI,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000994,Level 3B,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-000942,ST. JUDE MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000942,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-019558,ST. LUKE UPSTATE MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019558,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-001299,ST. MARY HEALTH SERVICES,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001299,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-003489,ST. MARY INTEGRATED MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003489,Level 3B,GENERAL PRACTICE CLINIC,Kasarani
+sha-000201,ST. MARYS MISSION HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000201,Level 5,HOSPITAL LEVEL 5,Langata
+sha-003581,ST. ODILIAS DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003581,Level 2,DISPENSARY,Langata
+sha-002402,ST. PATRICK HEALTHCARE CENTRE LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002402,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-000095,ST. SCHOLASTICA UZIMA HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000095,Level 4,HOSPITAL LEVEL 4,Kasarani
+sha-000635,ST. TERESA PARISH DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000635,Level 2,DISPENSARY,Kamukunji
+sha-015815,ST.ANNISIA MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015815,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-020342,ST.GABRIEL HEALTHCARE LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020342,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-020195,ST.JOHN'S ELITE MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020195,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-020550,ST.JOSEPIC MEDICAL CENTRE-NAIVAS UTAWALA,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020550,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-coc-f-1815,ST.MARY'S MEDICAL CENTER- KAWANGWARE LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1815,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Westlands
+sha-019840,ST.MONICA DISPENSARY MWENGENYE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019840,Level 2,DISPENSARY,Kasarani
+sha-020322,ST.OSWALD MEDICAL CENTER,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020322,Level 3B,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-002439,STAR GENERAL MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002439,Level 3B,GENERAL PRACTICE CLINIC,Kasarani
+sha-gk-008099,STATE HOUSE DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008099,Level 2,DISPENSARY,Dagoretti
+sha-019677,STELLAR PHYSIO HEALTH AND WELLNESS CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019677,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-023881,STONECREST MEDICAL CARE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023881,Level 3B,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-020451,SUMMIT ORTHOPEDICS AND SURGICAL HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020451,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-001795,SUNBEAM MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001795,Level 3B,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-019183,SUNNYBROOK HEALTHCARE CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019183,Level 3A,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-001962,SUNTON CFW CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001962,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-004066,SUSAMED MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004066,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-001700,SWOP CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001700,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-002901,SWOP CLINIC DONHOLM,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002901,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-002782,SWOP CLINIC LANGATA,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002782,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Langata
+sha-004102,SWOP THIKA ROAD HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004102,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-001174,TABITHA MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001174,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kibra
+sha-023646,TAHCARE MEDICAL AND DENTAL CENTER LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023646,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kamukunji
+sha-coc-f-1563,TAHOOR MEDICAL CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1563,Level 3A,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-006692,TASSIA HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006692,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-gk-018583,TASSIA KWA NDEGE HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018583,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-003798,TAZAMA MEDICAL AND DENTAL UNIT,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003798,Level 2,DENTAL CLINIC,Kasarani
+sha-003141,TECHNICAL UNIVERSITY OF KENYA,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003141,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Starehe
+sha-019027,TENDERCARE HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019027,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-018760,TETRAGRAMMATON LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018760,Level 3B,STAND-ALONE DIALYSIS CENTRE,Westlands
+sha-004439,TEXAS CANCER CENTRE NAIROBI WEST,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004439,Level 4,HOSPITAL LEVEL 4,Langata
+sha-016308,THAWABU TUMAINI COMMUNITY HEALTH CARE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016308,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-001001,THE AGA KHAN UNIVERSITY HOSPITAL NAIROBI,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001001,Level 6B,SPECIALIZED HOSPITAL,Westlands
+sha-007200,THE BALOZI HOSPITAL LIMITED,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,007200,Level 5,HOSPITAL LEVEL 5,Starehe
+sha-020503,THE BILAL HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020503,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-020920,THE CALGARY HEALTHCARE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020920,Level 3B,GENERAL PRACTICE CLINIC,Langata
+sha-021207,THE HEALTHY FAMILY HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021207,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-001200,THE KAREN HOSPITAL LIMITED,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001200,Level 6B,SPECIALIZED HOSPITAL,Langata
+sha-020872,THE MARKWELL MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020872,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-000885,THE MATER HOSPITAL,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000885,Level 6B,SPECIALIZED HOSPITAL,Kamukunji
+sha-020292,THE MEDHAT GYNAECOLOGY AND CANCER CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020292,Level 3A,BASIC HEALTH CENTRE,Kibra
+sha-019129,THE MESU LANGATA FAMILY HEALTHCARE LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019129,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Langata
+sha-000821,THE NAIROBI HOSPITAL,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000821,Level 6B,SPECIALIZED HOSPITAL,Dagoretti
+sha-015371,THE NAIROBI HOSPITAL CAPITAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015371,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-014646,THE NAIROBI HOSPITAL OUTPATIENT CENTRE GALLERIA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014646,Level 3B,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-020650,THE NAIROBI SOUTH HOSPITAL -BBS MALL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020650,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kamukunji
+sha-014766,THE NAIROBI SOUTH HOSPITAL LTD,6,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014766,Level 6A,NATIONAL REFERRAL AND TEACHING HOSPITALS OR SPECIALIZED HOSPITALS,Langata
+sha-015208,THE NAIROBI WEST HOSPITAL CANCER CENTRE,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015208,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Langata
+sha-020908,THE NAIROBI WEST HOSPITAL-PARKLANDS,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020908,Level 3B,SPECIALIST CANCER CENTRE,Westlands
+sha-002601,THE NAIROBI WOMENS HOSPITAL ADAMS,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002601,Level 4,HOSPITAL LEVEL 4,Dagoretti
+sha-000405,THE NAIROBI WOMENS HOSPITAL HURLINGHAM,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000405,Level 5,HOSPITAL LEVEL 5,Dagoretti
+sha-015965,THE OPTIMUM CENTER FOR SPECIALIZED TREATMENT,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015965,Level 3B,MENTAL HEALTHCARE CENTRE/DSA REHABILITATION CENTRE,Langata
+sha-024090,THE PRO ELITE WESTLANDS GENERAL AND SPECIALIST HOSPITAL LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,024090,Level 3A,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-019006,THE SAVANNAH HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019006,Level 4,HOSPITAL LEVEL 4,Kibra
+sha-024162,THE SHAHSAN MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,024162,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-coc-f-1474,THE TASSIA HILL HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1474,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-021268,THIKA ROAD HEALTH SERVICES LIMITED - BURUBURU HEALTH CENTER,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021268,Level 3A,COMPREHENSIVE HEALTH CENTRE,Makadara
+sha-000656,THIKA ROAD HEALTH SERVICES LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000656,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-002737,THIKA ROAD HEALTH SERVICES LTD -PIPELINE HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002737,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-002739,THIKA ROAD HEALTH SERVICES LTD- KAWANGWARE HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002739,Level 3A,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-014939,THREE BELLS MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,014939,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-021541,TOBEE MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021541,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Embakasi
+sha-019060,TRANS MARIGOLD HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019060,Level 4,HOSPITAL LEVEL 4,Kasarani
+sha-017631,TRUE HEALTH MEDICAL CENTRE LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017631,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-020481,TRUST MEDICAL CENTRE LIMITED-NAIROBI,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020481,Level 3B,MENTAL HEALTHCARE CENTRE/DSA REHABILITATION CENTRE,Kasarani
+sha-015131,TRUST OPTICIANS LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015131,Level 2,EYE CLINIC,Starehe
+sha-024243,TUUNGANE WOODLEY HOSPITAL,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,024243,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-017621,UBUNTU NEUROLOGY LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017621,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Dagoretti
+sha-gk-008114,UHURU CAMP HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008114,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kibra
+sha-coc-f-1428,ULEYZA MEDICAL CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1428,Level 3A,BASIC HEALTH CENTRE,Embakasi
+sha-023145,ULTRA DIAGNOSTIC CENTER (UDC) LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023145,Level 3A,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-000236,UMOJA HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000236,Level 4,HOSPITAL LEVEL 4,Embakasi
+sha-gk-008868,UMOJA I HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008868,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-018864,UMOJA MODERN MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018864,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-003171,UMOJA THREE MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003171,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-015387,UNCLE MORRY COMMUNITY MEDICAL CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015387,Level 3A,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-gk-018709,UNDUGU HIGH RISE DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018709,Level 2,DISPENSARY,Langata
+sha-018273,UNICORN DENTAL CLINIC LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018273,Level 2,DENTAL CLINIC,Langata
+sha-003355,UNITY MATERNITY AND NURSING HOME UMOJA,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003355,Level 3B,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-023209,UNIVERSAL TRENDS MEDICAL AND DIAGNOSTIC CENTRE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023209,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-004421,UNIVERSITY OF NAIROBI DENTAL PLAZA,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004421,Level 4,HOSPITAL LEVEL 4,Dagoretti
+sha-gk-014292,UPENDO DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-014292,Level 2,DISPENSARY,Mathare
+sha-023851,URO-CARE UROLOGY & ANDROLOGY CENTER LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023851,Level 4B,SPECIALIST MEDICAL / DENTAL CLINIC,Westlands
+sha-gk-018185,USHIRIKA DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018185,Level 2,DISPENSARY,Embakasi
+sha-021208,USHIRIKA ELITE HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021208,Level 4,HOSPITAL LEVEL 4,Starehe
+sha-000400,USHIRIKA MEDICAL CLINIC,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,000400,Level 3A,BASIC HEALTH CENTRE,Kibra
+sha-002497,UTAWALA ESTATE HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002497,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-gk-018542,UTHIRU MUTHUA HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018542,Level 3B,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-016005,UWEZO HEALTHCARE LTD,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,016005,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-006335,UZIMA UHAI HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,006335,Level 3B,COMPREHENSIVE HEALTH CENTRE,Kasarani
+sha-coc-f-1282,VALLEY MOUNT MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,COC/F/1282,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kasarani
+sha-020583,VINE AND ROSES MEDICAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020583,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Dagoretti
+sha-018944,VINTAGELIGHT MEDICAL CENTRE,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018944,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Mathare
+sha-020154,VITALRAY HEALTH SOLUTIONS LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020154,Level 3A,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-003537,VITALRAY HEALTH SOLUTIONS LTD,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,003537,Level 4,HOSPITAL LEVEL 4,Dagoretti
+sha-002622,VOSTRUM KENYA LTD TOI CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002622,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Kibra
+sha-018697,WAAMO COMMUNITY HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018697,Level 3B,GENERAL PRACTICE CLINIC,Embakasi
+sha-gk-8728,WAITHAKA HEALTH CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-8728,Level 3A,BASIC HEALTH CENTRE,Dagoretti
+sha-018286,WALAAL CENTRE,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018286,Level 5,HOSPITAL LEVEL 5,Westlands
+sha-019746,WANAG MEDICAL CENTRE LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,019746,Level 3B,COMPREHENSIVE HEALTH CENTRE,Starehe
+sha-020909,WANANCHI EYE CLINIC & OPTICAL SERVICES LTD,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020909,Level 2,EYE CLINIC,Starehe
+sha-002213,WAYSIDE MEDICAL & DENTAL CLINIC,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,002213,Level 2,DENTAL CLINIC,Kasarani
+sha-017761,WELLSTAR HEALTHCARE SYSTEMS LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017761,Level 3B,NURSING HOME/COTTAGE HOSPITAL,Embakasi
+sha-023522,WEMA CHILDREN'S ACCESS CLINICS - GITHOGORO MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023522,Level 3B,COMPREHENSIVE HEALTH CENTRE,Westlands
+sha-020793,WEMA CHILDREN'S ACCESS CLINICS-BY GERTRUDES,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020793,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-001223,WEMA MATERNITY & NURSING HOME,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,001223,Level 3B,COMPREHENSIVE HEALTH CENTRE,Dagoretti
+sha-gk-008105,WESTLANDS HOSPITAL,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-008105,Level 4,HOSPITAL LEVEL 4,Westlands
+sha-018099,WESTLANDS LASER EYE HOSPITAL LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,018099,Level 4,HOSPITAL LEVEL 4,Westlands
+sha-004225,WESTLANDS MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,004225,Level 3B,GENERAL PRACTICE CLINIC,Westlands
+sha-020866,WILSON AIRPORT HOSPITAL LIMITED,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020866,Level 3B,COMPREHENSIVE HEALTH CENTRE,Langata
+sha-017141,WINSTON MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,017141,Level 3A,COMPREHENSIVE HEALTH CENTRE,Embakasi
+sha-023483,WISDOM DENTAL CLINIC LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,023483,Level 2,DENTAL CLINIC,Starehe
+sha-gk-009217,WOODLEY DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-009217,Level 2,DISPENSARY,Kibra
+sha-021388,YETU KABIRIA HEALTHCARE AND SUPPLIES LIMITED,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,021388,Level 2,HEALTH CLINIC - MEDICAL CLINIC,Dagoretti
+sha-020467,ZAZI HOSPITALS LIMITED,4,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,020467,Level 4,HOSPITAL LEVEL 4,Kamukunji
+sha-015684,ZIMMER MEDICAL CENTRE,3,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,015684,Level 3A,BASIC HEALTH CENTRE,Kasarani
+sha-gk-018735,ZIMMERMAN PICKENS DISPENSARY,2,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-018735,Level 2,DISPENSARY,Kasarani

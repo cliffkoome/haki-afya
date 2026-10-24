@@ -137,7 +137,7 @@ export interface ReportResponse { id: number; verified: false }       // HTTP 20
 | `POST /api/bill-check` | 15–60 s, up to ~80 s worst case | yes, 1–2 calls | Set a **90 s** client timeout and show progress |
 | `POST /api/reports` | < 10 ms | no | `201`, `404`, `422` or `429` |
 
-Gemma (`gemma-4-31b-it` via the Gemini API) is slow and sometimes returns server errors. The backend retries once and then **fails gracefully**: it never returns HTTP 5xx because Gemma failed. Every Gemma failure has a defined fallback (below), so the UI must handle `fallback`, `retake`/`model_error`, and `desk_script: null`.
+Gemma (`gemma-4-26b-a4b-it` via the Gemini API, about 8 s per call) is sometimes slow and sometimes returns server errors. The backend retries once and then **fails gracefully**: it never returns HTTP 5xx because Gemma failed. Every Gemma failure has a defined fallback (below), so the UI must handle `fallback`, `retake`/`model_error`, and `desk_script: null`.
 
 Errors always have the shape `{"error": {"code", "message"}}`. The `message` is English developer text: **don't show it to Users**. Map `code` to your own EN/SW string.
 

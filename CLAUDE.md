@@ -20,10 +20,11 @@ Hackathon build (ends 9:00 PM EAT today). Two devs, each running Claude Code: on
 - Secrets come from env vars (`GEMINI_API_KEY`, `GOOGLE_PLACES_API_KEY`). Never commit them.
 
 ## Stack
-- Backend: Python 3.12, FastAPI, Pydantic, `google-genai` (model `gemma-4-31b-it`), SQLite re-seeded from `data/` on start. Prompts live in `backend/prompts/`.
+- Backend: Python 3.12, FastAPI, Pydantic, `google-genai` (model `gemma-4-26b-a4b-it`, override with `GEMMA_MODEL`), SQLite re-seeded from `data/` on start. Prompts live in `backend/prompts/`.
 - Frontend: React + Vite + TypeScript, Tailwind, Leaflet/OpenStreetMap. Mobile-first PWA. Served by FastAPI from `frontend/dist`.
 - Deploy: one Render web service (HTTPS is required for camera and location).
 
 ## Testing
 - Rules engine: unit tests from fixed Line Items in `backend/tests/` (no network calls).
-- Run backend tests with `pytest` from `backend/`.
+- Run backend tests with `pytest` from `backend/`. `tests/test_journeys.py` runs every endpoint end to end on the real `data/` with Gemma faked.
+- Live Gemma tests are opt-in: `HAKI_LIVE=1 pytest -m live -v` (slow; uses the SAMPLE Bills in `tests/fixtures/bills/`, rendered by `scripts/make_sample_bills.py` from `tests/journey_bills.py`).

@@ -22,7 +22,9 @@ from app.models import ExtractedBill, Lang, ServiceCategory
 
 log = logging.getLogger(__name__)
 
-MODEL = os.environ.get("GEMMA_MODEL", "gemma-4-31b-it")
+# gemma-4-26b-a4b-it (mixture-of-experts, ~4B active) read the SAMPLE Bills as accurately as
+# gemma-4-31b-it in a third of the time; the 31B model kept missing the 20 s timeout.
+MODEL = os.environ.get("GEMMA_MODEL") or "gemma-4-26b-a4b-it"
 TIMEOUT_S = 20
 PROMPTS_DIR = Path(__file__).resolve().parents[1] / "prompts"
 LANGUAGE_NAME = {"en": "English", "sw": "Swahili"}

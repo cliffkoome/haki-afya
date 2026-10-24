@@ -92,7 +92,7 @@ export function CheckPhoto() {
       <input ref={inputRef} type="file" accept="image/*" capture="environment" onChange={onFile} className="hidden" />
 
       {phase.name === 'analysing' ? (
-        <Analysing />
+        <Analysing previewUrl={previewUrl} />
       ) : (
         <div className="flex flex-col gap-4">
           {phase.name === 'retake' && (
@@ -103,6 +103,7 @@ export function CheckPhoto() {
 
           {previewUrl ? (
             <img
+              key={previewUrl}
               src={previewUrl}
               alt={t('photo.previewAlt')}
               className="max-h-[50dvh] w-full rounded-2xl border border-line bg-surface object-contain"
@@ -146,7 +147,7 @@ function Tips() {
   )
 }
 
-function Analysing() {
+function Analysing({ previewUrl }: { previewUrl: string | null }) {
   const { t } = useI18n()
   const [index, setIndex] = useState(0)
 
@@ -156,8 +157,20 @@ function Analysing() {
   }, [])
 
   return (
-    <div className="flex flex-col items-center gap-5 py-12 text-center" aria-live="polite">
-      <span className="size-14 animate-spin rounded-full border-4 border-brand-soft border-t-brand motion-reduce:animate-none" />
+    <div className="flex flex-col items-center gap-5 py-4 text-center" aria-live="polite">
+      {previewUrl ? (
+        <div className="relative w-full overflow-hidden rounded-2xl border border-line bg-ink shadow-lg">
+          <img src={previewUrl} alt="" className="max-h-[42dvh] w-full object-contain opacity-80" />
+          <span aria-hidden className="scan" />
+        </div>
+      ) : (
+        <span className="size-14 animate-spin rounded-full border-4 border-brand-soft border-t-brand motion-reduce:animate-none" />
+      )}
+      <div aria-hidden className="flex gap-1.5">
+        {ANALYSING.map((key, i) => (
+          <span key={key} className={`h-1.5 rounded-full transition-all duration-500 ease-[var(--ease-out)] ${i <= index ? 'w-6 bg-brand' : 'w-1.5 bg-line'}`} />
+        ))}
+      </div>
       <p key={index} className="page-enter text-xl font-semibold">
         {t(ANALYSING[index])}
       </p>

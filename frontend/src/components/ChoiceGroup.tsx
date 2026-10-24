@@ -1,3 +1,5 @@
+import { tick } from '../lib/haptics'
+
 interface Option<T> {
   value: T
   label: string
@@ -24,9 +26,12 @@ export function ChoiceGroup<T extends string | boolean>({ label, options, value,
               type="button"
               role="radio"
               aria-checked={active}
-              onClick={() => onChange(option.value)}
-              className={`pressable min-h-14 rounded-xl border-2 px-2 text-base font-semibold ${
-                active ? 'border-brand bg-brand text-white' : 'border-line bg-surface text-ink hover:border-brand'
+              onClick={() => {
+                if (!active) tick()
+                onChange(option.value)
+              }}
+              className={`pressable min-h-14 rounded-xl border-2 px-2 text-base font-semibold transition-colors duration-200 ${
+                active ? 'pop border-brand bg-brand text-white shadow-md shadow-brand/20' : 'border-line bg-surface text-ink hover:border-brand'
               }`}
             >
               {option.label}

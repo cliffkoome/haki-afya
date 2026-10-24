@@ -68,12 +68,13 @@ export function CheckFacility() {
         <StepHeader step={1} title="facility.levelTitle" />
         <p className="-mt-2 mb-5 text-muted">{t('facility.levelHint')}</p>
         <div className="flex flex-col gap-2">
-          {LEVELS.map((level) => (
+          {LEVELS.map((level, i) => (
             <button
               key={level}
+              style={{ '--i': i } as React.CSSProperties}
               type="button"
               onClick={() => chooseLevel(level)}
-              className="pressable flex min-h-14 items-center gap-4 rounded-xl border-2 border-line bg-surface px-4 text-left hover:border-brand"
+              className="rise pressable flex min-h-14 items-center gap-4 rounded-xl border-2 border-line bg-surface px-4 text-left hover:border-brand"
             >
               <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-brand-soft text-lg font-bold text-brand-strong">
                 {level}
@@ -101,7 +102,7 @@ export function CheckFacility() {
       <StepHeader step={1} title="page.check.facility" />
 
       {visit && (
-        <div className="mb-6 rounded-2xl border-2 border-brand bg-brand-soft p-4">
+        <div className="rise mb-6 rounded-2xl border-2 border-brand bg-brand-soft p-4">
           <p className="flex flex-wrap items-center gap-2 text-lg font-semibold">
             {t('facility.recent', { name: visit.facility_name })}
             {visit.is_demo && <DemoPill />}
@@ -140,8 +141,8 @@ export function CheckFacility() {
         )}
         {search.status === 'done' && search.facilities.length > 0 && (
           <ul className="flex flex-col gap-2">
-            {search.facilities.map((f) => (
-              <li key={f.id}>
+            {search.facilities.map((f, i) => (
+              <li key={f.id} className="rise" style={{ '--i': i } as React.CSSProperties}>
                 <button
                   type="button"
                   onClick={() => choose(f)}

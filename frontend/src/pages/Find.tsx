@@ -68,14 +68,15 @@ export function Find() {
           <p className="mb-3 font-semibold text-muted">{t('find.or')}</p>
         )}
         <div className={`grid grid-cols-2 gap-2 rounded-2xl ${chooseType ? 'ring-4 ring-flag-above/30 ring-offset-4 ring-offset-canvas' : ''}`}>
-          {SERVICE_CATEGORIES.map((category) => {
+          {SERVICE_CATEGORIES.map((category, i) => {
             const emergency = category === 'emergency'
             return (
               <button
                 key={category}
                 type="button"
                 onClick={() => go(category)}
-                className={`pressable min-h-14 rounded-xl border-2 px-3 py-2 text-left font-semibold leading-snug ${
+                style={{ '--i': i } as React.CSSProperties}
+                className={`rise pressable min-h-14 rounded-xl border-2 px-3 py-2 text-left font-semibold leading-snug ${
                   emergency
                     ? 'border-emergency bg-emergency text-white'
                     : 'border-line bg-surface hover:border-brand'

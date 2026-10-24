@@ -174,7 +174,7 @@ Phone browser (React PWA)
    │  HTTPS, same origin
    ▼
 FastAPI  (serves /api/* and the built frontend from /)
-   ├── Gemini API → Gemma 4 (gemma-4-31b-it)
+   ├── Gemini API → Gemma 4 (gemma-4-26b-a4b-it; `GEMMA_MODEL` to change)
    ├── Google Places API (optional: rating, userRatingCount only)
    └── SQLite (re-seeded from data/*.csv and *.json on every start)
 ```

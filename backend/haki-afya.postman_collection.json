@@ -1,0 +1,1700 @@
+{
+  "info": {
+    "name": "Haki Afya API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Every endpoint in document.md section 9, as User journeys. Run the folders in order (Reports depend on earlier state). Bill Check calls Gemma: allow up to 90 s."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "deviceId",
+      "value": "postman-device-1"
+    }
+  ],
+  "item": [
+    {
+      "name": "0. Health",
+      "item": [
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "health"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"ok\", () => pm.expect(b.ok === true).to.be.true);"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1. Find",
+      "item": [
+        {
+          "name": "Classify: Swahili maternity (Gemma)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/care-need/classify",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "care-need",
+                "classify"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Mke wangu anakaribia kujifungua\",\n  \"lang\": \"sw\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"maternity\", () => pm.expect(b.service_category === 'maternity').to.be.true);",
+                  "pm.test(\"matched_by model\", () => pm.expect(b.matched_by === 'model').to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Classify: English dialysis (Gemma)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/care-need/classify",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "care-need",
+                "classify"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"My mother needs dialysis twice a week\",\n  \"lang\": \"en\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"dialysis\", () => pm.expect(b.service_category === 'dialysis').to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Classify: Emergency (Gemma)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/care-need/classify",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "care-need",
+                "classify"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"My father collapsed and is not breathing\",\n  \"lang\": \"en\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"is_emergency\", () => pm.expect(b.is_emergency === true && b.service_category === 'emergency').to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Classify: empty text -> 422",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/care-need/classify",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "care-need",
+                "classify"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"\",\n  \"lang\": \"en\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"error shape\", () => pm.expect(b.error.code === 'invalid_request').to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Areas (location denied fallback)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/areas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "areas"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"20 areas\", () => pm.expect(b.areas.length === 20).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Facilities: maternity near Kilimani (demo story)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/facilities?service_category=maternity&lat=-1.296&lng=36.7818&lang=en",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "facilities"
+              ],
+              "query": [
+                {
+                  "key": "service_category",
+                  "value": "maternity"
+                },
+                {
+                  "key": "lat",
+                  "value": "-1.296"
+                },
+                {
+                  "key": "lng",
+                  "value": "36.7818"
+                },
+                {
+                  "key": "lang",
+                  "value": "en"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"nearest is Demo Hospital Kilimani\", () => pm.expect(b.facilities[0].id === 'd001').to.be.true);",
+                  "pm.test(\"4 verified reports of paying\", () => pm.expect(b.facilities[0].coverage.verified_paid === 4).to.be.true);",
+                  "pm.test(\"sorted by distance\", () => pm.expect(b.facilities.every((f, i, a) => i === 0 || a[i-1].distance_km <= f.distance_km)).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Facilities: maternity near Kilimani (Swahili)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/facilities?service_category=maternity&lat=-1.296&lng=36.7818&lang=sw",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "facilities"
+              ],
+              "query": [
+                {
+                  "key": "service_category",
+                  "value": "maternity"
+                },
+                {
+                  "key": "lat",
+                  "value": "-1.296"
+                },
+                {
+                  "key": "lng",
+                  "value": "36.7818"
+                },
+                {
+                  "key": "lang",
+                  "value": "sw"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"Swahili benefit_summary\", () => pm.expect(b.facilities[0].benefit_summary.startsWith('SHA hulipa')).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Facilities: emergency near Kayole",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/facilities?service_category=emergency&lat=-1.2667&lng=36.9194",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "facilities"
+              ],
+              "query": [
+                {
+                  "key": "service_category",
+                  "value": "emergency"
+                },
+                {
+                  "key": "lat",
+                  "value": "-1.2667"
+                },
+                {
+                  "key": "lng",
+                  "value": "36.9194"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"at least one\", () => pm.expect(b.facilities.length > 0).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Facilities: bad Service Category -> 422",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/facilities?service_category=dentistry&lat=-1.296&lng=36.7818",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "facilities"
+              ],
+              "query": [
+                {
+                  "key": "service_category",
+                  "value": "dentistry"
+                },
+                {
+                  "key": "lat",
+                  "value": "-1.296"
+                },
+                {
+                  "key": "lng",
+                  "value": "36.7818"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2. Search (is this facility contracted?)",
+      "item": [
+        {
+          "name": "Search: mama lucy",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/facilities/search?q=mama lucy",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "facilities",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "mama lucy"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"contracted\", () => pm.expect(b.facilities[0].contracted === true).to.be.true);",
+                  "pm.test(\"Level 5\", () => pm.expect(b.facilities[0].sha_level === 'Level 5').to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search: M.P. Shah (dots ignored)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/facilities/search?q=M.P. Shah",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "facilities",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "M.P. Shah"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"found\", () => pm.expect(b.facilities[0].name === 'MP SHAH HOSPITAL').to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search: knh -> empty (NOT 'not contracted')",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/facilities/search?q=knh",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "facilities",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "knh"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"empty\", () => pm.expect(b.facilities.length === 0).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search: demo -> Demo Facilities, not contracted",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/facilities/search?q=demo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "facilities",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "demo"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"all demo, none contracted\", () => pm.expect(b.facilities.every(f => f.is_demo && !f.contracted)).to.be.true);"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. Bill Check (Gemma, up to 90 s each)",
+      "item": [
+        {
+          "name": "Bill 1 @ Demo Hospital Kilimani, registered, referred",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ]
+            },
+            "description": "SAMPLE bill 1 from the demo script.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill1_delivery.jpg"
+                },
+                {
+                  "key": "facility_id",
+                  "value": "d001",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "referred",
+                  "type": "text"
+                },
+                {
+                  "key": "lang",
+                  "value": "en",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"status ok\", () => pm.expect(b.status === 'ok').to.be.true);",
+                  "pm.test(\"Flags: should_be_free above_tariff payable\", () => pm.expect(JSON.stringify(b.flags.map(f => f.flag)) === \"[\\\"should_be_free\\\",\\\"above_tariff\\\",\\\"payable\\\"]\").to.be.true);",
+                  "pm.test(\"KES 18,280 in question\", () => pm.expect(b.summary.amount_in_question_kes === 18280).to.be.true);",
+                  "pm.test(\"Desk Script written\", () => pm.expect(!!b.desk_script).to.be.true);",
+                  "pm.test(\"Verified Report saved\", () => pm.expect(b.verified_report_saved === true).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bill 1 in Swahili, no referral",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill1_delivery.jpg"
+                },
+                {
+                  "key": "facility_id",
+                  "value": "d001",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "neither",
+                  "type": "text"
+                },
+                {
+                  "key": "lang",
+                  "value": "sw",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"status ok\", () => pm.expect(b.status === 'ok').to.be.true);",
+                  "pm.test(\"Swahili disclaimer\", () => pm.expect(b.disclaimer.startsWith('Huu si ushauri')).to.be.true);",
+                  "pm.test(\"same device: no second Verified Report\", () => pm.expect(b.verified_report_saved === false).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bill 1 'Not listed' facility, Level 6",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill1_delivery.jpg"
+                },
+                {
+                  "key": "facility_level",
+                  "value": "6",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "referred",
+                  "type": "text"
+                },
+                {
+                  "key": "lang",
+                  "value": "en",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"facility id null\", () => pm.expect(b.facility.id === null && b.facility.level === 6).to.be.true);",
+                  "pm.test(\"Level 6 bed-day Tariff 4,480\", () => pm.expect(b.flags[1].tariff_kes === 4480).to.be.true);",
+                  "pm.test(\"nothing saved\", () => pm.expect(b.verified_report_saved === false).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bill 1, Patient not registered",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill1_delivery.jpg"
+                },
+                {
+                  "key": "facility_id",
+                  "value": "d001",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "false",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "neither",
+                  "type": "text"
+                },
+                {
+                  "key": "lang",
+                  "value": "en",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"Flags: payable payable payable\", () => pm.expect(JSON.stringify(b.flags.map(f => f.flag)) === \"[\\\"payable\\\",\\\"payable\\\",\\\"payable\\\"]\").to.be.true);",
+                  "pm.test(\"nothing in question\", () => pm.expect(b.summary.amount_in_question_kes === 0).to.be.true);",
+                  "pm.test(\"SHA contacts to register\", () => pm.expect(b.sha_contacts.length > 0).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bill 2 caesarean @ Level 5 with SHA deduction",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill2_caesarean.jpg"
+                },
+                {
+                  "key": "facility_id",
+                  "value": "d006",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "referred",
+                  "type": "text"
+                },
+                {
+                  "key": "lang",
+                  "value": "en",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"Flags: should_be_free above_tariff payable payable payable\", () => pm.expect(JSON.stringify(b.flags.map(f => f.flag)) === \"[\\\"should_be_free\\\",\\\"above_tariff\\\",\\\"payable\\\",\\\"payable\\\",\\\"payable\\\"]\").to.be.true);",
+                  "pm.test(\"KES 47,320 in question\", () => pm.expect(b.summary.amount_in_question_kes === 47320).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bill 3 fair bill -> Looks fair",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill3_fair.jpg"
+                },
+                {
+                  "key": "facility_id",
+                  "value": "d002",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "referred",
+                  "type": "text"
+                },
+                {
+                  "key": "lang",
+                  "value": "en",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"Flags: payable payable payable payable\", () => pm.expect(JSON.stringify(b.flags.map(f => f.flag)) === \"[\\\"payable\\\",\\\"payable\\\",\\\"payable\\\",\\\"payable\\\"]\").to.be.true);",
+                  "pm.test(\"no Desk Script needed\", () => pm.expect(b.desk_script === null).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bill 4 unregistered emergency -> ambulance still checked",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill4_emergency.jpg"
+                },
+                {
+                  "key": "facility_id",
+                  "value": "d014",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "false",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "emergency",
+                  "type": "text"
+                },
+                {
+                  "key": "lang",
+                  "value": "en",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"Flags: above_tariff payable payable\", () => pm.expect(JSON.stringify(b.flags.map(f => f.flag)) === \"[\\\"above_tariff\\\",\\\"payable\\\",\\\"payable\\\"]\").to.be.true);",
+                  "pm.test(\"KES 1,500 in question\", () => pm.expect(b.summary.amount_in_question_kes === 1500).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bill 5 totals don't add up -> retake",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill5_mismatch.jpg"
+                },
+                {
+                  "key": "facility_id",
+                  "value": "d017",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "referred",
+                  "type": "text"
+                },
+                {
+                  "key": "lang",
+                  "value": "en",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"retake totals_mismatch\", () => pm.expect(b.status === 'retake' && b.reason === 'totals_mismatch').to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Not a bill -> retake",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/not_a_bill.jpg"
+                },
+                {
+                  "key": "facility_id",
+                  "value": "d001",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "referred",
+                  "type": "text"
+                },
+                {
+                  "key": "lang",
+                  "value": "sw",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"retake not_a_bill\", () => pm.expect(b.status === 'retake' && b.reason === 'not_a_bill').to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Mock ok (no Gemma)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check?mock=ok",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ],
+              "query": [
+                {
+                  "key": "mock",
+                  "value": "ok"
+                }
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill1_delivery.jpg"
+                },
+                {
+                  "key": "facility_id",
+                  "value": "d001",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "referred",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"ok\", () => pm.expect(b.status === 'ok').to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Mock retake (no Gemma)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check?mock=retake",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ],
+              "query": [
+                {
+                  "key": "mock",
+                  "value": "retake"
+                }
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill1_delivery.jpg"
+                },
+                {
+                  "key": "facility_id",
+                  "value": "d001",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "referred",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"retake\", () => pm.expect(b.status === 'retake').to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Unknown facility -> 404",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill1_delivery.jpg"
+                },
+                {
+                  "key": "facility_id",
+                  "value": "nope",
+                  "type": "text"
+                },
+                {
+                  "key": "registered",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "referred",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 404', () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "No facility or Level -> 422",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bill-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bill-check"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/stonie/haki-afya/backend/tests/fixtures/bills/bill1_delivery.jpg"
+                },
+                {
+                  "key": "registered",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "referral",
+                  "value": "referred",
+                  "type": "text"
+                },
+                {
+                  "key": "device_id",
+                  "value": "{{deviceId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4. Reports (Visit follow-up)",
+      "item": [
+        {
+          "name": "Paid at Mama Lucy -> 201",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"facility_id\": \"sha-gk-011577\",\n  \"service_category\": \"maternity\",\n  \"paid\": true,\n  \"amount_kes\": 5000,\n  \"device_id\": \"{{deviceId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"unverified\", () => pm.expect(b.verified === false).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Same again -> 429 rate_limited",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"facility_id\": \"sha-gk-011577\",\n  \"service_category\": \"maternity\",\n  \"paid\": true,\n  \"amount_kes\": 5000,\n  \"device_id\": \"{{deviceId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 429', () => pm.response.to.have.status(429));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"rate_limited\", () => pm.expect(b.error.code === 'rate_limited').to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search shows the new report",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/facilities/search?q=mama lucy",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "facilities",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "mama lucy"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test(\"1 unverified paid\", () => pm.expect(b.facilities[0].coverage.unverified_paid >= 1).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Paid nothing at Demo Health Centre Kibera -> 201",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"facility_id\": \"d002\",\n  \"service_category\": \"maternity\",\n  \"paid\": false,\n  \"device_id\": \"{{deviceId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Unknown facility -> 404",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"facility_id\": \"nope\",\n  \"service_category\": \"maternity\",\n  \"paid\": false,\n  \"device_id\": \"{{deviceId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 404', () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

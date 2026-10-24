@@ -9,7 +9,8 @@ const tables: Record<Lang, Record<StringKey, string>> = { en, sw }
 interface I18n {
   lang: Lang
   setLang: (lang: Lang) => void
-  t: (key: StringKey) => string
+  /** Look up a string; `{name}` placeholders are filled from `vars`. */
+  t: (key: StringKey, vars?: Record<string, string | number>) => string
 }
 
 const I18nContext = createContext<I18n | null>(null)
@@ -29,7 +30,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = lang
   }, [lang])
 
-  const value = useMemo<I18n>(() => ({ lang, setLang, t: (key) => tables[lang][key] }), [lang, setLang])
+  const value = useMemo<I18n>(() => ({ lang, setLang, t: (key, vars) => fill(tables[lang][key], vars) }), [lang, setLang])
 
   return <I18nContext value={value}>{children}</I18nContext>
 }
@@ -38,4 +39,9 @@ export function useI18n(): I18n {
   const ctx = useContext(I18nContext)
   if (!ctx) throw new Error('useI18n must be used inside <I18nProvider>')
   return ctx
+}
+
+function fill(text: string, vars?: Record<string, string | number>): string {
+  if (!vars) return text
+  return text.replace(/\{(\w+)\}/g, (match, name: string) => (name in vars ? String(vars[name]) : match))
 }

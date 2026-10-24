@@ -6,16 +6,26 @@
 **Owner:** frontend dev · **Backend:** teammate (mock API already live, see "API" below)
 **Stack:** React + Vite + TypeScript, Tailwind, React Router, Leaflet + OpenStreetMap. Mobile-first PWA.
 
+## Current status
+
+_Updated 2026-10-24 ~16:45 EAT._
+
+- **Done (against the mock API, checked headless at 390px in EN and SW):** app shell, Home, and the full Bill Check flow (`/check` → `/check/questions` → `/check/photo` → `/check/result`), including retake and error states.
+- **Testing tips:** open any page with `?mock=retake` (dev only, `src/lib/devMock.ts`) to force the retake response for the session. Wizard state lives in `src/state/BillCheck.tsx` (memory only; a reload sends you back to `/check`).
+- **Not yet wired to real backend:** every endpoint is still a mock on the backend side. When the teammate lands real `/api/facilities/search` and `/api/bill-check`, nothing should need to change in the frontend unless the contract changes.
+- **Next:** Find (`/find`, `/emergency`, `/find/results`, P1), then Report prompt + About (P2).
+- **Still open for P0:** real-phone check on the deployed HTTPS URL (camera, Copy/Share).
+
 ## Status
 
 | # | Page / piece | Route | Priority | Status |
 |---|---|---|---|---|
 | 0 | Project setup + app shell | all | P0 | 🟨 code done, real-phone check pending |
-| 1 | Home | `/` | P0 | ⬜ |
-| 2 | Bill Check: choose facility | `/check` | P0 | ⬜ |
-| 3 | Bill Check: two questions | `/check/questions` | P0 | ⬜ |
-| 4 | Bill Check: photo + analysing | `/check/photo` | P0 | ⬜ |
-| 5 | Bill Check: result | `/check/result` | P0 | ⬜ |
+| 1 | Home | `/` | P0 | 🟨 code done, real-phone check pending |
+| 2 | Bill Check: choose facility | `/check` | P0 | 🟨 code done, real-phone check pending |
+| 3 | Bill Check: two questions | `/check/questions` | P0 | 🟨 code done, real-phone check pending |
+| 4 | Bill Check: photo + analysing | `/check/photo` | P0 | 🟨 code done, real-phone check pending |
+| 5 | Bill Check: result | `/check/result` | P0 | 🟨 code done, real-phone check pending |
 | 6 | Find: Care Need | `/find` | P1 | ⬜ |
 | 7 | Emergency | `/emergency` | P1 | ⬜ |
 | 8 | Find: results (list + map) | `/find/results` | P1 | ⬜ |
@@ -72,11 +82,11 @@ Home ─┬─ "Check a bill" ─► /check ─► /check/questions ─► /chec
 
 **Purpose:** two decisions in one tap.
 
-- [ ] Big primary button: **Check a bill** → `/check`
-- [ ] Big secondary button: **Find care** → `/find`
-- [ ] One-line pitch: *"See what SHA should cover, before you pay."*
-- [ ] If a Visit is due (≥ 2 h old, unanswered): open the **Report prompt** (page 9)
-- [ ] Small link: "How it works" → `/about`
+- [x] Big primary button: **Check a bill** → `/check`
+- [x] Big secondary button: **Find care** → `/find`
+- [x] One-line pitch: *"See what SHA should cover, before you pay."*
+- [ ] If a Visit is due (≥ 2 h old, unanswered): open the **Report prompt** (page 9), built with page 9
+- [x] Small link: "How it works" → `/about`
 
 **Done when:** both buttons work and the page fits one phone screen without scrolling.
 
@@ -86,11 +96,11 @@ Home ─┬─ "Check a bill" ─► /check ─► /check/questions ─► /chec
 
 **Purpose:** know which facility, and so its Facility Level, before the photo.
 
-- [ ] If there is a recent Visit: show it pre-selected (*"Mama Lucy Kibaki Hospital?"*) with a **Yes** button
-- [ ] Search box → `GET /api/facilities/search?q=` (debounce ~250 ms; start at 2 characters)
-- [ ] Result rows: name, "Level N", a **Demo data** pill if `is_demo`
-- [ ] **"My facility isn't listed"** → Facility Level picker (2 to 6, with a one-line hint for each level) → continue with no `facility_id`
-- [ ] Next → `/check/questions`
+- [x] If there is a recent Visit: show it pre-selected (*"Mama Lucy Kibaki Hospital?"*) with a **Yes** button
+- [x] Search box → `GET /api/facilities/search?q=` (debounce ~250 ms; start at 2 characters)
+- [x] Result rows: name, "Level N", a **Demo data** pill if `is_demo`
+- [x] **"My facility isn't listed"** → Facility Level picker (2 to 6, with a one-line hint for each level) → continue with no `facility_id`
+- [x] Next → `/check/questions`
 
 **States:** searching · no results (offer "not listed") · API error (retry + "not listed")
 **Done when:** you can reach step 3 both with a listed facility and with "not listed + level".
@@ -101,10 +111,10 @@ Home ─┬─ "Check a bill" ─► /check ─► /check/questions ─► /chec
 
 One question per screen section, big one-tap answers:
 
-- [ ] *"Is the Patient registered with SHA?"* **Yes / No**
-- [ ] *"Were you referred here, or was this an emergency?"* **Referred / Emergency / Neither**
-- [ ] If **No** to the first: show a short note, *"Without SHA registration, only emergency care in the first 24 hours is covered."* (still allowed to continue)
-- [ ] Next → `/check/photo`
+- [x] *"Is the Patient registered with SHA?"* **Yes / No**
+- [x] *"Were you referred here, or was this an emergency?"* **Referred / Emergency / Neither**
+- [x] If **No** to the first: show a short note, *"Without SHA registration, only emergency care in the first 24 hours is covered."* (still allowed to continue)
+- [x] Next → `/check/photo`
 
 **Done when:** both answers are stored in the Bill Check state and Back keeps them.
 
@@ -112,15 +122,15 @@ One question per screen section, big one-tap answers:
 
 ## 4. Bill Check: photo + analysing `/check/photo` (P0)
 
-- [ ] Tips card: *"Lay the bill flat · good light · whole bill in view"*
-- [ ] **Take photo** button: `<input type="file" accept="image/*" capture="environment">`
-- [ ] Preview the photo + **Use this photo** / **Retake**
-- [ ] Client-side downscale to ~1600px longest side, JPEG ~0.85, so the upload stays under 8 MB on slow networks
-- [ ] Submit `POST /api/bill-check` (multipart: `image`, `facility_id` or `facility_level`, `registered`, `referral`, `lang`, `device_id`)
-- [ ] **Analysing** state: progress message that rotates through *"Reading your bill…"*, *"Checking SHA rules…"*, *"Writing your Desk Script…"*. Can take up to ~30 s.
-- [ ] `status: "retake"` → show `message`, keep the user on this page, **Retake** button (test with `?mock=retake`)
-- [ ] `status: "ok"` → `/check/result`
-- [ ] **Privacy:** the image lives only in memory. Never put it in `localStorage` or `sessionStorage`. Discard it after the response.
+- [x] Tips card: *"Lay the bill flat · good light · whole bill in view"*
+- [x] **Take photo** button: `<input type="file" accept="image/*" capture="environment">`
+- [x] Preview the photo + **Use this photo** / **Retake**
+- [x] Client-side downscale to ~1600px longest side, JPEG ~0.85, so the upload stays under 8 MB on slow networks
+- [x] Submit `POST /api/bill-check` (multipart: `image`, `facility_id` or `facility_level`, `registered`, `referral`, `lang`, `device_id`)
+- [x] **Analysing** state: progress message that rotates through *"Reading your bill…"*, *"Checking SHA rules…"*, *"Writing your Desk Script…"*. Can take up to ~30 s.
+- [x] `status: "retake"` → show `message`, keep the user on this page, **Retake** button (test with `?mock=retake`)
+- [x] `status: "ok"` → `/check/result`
+- [x] **Privacy:** the image lives only in memory. Never put it in `localStorage` or `sessionStorage`. Discard it after the response.
 
 **States:** no photo · preview · uploading/analysing · retake · network/timeout error (retry)
 **Done when:** a real phone camera photo reaches the API and both mock responses (ok and retake) are handled.
@@ -131,19 +141,19 @@ One question per screen section, big one-tap answers:
 
 **Top to bottom:**
 
-- [ ] **Summary banner:** *"KES 18,280 of your KES 25,800 bill is in question"* (`summary.amount_in_question_kes`, `summary.balance_kes`). If it is 0: *"Looks fair ✓"* in green
-- [ ] Facility name + level (+ **Demo data** pill if a Demo Facility)
-- [ ] **Flag cards**, one per Line Item, sorted 🔴 → 🟡 → ⚪ → 🟢:
-  - [ ] icon + label (Should Be Free / Above Tariff / Unclear / Payable)
-  - [ ] Line Item description, amount charged
-  - [ ] `message` (facts and a question, never accusations, comes from the backend as-is)
-  - [ ] "Source" link if `source_url`
-- [ ] **Desk Script** card: large readable text + **Copy**
-- [ ] **Complaint Draft** card: collapsed by default, expand to read, **Copy** + **Share** (Web Share API; fall back to Copy if unavailable)
-- [ ] SHA contacts list (`sha_contacts`), only if non-empty
-- [ ] *"Your check was saved anonymously and helps the next patient"* if `verified_report_saved`
-- [ ] `disclaimer` text
-- [ ] Buttons: **Check another bill** · **Home**
+- [x] **Summary banner:** *"KES 18,280 of your KES 25,800 bill is in question"* (`summary.amount_in_question_kes`, `summary.balance_kes`). If it is 0: *"Looks fair ✓"* in green
+- [x] Facility name + level (+ **Demo data** pill if a Demo Facility)
+- [x] **Flag cards**, one per Line Item, sorted 🔴 → 🟡 → ⚪ → 🟢:
+  - [x] icon + label (Should Be Free / Above Tariff / Unclear / Payable)
+  - [x] Line Item description, amount charged
+  - [x] `message` (facts and a question, never accusations, comes from the backend as-is)
+  - [x] "Source" link if `source_url`
+- [x] **Desk Script** card: large readable text + **Copy**
+- [x] **Complaint Draft** card: collapsed by default, expand to read, **Copy** + **Share** (Web Share API; fall back to Copy if unavailable)
+- [x] SHA contacts list (`sha_contacts`), only if non-empty
+- [x] *"Your check was saved anonymously and helps the next patient"* if `verified_report_saved`
+- [x] `disclaimer` text
+- [x] Buttons: **Check another bill** · **Home**
 
 **Done when:** the mock result looks right on a phone and Copy/Share work. This is the screen the judges see, so polish it first.
 

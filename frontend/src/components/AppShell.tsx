@@ -25,10 +25,10 @@ export function AppShell() {
       </main>
 
       <footer className="flex items-center justify-between gap-3 border-t border-line px-4 py-4 text-sm text-muted">
-        <span>{t('footer.disclaimer')}</span>
+        <span className="min-w-0">{t('footer.disclaimer')}</span>
         <span className="flex items-center gap-2">
           {import.meta.env.DEV && <ApiStatusDot />}
-          <Link to="/about" className="font-medium text-brand-strong underline underline-offset-2">
+          <Link to="/about" className="font-medium whitespace-nowrap text-brand-strong underline underline-offset-2">
             {t('footer.about')}
           </Link>
         </span>

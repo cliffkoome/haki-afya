@@ -138,7 +138,7 @@ photo ─► [Gemma] extract + classify ─► [code] check the read ─► [cod
 | **Unclear** | ⚪ | Line Item confidence < 0.6, or category `other` |
 
 **Modifiers:**
-- **Patient not registered:** only the `emergency_care` rule applies, and only if the answer to question 2 was Emergency. All other items are Payable, and the result shows how to register with SHA.
+- **Patient not registered:** only rules with `covers_unregistered: true` apply (e.g. `emergency_care`, `ambulance`: "accessible to all Kenyans regardless of registration"), and only if the answer to question 2 was Emergency. All other items are Payable, and the result shows how to register with SHA.
 - **Referral = Neither, at Level 4–6:** rules marked `requires_referral` produce a softened message: *"This may be covered if you had a referral from a primary facility."*
 
 **Starter rules** (non-dev data person verifies each one against a source and fills `source_url` before the demo; figures below are from secondary summaries and **may be wrong**):
@@ -201,12 +201,13 @@ FastAPI  (serves /api/* and the built frontend from /)
 
 All files in `data/` are committed and MIT-licensed as an open dataset.
 
-**`facilities.csv`** (non-devs: 30–50 real Nairobi Contracted Facilities + 3 Demo Facilities)
+**`facilities.csv`**: all 762 Nairobi Contracted Facilities, imported from [SHA's list](https://www.sha.go.ke/contracted-facilities-nairobi/) by `python scripts/import_sha_facilities.py` (from `backend/`), plus the Demo Facilities. Re-running the import keeps Demo Facilities and anything filled in by hand (`lat`, `lng`, `service_categories`, `google_place_id`), and drops facilities SHA no longer lists. SHA sub-levels map to the whole Level for Tariffs (`Level 3A`/`3B` → 3, `4B` → 4, `6A`/`6B` → 6); `sha_level` keeps SHA's label.
 ```
-id,name,level,lat,lng,service_categories,google_place_id,is_demo,source_url,checked_on
-f001,Example Health Centre,3,-1.2921,36.8219,maternity;general_outpatient,,false,https://sha.go.ke/contracted-facilities/,2026-10-24
-d001,Demo Hospital Kilimani,4,-1.2900,36.7833,maternity;imaging;general_outpatient,,true,,2026-10-24
+id,name,level,lat,lng,service_categories,google_place_id,is_demo,source_url,checked_on,sha_registration_no,sha_level,type,sub_county
+sha-gk-011577,MAMA LUCY KIBAKI HOSPITAL,5,,,,,false,https://www.sha.go.ke/contracted-facilities-nairobi/,2026-10-24,GK-011577,Level 5,HOSPITAL LEVEL 5,Embakasi
+d001,Demo Hospital Kilimani,4,-1.2900,36.7833,maternity;imaging;general_outpatient,,true,,2026-10-24,,,,
 ```
+SHA's list has no coordinates or services. **A facility appears in Find only once a person fills `lat`, `lng` and `service_categories`** (non-devs: 30–50 facilities, with the source checked); every facility is searchable straight away.
 
 **`tariffs.json`**
 ```json
@@ -242,11 +243,13 @@ d001,Demo Hospital Kilimani,4,-1.2900,36.7833,maternity;imaging;general_outpatie
 
 **`emergency_keywords.json`**: `{ "en": ["chest pain", "can't breathe", ...], "sw": ["maumivu ya kifua", "hawezi kupumua", ...] }`, written by a non-dev and reviewed by a second person.
 
-**`sha_contacts.json`**: SHA's official complaint channels, **copied by a person from sha.go.ke** with `source_url`.
+**`sha_contacts.json`**: SHA's official complaint channels, **copied by a person from sha.go.ke** with `source_url`: `[{ "channel": "Email", "value": "...", "source_url": "https://sha.go.ke/..." }]`.
 
-**`demo_reports.csv`**: invented Coverage Reports, **Demo Facilities only** (the seed script must reject any row whose facility is not `is_demo`).
+**`demo_reports.csv`**: invented Coverage Reports, **Demo Facilities only** (the seed script must reject any row whose facility is not `is_demo`). Columns: `facility_id,service_category,paid,amount_kes,verified,flag,created_at`; an empty `created_at` means "at startup", so the report stays inside the 90-day window.
 
-**`areas.json`**: Nairobi areas with coordinates for when location is denied.
+**`areas.json`**: Nairobi areas with coordinates for when location is denied: `[{ "id": "kilimani", "name": "Kilimani", "lat": -1.29, "lng": 36.78 }]`.
+
+**Checking the data:** from `backend/`, run `python -m app.data`. It prints counts and warnings (missing `source_url`, empty files). The app refuses to start if a file breaks a hard rule: invented reports on a real facility, a Demo Facility whose name doesn't contain "Demo", an unknown Service Category or Level, duplicate ids. `tariffs.json` `unit` is one of `per_delivery`, `per_day`, `per_session`, `per_scan`, `per_trip`, `per_visit`, `per_procedure`, `flat`; optional `covers_unregistered` (default `false`) marks rules that apply to every Kenyan in an Emergency.
 
 ### SQLite tables
 
@@ -306,9 +309,24 @@ Response:
 ```
 `google` is `null` when ratings are disabled or unavailable. Max 15 km, sorted by `distance_km`.
 
-### `GET /api/facilities/search?q=mama`
+### `GET /api/facilities/search?q=mama lucy&service_category=maternity`
+Searches every facility on SHA's contracted list for Nairobi (plus Demo Facilities). Used by the Bill Check facility picker and by "Is this facility contracted?" lookups. `service_category` is optional; it narrows `coverage` to that Service Category (otherwise all of them).
 ```json
-{ "facilities": [ { "id": "f012", "name": "Mama Lucy Kibaki Hospital", "level": 5, "is_demo": false } ] }
+{ "facilities": [ {
+    "id": "sha-gk-011577", "name": "MAMA LUCY KIBAKI HOSPITAL", "level": 5, "is_demo": false,
+    "contracted": true, "contracted_checked_on": "2026-10-24",
+    "sha_level": "Level 5", "type": "HOSPITAL LEVEL 5", "sub_county": "Embakasi",
+    "coverage": { "window_days": 90, "verified_paid": 0, "verified_free": 0, "unverified_paid": 0, "unverified_free": 0 }
+} ] }
+```
+- Every word typed must start a word of the name, any order, case and dots ignored (`m.p. shah` finds `MP SHAH HOSPITAL`). Best matches first, max 20.
+- `contracted` is `true` for facilities from SHA's list and `false` for Demo Facilities (show the "Demo data" label instead). `name` is exactly as SHA prints it (upper case).
+- **Empty result ≠ "not contracted".** Abbreviations and spelling differ (`knh` finds nothing; `kenyatta` does). Show exactly: EN *"We couldn't find this name on SHA's list of contracted facilities in Nairobi (checked {date}). Try the full name, or ask the facility or SHA before you go."* / SW *"Hatukupata jina hili kwenye orodha ya SHA ya vituo vilivyo na mkataba Nairobi (iliangaliwa {date}). Jaribu jina kamili, au uliza kituo au SHA kabla ya kwenda."*
+
+### `GET /api/areas`
+Nairobi areas from `data/areas.json`, for when location is denied. Send the chosen area's `lat`/`lng` to `/api/facilities`.
+```json
+{ "areas": [ { "id": "kilimani", "name": "Kilimani", "lat": -1.29, "lng": 36.78 } ] }
 ```
 
 ### `POST /api/bill-check` (multipart/form-data)
@@ -349,6 +367,12 @@ Response (ok):
 ```
 `flag` values: `should_be_free`, `above_tariff`, `payable`, `unclear`.
 
+- `facility`: when "Not listed" was picked, `id` and `name` are `null` and `level` is the `facility_level` sent.
+- `desk_script` and `complaint_draft` are `null` when there is nothing to ask about (no 🔴/🟡 Flags), when Gemma fails, or when the text fails the code check (accusing words, or numbers that were not in the Flags). Show the Flags without them.
+- `verified_report_saved` is `false` for "Not listed", for an unregistered Patient, and when this device already reported this facility and Service Category in the last 30 days.
+- Errors: `404 not_found` (unknown `facility_id`), `413 too_large` (image over 8 MB), `422 invalid_request` (missing field, no `facility_id` or `facility_level`, file is not an image).
+- Testing only: `?mock=ok` or `?mock=retake` returns the examples on this page without calling Gemma.
+
 Response (retake):
 ```json
 { "status": "retake", "reason": "totals_mismatch", "message": "We could not read this bill clearly. Please retake the photo flat, in good light, with the whole bill visible." }
@@ -362,6 +386,7 @@ Request:
 ```
 Response `201`: `{ "id": 41, "verified": false }`
 Response `429`: `{"error": {"code": "rate_limited", "message": "You already reported this facility for this service in the last 30 days."}}`
+Response `404`: `not_found` for an unknown `facility_id`. `amount_kes` is ignored when `paid` is `false`.
 
 ---
 

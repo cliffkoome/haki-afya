@@ -4,25 +4,160 @@
     "line_item_category": "normal_delivery",
     "service_category": "maternity",
     "type": "free",
-    "levels": [2, 3, 4, 5, 6],
+    "levels": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
     "tariff_kes": 10000,
     "unit": "per_delivery",
     "requires_referral": false,
-    "source_url": "",
-    "note_en": "SHA covers normal delivery; registered members should not pay out of pocket.",
-    "note_sw": "SHA inalipia kujifungua kwa kawaida; wanachama waliosajiliwa hawapaswi kulipa."
+    "covers_unregistered": false,
+    "source_url": "https://health.go.ke/sites/default/files/2026-04/RIA%20-SHA%20Tariffs%202026%205TH%20FEB%202026%20(1).pdf",
+    "note_en": "SHA pays KES 10,000 for a normal delivery, including essential newborn care. Registered members should not pay out of pocket.",
+    "note_sw": "SHA hulipa KES 10,000 kwa kujifungua kwa kawaida, pamoja na huduma muhimu kwa mtoto mchanga. Wanachama waliosajiliwa hawapaswi kulipa kutoka mfukoni."
+  },
+  {
+    "id": "caesarean",
+    "line_item_category": "caesarean",
+    "service_category": "maternity",
+    "type": "free",
+    "levels": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "tariff_kes": 30000,
+    "unit": "per_delivery",
+    "requires_referral": false,
+    "covers_unregistered": false,
+    "source_url": "https://health.go.ke/sites/default/files/2026-04/RIA%20-SHA%20Tariffs%202026%205TH%20FEB%202026%20(1).pdf",
+    "note_en": "SHA pays KES 30,000 for a caesarean section, including essential newborn care. Registered members should not pay out of pocket.",
+    "note_sw": "SHA hulipa KES 30,000 kwa upasuaji wa kujifungua, pamoja na huduma muhimu kwa mtoto mchanga. Wanachama waliosajiliwa hawapaswi kulipa kutoka mfukoni."
+  },
+  {
+    "id": "bed_day_l3",
+    "line_item_category": "bed_day",
+    "service_category": "general_outpatient",
+    "type": "max_per_unit",
+    "levels": [
+      3
+    ],
+    "tariff_kes": 2240,
+    "unit": "per_day",
+    "requires_referral": false,
+    "covers_unregistered": false,
+    "source_url": "https://health.go.ke/sites/default/files/2026-04/RIA%20-SHA%20Tariffs%202026%205TH%20FEB%202026%20(1).pdf",
+    "note_en": "SHA pays Level 3 facilities KES 2,240 per inpatient day, up to 180 days per household per year.",
+    "note_sw": "SHA hulipa vituo vya Kiwango cha 3 KES 2,240 kwa siku ya kulazwa, hadi siku 180 kwa kila kaya kwa mwaka."
   },
   {
     "id": "bed_day_l4",
     "line_item_category": "bed_day",
     "service_category": "general_outpatient",
     "type": "max_per_unit",
-    "levels": [4],
+    "levels": [
+      4
+    ],
     "tariff_kes": 3360,
     "unit": "per_day",
-    "requires_referral": true,
-    "source_url": "",
-    "note_en": "SHA pays Level 4 facilities KES 3,360 per inpatient day.",
-    "note_sw": "SHA hulipa vituo vya Kiwango cha 4 KES 3,360 kwa siku ya kulazwa."
+    "requires_referral": false,
+    "covers_unregistered": false,
+    "source_url": "https://health.go.ke/sites/default/files/2026-04/RIA%20-SHA%20Tariffs%202026%205TH%20FEB%202026%20(1).pdf",
+    "note_en": "SHA pays Level 4 facilities KES 3,360 per inpatient day, up to 180 days per household per year.",
+    "note_sw": "SHA hulipa vituo vya Kiwango cha 4 KES 3,360 kwa siku ya kulazwa, hadi siku 180 kwa kila kaya kwa mwaka."
+  },
+  {
+    "id": "bed_day_l5",
+    "line_item_category": "bed_day",
+    "service_category": "general_outpatient",
+    "type": "max_per_unit",
+    "levels": [
+      5
+    ],
+    "tariff_kes": 3920,
+    "unit": "per_day",
+    "requires_referral": false,
+    "covers_unregistered": false,
+    "source_url": "https://health.go.ke/sites/default/files/2026-04/RIA%20-SHA%20Tariffs%202026%205TH%20FEB%202026%20(1).pdf",
+    "note_en": "SHA pays Level 5 facilities KES 3,920 per inpatient day, up to 180 days per household per year.",
+    "note_sw": "SHA hulipa vituo vya Kiwango cha 5 KES 3,920 kwa siku ya kulazwa, hadi siku 180 kwa kila kaya kwa mwaka."
+  },
+  {
+    "id": "bed_day_l6",
+    "line_item_category": "bed_day",
+    "service_category": "general_outpatient",
+    "type": "max_per_unit",
+    "levels": [
+      6
+    ],
+    "tariff_kes": 4480,
+    "unit": "per_day",
+    "requires_referral": false,
+    "covers_unregistered": false,
+    "source_url": "https://health.go.ke/sites/default/files/2026-04/RIA%20-SHA%20Tariffs%202026%205TH%20FEB%202026%20(1).pdf",
+    "note_en": "SHA pays Level 6 facilities KES 4,480 per inpatient day, up to 180 days per household per year.",
+    "note_sw": "SHA hulipa vituo vya Kiwango cha 6 KES 4,480 kwa siku ya kulazwa, hadi siku 180 kwa kila kaya kwa mwaka."
+  },
+  {
+    "id": "haemodialysis",
+    "line_item_category": "haemodialysis_session",
+    "service_category": "dialysis",
+    "type": "max_per_unit",
+    "levels": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "tariff_kes": 10650,
+    "unit": "per_session",
+    "requires_referral": false,
+    "covers_unregistered": false,
+    "source_url": "https://health.go.ke/sites/default/files/2026-04/RIA%20-SHA%20Tariffs%202026%205TH%20FEB%202026%20(1).pdf",
+    "note_en": "SHA pays KES 10,650 per dialysis session at Levels 3 to 6, with a limit of 2 haemodiafiltration sessions a week.",
+    "note_sw": "SHA hulipa KES 10,650 kwa kila kipindi cha dialysis katika Viwango vya 3 hadi 6, kikomo kikiwa vipindi 2 vya haemodiafiltration kwa wiki."
+  },
+  {
+    "id": "icu_day",
+    "line_item_category": "icu_day",
+    "service_category": "emergency",
+    "type": "max_per_unit",
+    "levels": [
+      4,
+      5,
+      6
+    ],
+    "tariff_kes": 28000,
+    "unit": "per_day",
+    "requires_referral": false,
+    "covers_unregistered": false,
+    "source_url": "https://health.go.ke/sites/default/files/2026-04/RIA%20-SHA%20Tariffs%202026%205TH%20FEB%202026%20(1).pdf",
+    "note_en": "SHA pays KES 28,000 per day for critical illness care at Levels 4 to 6, for up to 12 days. More days need SHA authorisation.",
+    "note_sw": "SHA hulipa KES 28,000 kwa siku kwa huduma ya magonjwa mahututi katika Viwango vya 4 hadi 6, hadi siku 12. Siku zaidi zinahitaji idhini ya SHA."
+  },
+  {
+    "id": "ambulance",
+    "line_item_category": "ambulance",
+    "service_category": "emergency",
+    "type": "max_per_unit",
+    "levels": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "tariff_kes": 4500,
+    "unit": "flat",
+    "requires_referral": false,
+    "covers_unregistered": true,
+    "source_url": "https://health.go.ke/sites/default/files/2026-04/RIA%20-SHA%20Tariffs%202026%205TH%20FEB%202026%20(1).pdf",
+    "note_en": "SHA pays KES 4,500 for an emergency ambulance trip within 25 km, and KES 75 per km beyond 25 km. This applies to all Kenyans, registered or not.",
+    "note_sw": "SHA hulipa KES 4,500 kwa safari ya gari la wagonjwa la dharura ndani ya kilomita 25, na KES 75 kwa kila kilomita zaidi ya 25. Hii inawahusu Wakenya wote, wawe wamesajiliwa au la."
   }
 ]

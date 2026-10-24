@@ -1,19 +1,37 @@
+import logging
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from starlette.exceptions import HTTPException
 
+from app import data, db
 from app.routes import router
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 FRONTEND_DIST = REPO_ROOT / "frontend" / "dist"
 
 load_dotenv(REPO_ROOT / ".env")
+logging.basicConfig(level=logging.INFO)
+log = logging.getLogger("haki_afya")
 
-app = FastAPI(title="Haki Afya")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Re-seed from data/ on every start. A data file that breaks a hard rule stops startup.
+    store = data.load()
+    for warning in store.warnings:
+        log.warning("data: %s", warning)
+    db.init(store)
+    app.state.store = store
+    yield
+
+
+app = FastAPI(title="Haki Afya", lifespan=lifespan)
 app.include_router(router)
 
 

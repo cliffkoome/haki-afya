@@ -10,7 +10,7 @@ import './index.css'
 
 // Create the anonymous device ID on first load.
 getDeviceId()
-// Dev only: ?backdate=1 makes saved Visits due, to test the Report prompt.
+// Demo/testing: ?backdate=1 makes saved Visits due, to test the Report prompt.
 if (backdateRequested) backdateVisits()
 
 createRoot(document.getElementById('root')!).render(

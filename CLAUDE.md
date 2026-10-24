@@ -4,6 +4,7 @@ Hackathon build (ends 9:00 PM EAT today). Two devs, each running Claude Code: on
 
 ## Read first, every session
 - `document.md`: the full brief. Sections 5 (hard rules) and 9 (API contract) are binding.
+- `frontend.md`: page-by-page frontend plan and tracker. When working on `frontend/`, follow it and tick off items in the same commit.
 - `GLOSSARY.md`: use these exact terms in code, UI text and commit messages (e.g. `CoverageReport`, `ServiceCategory`, `Flag`, never "review", "symptom", "alert").
 
 ## Rules

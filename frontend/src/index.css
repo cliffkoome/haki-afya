@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. Light only: the app is used at a billing desk, often in
+ * bright light, so contrast beats theming.
+ */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --color-canvas: #f6f7f4;
+  --color-surface: #ffffff;
+  --color-line: #e3e7e1;
+  --color-ink: #0f1a14;
+  --color-muted: #55645b;
+
+  --color-brand: #0b6e4f;
+  --color-brand-strong: #08573e;
+  --color-brand-soft: #e6f2ec;
+
+  /* Flags (GLOSSARY.md): Should Be Free, Above Tariff, Payable, Unclear */
+  --color-flag-free: #c62828;
+  --color-flag-free-soft: #fdecea;
+  --color-flag-above: #a35f00;
+  --color-flag-above-soft: #fff3df;
+  --color-flag-payable: #2e7d32;
+  --color-flag-payable-soft: #e8f5e9;
+  --color-flag-unclear: #5f6368;
+  --color-flag-unclear-soft: #f1f3f4;
+
+  --color-emergency: #b71c1c;
+
+  /* Strong custom curves: built-in CSS easings are too weak */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    min-height: 100dvh;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Every pressable element confirms the press. */
+  .pressable {
+    transition: transform 160ms var(--ease-out), background-color 160ms ease, box-shadow 160ms ease;
+  }
+  .pressable:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+
+  /* Page content enters softly; no movement when reduced motion is on. */
+  .page-enter {
+    transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+    @starting-style {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pressable:active:not(:disabled) {
+    transform: none;
+  }
+  .page-enter {
+    transition: opacity 150ms ease;
+    @starting-style {
+      transform: none;
+    }
+  }
+}
+
+/* Bottom sheet (Modal): slides up on open. */
+.sheet[open] {
+  transition: transform 300ms var(--ease-drawer), opacity 200ms ease;
+  @starting-style {
+    transform: translateY(100%);
+  }
+}
+.sheet[open]::backdrop {
+  transition: opacity 300ms ease;
+  @starting-style {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sheet[open] {
+    transition: opacity 150ms ease;
+    @starting-style {
+      transform: none;
+      opacity: 0;
+    }
+  }
+}

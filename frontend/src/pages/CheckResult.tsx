@@ -34,7 +34,9 @@ export function CheckResult() {
   }
 
   const { summary } = result
-  const fair = summary.amount_in_question_kes <= 0
+  // "Looks fair" only when nothing is in question AND every Flag is Payable (INTEGRATION.md 5.3.6).
+  const unclear = result.flags.filter((f) => f.flag === 'unclear').length
+  const fair = summary.amount_in_question_kes <= 0 && result.flags.every((f) => f.flag === 'payable')
   const flags = [...result.flags].sort((a, b) => FLAG_ORDER.indexOf(a.flag) - FLAG_ORDER.indexOf(b.flag))
   // For "not listed", the backend sends id and name as null with the level that was sent.
   const name = result.facility?.name ? facilityName(result.facility.name) : t('result.facilityNotListed')
@@ -56,7 +58,13 @@ export function CheckResult() {
         {isDemo && <DemoPill />}
       </p>
 
-      {fair ? <FairHeadline /> : <InQuestionHeadline amount={summary.amount_in_question_kes} total={summary.balance_kes} />}
+      {fair ? (
+        <FairHeadline />
+      ) : summary.amount_in_question_kes > 0 ? (
+        <InQuestionHeadline amount={summary.amount_in_question_kes} total={summary.balance_kes} />
+      ) : (
+        <UnclearHeadline count={unclear} />
+      )}
 
       {result.desk_script && (
         <figure className="rise mt-8 rounded-2xl bg-ink p-6 text-white" style={at(2)}>
@@ -178,6 +186,17 @@ function InQuestionHeadline({ amount, total }: { amount: number; total: number }
       <div aria-hidden className="mt-5 flex h-1.5 overflow-hidden rounded-full bg-line">
         <span className="grow-x h-full rounded-full bg-flag-free" style={{ width: `${share * 100}%` }} />
       </div>
+    </div>
+  )
+}
+
+/** Nothing in question, but some Line Items could not be matched to an SHA rule: not "fair", not accusing. */
+function UnclearHeadline({ count }: { count: number }) {
+  const { t } = useI18n()
+  return (
+    <div className="rise mt-3" style={at(1)}>
+      <p className="display text-[3rem] leading-[1.02]">{t('result.unclearTitle')}</p>
+      <p className="mt-3 text-[1.125rem] leading-relaxed text-ink-soft">{t('result.unclearBody', { n: count })}</p>
     </div>
   )
 }

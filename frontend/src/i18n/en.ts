@@ -70,6 +70,8 @@ export const en = {
 
   'result.inQuestion': '{amount} of your {total} bill is in question',
   'result.fair': 'Looks fair',
+  'result.unclearTitle': 'Some lines need a question',
+  'result.unclearBody': 'Nothing here is above an SHA Tariff, but {n} line could not be matched to an SHA rule. Ask the desk what it is for.',
   'result.fairBody': 'We found nothing on this bill that SHA should have covered.',
   'result.flagsTitle': 'What we found',
   'flag.should_be_free': 'Should Be Free',

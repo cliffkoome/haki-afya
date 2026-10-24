@@ -6,7 +6,7 @@ import { DemoPill } from './DemoPill'
 import { Icon } from './Icon'
 
 /** One facility in Find results: an editorial row, not a boxed card. */
-export function FacilityCard({ facility, onGo }: { facility: Facility; onGo: (f: Facility) => void }) {
+export function FacilityCard({ facility, category, onGo }: { facility: Facility; category: string; onGo: (f: Facility) => void }) {
   const { t } = useI18n()
 
   return (
@@ -18,7 +18,7 @@ export function FacilityCard({ facility, onGo }: { facility: Facility; onGo: (f:
             {t('results.km', { n: facility.distance_km.toFixed(1) })} · {t('common.level', { n: facility.level })}
             {facility.google && (
               <>
-                {' '}· ★ {facility.google.rating.toFixed(1)} ({facility.google.user_rating_count.toLocaleString('en-KE')} {t('results.google')})
+                {' '}· ★ {facility.google.rating.toFixed(1)} ({facility.google.user_rating_count.toLocaleString('en-KE')}) · {t('results.google')}
               </>
             )}
           </p>
@@ -28,7 +28,7 @@ export function FacilityCard({ facility, onGo }: { facility: Facility; onGo: (f:
 
       {facility.benefit_summary && <p className="text-[0.9375rem] leading-relaxed text-ink-soft">{facility.benefit_summary}</p>}
 
-      <CoverageBadge coverage={facility.coverage} />
+      <CoverageBadge coverage={facility.coverage} category={category} />
 
       <button type="button" onClick={() => onGo(facility)} className="btn btn-primary mt-1 self-start rounded-full pr-4 pl-5">
         {t('results.goHere')}

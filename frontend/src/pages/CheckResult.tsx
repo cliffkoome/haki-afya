@@ -110,7 +110,9 @@ export function CheckResult() {
       )}
 
       {result.sha_contacts.length > 0 && (
-        <Section title={t('result.contacts')} i={5}>
+        // Unregistered Patient: the same contacts are how to register (INTEGRATION.md 5.3.6).
+        <Section title={state.registered === false ? t('result.registerTitle') : t('result.contacts')} i={5}>
+          {state.registered === false && <p className="mb-2 leading-relaxed text-ink-soft">{t('result.registerBody')}</p>}
           <ul>
             {result.sha_contacts.map((c) => (
               <li key={`${c.channel}-${c.value}`} className="flex items-baseline justify-between gap-4 border-b border-line py-3 last:border-b-0">
@@ -122,7 +124,7 @@ export function CheckResult() {
         </Section>
       )}
 
-      {state.registered === false && (
+      {state.registered === false && result.sha_contacts.length === 0 && (
         <Section title={t('result.registerTitle')} i={6}>
           <p className="leading-relaxed text-ink-soft">{t('result.registerBody')}</p>
           <a

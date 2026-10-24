@@ -98,8 +98,10 @@ export function FindResults() {
 
       {coords && facilities.length > 0 && view === 'list' && (
         <div className="flex flex-col gap-3">
-          {facilities.map((f) => (
-            <FacilityCard key={f.id} facility={f} onGo={goHere} />
+          {facilities.map((f, i) => (
+            <div key={f.id} className="rise" style={{ '--i': i } as React.CSSProperties}>
+              <FacilityCard facility={f} onGo={goHere} />
+            </div>
           ))}
         </div>
       )}
@@ -109,7 +111,11 @@ export function FindResults() {
           <Suspense fallback={<div className="h-[55dvh] animate-pulse rounded-2xl bg-line" />}>
             <FacilityMap facilities={facilities} center={coords} selectedId={selectedId} onSelect={setSelectedId} />
           </Suspense>
-          {selected && <FacilityCard key={selected.id} facility={selected} onGo={goHere} />}
+          {selected && (
+            <div key={selected.id} className="rise">
+              <FacilityCard facility={selected} onGo={goHere} />
+            </div>
+          )}
         </>
       )}
     </section>

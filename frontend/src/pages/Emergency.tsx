@@ -29,15 +29,16 @@ export function Emergency() {
 
   return (
     <section className="-mx-4 -my-5 flex flex-1 flex-col gap-5 bg-emergency px-4 py-6 text-white">
-      <h1 className="text-3xl leading-tight font-bold text-balance">{t('emergency.headline')}</h1>
+      <h1 className="rise text-3xl leading-tight font-bold text-balance">{t('emergency.headline')}</h1>
       <p className="text-lg leading-relaxed text-white/90">{t('emergency.body')}</p>
 
       <div className="grid grid-cols-2 gap-3">
-        {NUMBERS.map((n) => (
+        {NUMBERS.map((n, i) => (
           <a
             key={n}
+            style={{ '--i': i + 1 } as React.CSSProperties}
             href={`tel:${n}`}
-            className="pressable flex min-h-16 items-center justify-center gap-2 rounded-2xl bg-white text-xl font-bold text-emergency shadow-md"
+            className="rise pressable flex min-h-16 items-center justify-center gap-2 rounded-2xl bg-white text-xl font-bold text-emergency shadow-md"
           >
             <span aria-hidden>📞</span> {t('emergency.call', { n })}
           </a>

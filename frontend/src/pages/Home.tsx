@@ -6,26 +6,30 @@ export function Home() {
 
   return (
     <section className="flex flex-col gap-6 pt-4">
-      <h1 className="text-3xl leading-tight font-bold text-balance">{t('app.tagline')}</h1>
+      <h1 className="rise text-[2rem] leading-[1.1] font-bold text-balance">{t('app.tagline')}</h1>
 
       <div className="flex flex-col gap-3">
-        <HomeAction to="/check" title={t('home.check')} hint={t('home.checkHint')} primary icon={<BillIcon />} />
-        <HomeAction to="/find" title={t('home.find')} hint={t('home.findHint')} icon={<PinIcon />} />
+        <HomeAction i={1} to="/check" title={t('home.check')} hint={t('home.checkHint')} primary icon={<BillIcon />} />
+        <HomeAction i={2} to="/find" title={t('home.find')} hint={t('home.findHint')} icon={<PinIcon />} />
       </div>
 
-      <Link to="/about" className="self-start font-medium text-brand-strong underline underline-offset-2">
+      <Link to="/about" style={{ '--i': 3 } as React.CSSProperties} className="rise self-start font-medium text-brand-strong underline underline-offset-2">
         {t('home.how')}
       </Link>
     </section>
   )
 }
 
-function HomeAction(props: { to: string; title: string; hint: string; primary?: boolean; icon: React.ReactNode }) {
+function HomeAction(props: { i: number; to: string; title: string; hint: string; primary?: boolean; icon: React.ReactNode }) {
   const tone = props.primary
     ? 'bg-brand text-white shadow-md hover:bg-brand-strong'
     : 'border-2 border-brand bg-surface text-ink hover:bg-brand-soft'
   return (
-    <Link to={props.to} className={`pressable flex min-h-24 items-center gap-4 rounded-2xl px-5 py-4 ${tone}`}>
+    <Link
+      to={props.to}
+      style={{ '--i': props.i } as React.CSSProperties}
+      className={`rise pressable group flex min-h-24 items-center gap-4 rounded-2xl px-5 py-4 ${tone}`}
+    >
       <span className={`grid size-12 shrink-0 place-items-center rounded-xl ${props.primary ? 'bg-white/15' : 'bg-brand-soft text-brand-strong'}`}>
         {props.icon}
       </span>
@@ -33,7 +37,7 @@ function HomeAction(props: { to: string; title: string; hint: string; primary?: 
         <span className="text-xl font-bold">{props.title}</span>
         <span className={props.primary ? 'text-white/85' : 'text-muted'}>{props.hint}</span>
       </span>
-      <span aria-hidden className="ml-auto text-2xl">→</span>
+      <span aria-hidden className="ml-auto text-2xl transition-transform duration-300 ease-[var(--ease-out)] group-hover:translate-x-1 group-active:translate-x-1">→</span>
     </Link>
   )
 }

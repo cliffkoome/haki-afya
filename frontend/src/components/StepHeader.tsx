@@ -21,7 +21,9 @@ export function StepHeader({ step, title }: { step: number; title: StringKey }) 
       </div>
       <div className="mb-4 flex gap-1.5" aria-hidden>
         {[1, 2, 3].map((n) => (
-          <span key={n} className={`h-1.5 flex-1 rounded-full ${n <= step ? 'bg-brand' : 'bg-line'}`} />
+          <span key={n} className="h-1.5 flex-1 overflow-hidden rounded-full bg-line">
+            {n <= step && <span className={`block h-full rounded-full bg-brand ${n === step ? 'grow-x' : ''}`} />}
+          </span>
         ))}
       </div>
       <h1 className="text-2xl font-bold">{t(title)}</h1>

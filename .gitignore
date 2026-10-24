@@ -1,0 +1,18 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# SQLite (re-seeded from data/ on every start)
+*.db
+
+# Frontend
+node_modules/
+frontend/dist/
+
+# Claude Code personal overrides
+.claude/settings.local.json

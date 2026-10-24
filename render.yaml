@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: haki-afya
+    runtime: python
+    buildCommand: >-
+      pip install -r backend/requirements.txt &&
+      if [ -f frontend/package.json ]; then cd frontend && npm ci && npm run build; fi
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GOOGLE_PLACES_API_KEY
+        sync: false

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "normal_delivery",
+    "line_item_category": "normal_delivery",
+    "service_category": "maternity",
+    "type": "free",
+    "levels": [2, 3, 4, 5, 6],
+    "tariff_kes": 10000,
+    "unit": "per_delivery",
+    "requires_referral": false,
+    "source_url": "",
+    "note_en": "SHA covers normal delivery; registered members should not pay out of pocket.",
+    "note_sw": "SHA inalipia kujifungua kwa kawaida; wanachama waliosajiliwa hawapaswi kulipa."
+  },
+  {
+    "id": "bed_day_l4",
+    "line_item_category": "bed_day",
+    "service_category": "general_outpatient",
+    "type": "max_per_unit",
+    "levels": [4],
+    "tariff_kes": 3360,
+    "unit": "per_day",
+    "requires_referral": true,
+    "source_url": "",
+    "note_en": "SHA pays Level 4 facilities KES 3,360 per inpatient day.",
+    "note_sw": "SHA hulipa vituo vya Kiwango cha 4 KES 3,360 kwa siku ya kulazwa."
+  }
+]
